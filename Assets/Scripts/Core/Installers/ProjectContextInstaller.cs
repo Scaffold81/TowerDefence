@@ -74,6 +74,18 @@ namespace Game.Installers
             Container.Bind<IConfigService>().To<ConfigService>().AsSingle().NonLazy();
             Debug.Log("[ProjectContextInstaller] ✓ ConfigService: Game configuration management from ScriptableObjects");
             
+            // Level config repository - manages level configurations
+            var levelConfigRepository = Resources.Load<Game.Configs.LevelConfigRepository>("Configs/LevelConfigRepository");
+            if (levelConfigRepository != null)
+            {
+                Container.Bind<Game.Configs.LevelConfigRepository>().FromInstance(levelConfigRepository).AsSingle();
+                Debug.Log("[ProjectContextInstaller] ✓ LevelConfigRepository: Level configuration management");
+            }
+            else
+            {
+                Debug.LogWarning("[ProjectContextInstaller] LevelConfigRepository not found in Resources/Configs/");
+            }
+            
             // Future data services:
             // Container.Bind<IDataService>().To<DataService>().AsSingle().NonLazy();
             // Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle().NonLazy();

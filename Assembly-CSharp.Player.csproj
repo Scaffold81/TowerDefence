@@ -69,6 +69,8 @@
     <Compile Include="Assets\Scripts\Core\Installers\GameSceneInstaller.cs" />
     <Compile Include="Assets\Scripts\Game\Objects\Tower.cs" />
     <Compile Include="Assets\Scripts\Core\ConfigsExample\GameConfig.cs" />
+    <Compile Include="Assets\Scripts\Core\ConfigsExample\LevelConfigRepository.cs" />
+    <Compile Include="Assets\Scripts\Core\ConfigsExample\LevelVisualConfig.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Scene\ISceneManagerService.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Pool\PoolableObject.cs" />
     <Compile Include="Assets\Scripts\UI\Base\IPageBase.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Assets\Scripts\Game\Path\LevelMap.cs" />
     <Compile Include="Assets\Scripts\Game\Path\IntermediateWaypoint.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Config\ConfigService.cs" />
+    <Compile Include="Assets\Scripts\Core\ConfigsExample\LevelConfig.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Factory\GameFactory.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Config\IConfigService.cs" />
     <Compile Include="Assets\Scripts\Core\Enums\SceneId.cs" />
