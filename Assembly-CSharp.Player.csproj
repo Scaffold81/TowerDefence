@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Core\Installers\ProjectContextInstaller.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Pool\IPoolable.cs" />
     <Compile Include="Assets\Scripts\Game\Objects\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Game\Path\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Core\ConfigsExample\BalanceConfig.cs" />
     <Compile Include="Assets\Scripts\Core\Installers\GameSceneInstaller.cs" />
     <Compile Include="Assets\Scripts\Game\Objects\Tower.cs" />
@@ -76,16 +77,21 @@
     <Compile Include="Assets\Scripts\Core\Controllers\LoadSceneController.cs" />
     <Compile Include="Assets\Scripts\Core\Services\UI\UIPageService.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Save\SaveService.cs" />
-    <Compile Include="Assets\Scripts\Core\Services\Pool\PoolService.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Factory\IGameFactory.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\Pool\PoolService.cs" />
     <Compile Include="Assets\Scripts\UI\Base\PageBase.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Save\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Core\Services\UI\IUIPageService.cs" />
+    <Compile Include="Assets\Scripts\Game\Path\EndPoint.cs" />
+    <Compile Include="Assets\Scripts\Game\Path\Waypoint.cs" />
+    <Compile Include="Assets\Scripts\Game\Path\LevelMap.cs" />
+    <Compile Include="Assets\Scripts\Game\Path\IntermediateWaypoint.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Config\ConfigService.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Factory\GameFactory.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Config\IConfigService.cs" />
     <Compile Include="Assets\Scripts\Core\Enums\SceneId.cs" />
     <Compile Include="Assets\Scripts\Core\ConfigsExample\AudioConfig.cs" />
+    <Compile Include="Assets\Scripts\Game\Path\PathSystemTest.cs" />
     <Compile Include="Assets\Scripts\Core\ConfigsExample\UIConfig.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Scene\SceneManagerService.cs" />
   </ItemGroup>

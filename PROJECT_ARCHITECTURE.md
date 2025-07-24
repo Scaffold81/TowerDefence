@@ -68,14 +68,116 @@ Assets/Scripts/
 │       ├── Save/                   # Save/load functionality
 │       ├── Scene/                  # Scene management
 │       └── UI/                     # UI page management
+│       ├── PathValidator.cs        # Path validation and analysis
+│       └── PathManagerWindow.cs    # Editor window for path management
 ├── Game/                           # Game-specific functionality
-│   └── Objects/                    # Game entities
-│       ├── Projectile.cs           # Projectile behavior with pooling
-│       └── Tower.cs                # Tower behavior and targeting
+│   ├── Objects/                    # Game entities
+│   │   ├── Projectile.cs           # Projectile behavior with pooling
+│   │   └── Tower.cs                # Tower behavior and targeting
+│   └── Path/                       # Path and waypoint system
+│       ├── Waypoint.cs             # Base waypoint component
+│       ├── SpawnPoint.cs           # Enemy spawn point
+│       ├── EndPoint.cs             # Player base/end point
+│       ├── IntermediateWaypoint.cs # Intermediate path points
+│       └── LevelMap.cs             # Main level map component
 └── UI/                             # User interface components
     └── Base/                       # Base UI components
         ├── IPageBase.cs            # UI page interface
         └── PageBase.cs             # Base UI page implementation
+```
+
+---
+
+## 🛣️ Path System Architecture
+
+### Level Design Tools
+
+The path system provides comprehensive tools for level designers to create and manage enemy paths:
+
+#### **Core Components**
+- **LevelMap** - Main component managing all waypoints and paths
+- **Waypoint** - Base class for all path points
+- **SpawnPoint** - Enemy spawn locations with direction and radius
+- **EndPoint** - Player base with damage zones
+- **IntermediateWaypoint** - Path control points with turn settings
+
+#### **Editor Tools**
+- **LevelMapEditor** - Custom inspector with quick actions
+- **WaypointEditor** - Specialized editors for each waypoint type
+- **WaypointPlacementTool** - Scene view tool for interactive placement
+- **PathValidator** - Comprehensive validation and analysis
+- **PathManagerWindow** - Centralized path management interface
+
+#### **Key Features**
+- **Visual Path Preview** - Real-time path visualization in Scene View
+- **Automatic Terrain Snapping** - Waypoints automatically align to terrain
+- **Validation System** - Comprehensive error checking and warnings
+- **Path Analysis** - Timing analysis and tower placement recommendations
+- **Import/Export** - JSON-based path data exchange
+- **Undo/Redo Support** - Full Unity Editor integration
+
+### Waypoint System Design
+
+```csharp
+// Hierarchy and specialization
+Waypoint (base)
+├── SpawnPoint - Enemy spawn with direction and radius
+├── EndPoint - Player base with damage zones  
+└── IntermediateWaypoint - Path control with turn types
+```
+
+#### **Waypoint Properties**
+- **Index** - Order in path sequence
+- **Gizmo Visualization** - Color-coded type indication
+- **Terrain Snapping** - Automatic surface alignment
+- **Validation** - Position and connectivity checks
+
+#### **SpawnPoint Features**
+- **Spawn Direction** - Enemy facing when spawned
+- **Spawn Radius** - Random positioning area
+- **Concurrent Limit** - Maximum simultaneous enemies
+- **Visual Indicators** - Direction arrow and radius circle
+
+#### **EndPoint Features**
+- **Base Radius** - Protected area around base
+- **Damage Zone** - Area where enemies damage base
+- **Health System** - Base integrity tracking
+- **Zone Visualization** - Concentric circles for areas
+
+#### **IntermediateWaypoint Features**
+- **Turn Types** - Sharp, Smooth, or Custom turning
+- **Influence Radius** - Spline smoothing control
+- **Smoothing Factor** - Custom curve adjustment
+- **Visual Feedback** - Turn type indicators
+
+### Editor Workflow
+
+#### **Level Creation Process**
+1. **Setup** - Create LevelMap component and assign Terrain
+2. **Path Design** - Use Placement Tool to add waypoints
+3. **Validation** - Run automated checks for issues
+4. **Optimization** - Analyze and adjust based on recommendations
+5. **Testing** - Preview enemy movement and timing
+
+#### **Quick Actions Available**
+- **Add Waypoints** - One-click creation of different types
+- **Collect from Scene** - Automatically find and organize waypoints
+- **Snap to Terrain** - Batch terrain alignment
+- **Refresh Indices** - Renumber waypoints in sequence
+- **Auto-Fix Issues** - Resolve common validation problems
+
+#### **Validation Checks**
+- **Structural** - Required waypoints and proper sequencing
+- **Positioning** - Terrain bounds and obstacle detection
+- **Distances** - Minimum/maximum spacing between points
+- **Terrain Compatibility** - Slope analysis and accessibility
+- **Path Quality** - Length, complexity, and balance analysis
+
+#### **Analysis Features**
+- **Timing Analysis** - Enemy traversal time calculations
+- **Tower Recommendations** - Optimal defensive positions
+- **Path Statistics** - Length, turns, and complexity metrics
+- **Balance Assessment** - Difficulty and gameplay flow evaluation
 ```
 
 ---
@@ -234,8 +336,12 @@ projectile.ReturnToPool();
 - **Save System** - JSON serialization with PlayerPrefs
 - **Basic Gameplay** - Tower and projectile mechanics
 - **UI Foundation** - Page-based system with animations
+- **Path System** - Complete level design tools and waypoint system
+- **Editor Tools** - Comprehensive path management and validation
 
 ### 🔄 In Development
+- **Spline System** - Smooth path generation from waypoints
+- **Enemy Movement** - Path-following AI system
 - **Game Scene Services** - Battle, wave, and hero management
 - **Advanced UI** - Game-specific pages and HUD
 - **Audio System** - Sound effects and music management

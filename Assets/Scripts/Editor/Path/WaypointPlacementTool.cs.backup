@@ -1,0 +1,275 @@
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.EditorTools;
+using Game.Path;
+
+namespace Editor.Path
+{
+    [EditorTool("Waypoint Placement Tool", typeof(LevelMap))]
+    public class WaypointPlacementTool : EditorTool
+    {
+        [SerializeField] private Texture2D _toolIcon;
+        
+        private enum PlacementMode
+        {
+            SpawnPoint,
+            IntermediateWaypoint,
+            EndPoint
+        }
+        
+        private PlacementMode _currentMode = PlacementMode.IntermediateWaypoint;
+        private bool _snapToTerrain = true;
+        private LayerMask _terrainLayer = 1;
+        private LevelMap _levelMap;
+        
+        public override GUIContent toolbarIcon => new GUIContent
+        {
+            image = _toolIcon,
+            text = "Waypoint Placement Tool",
+            tooltip = "Click in Scene View to place waypoints"
+        };
+        
+        public override void OnActivated()
+        {
+            _levelMap = target as LevelMap;
+            SceneView.duringSceneGui += OnSceneGUI;
+        }
+        
+        public override void OnWillBeDeactivated()
+        {
+            SceneView.duringSceneGui -= OnSceneGUI;
+        }
+        
+        public override void OnToolGUI(EditorWindow window)
+        {
+            if (!(window is SceneView sceneView))
+                return;
+            
+            if (_levelMap == null)
+                return;
+            
+            DrawToolGUI();
+            HandleSceneViewInput(sceneView);
+        }
+        
+        private void OnSceneGUI(SceneView sceneView)
+        {
+            if (!ToolManager.IsActiveTool(this))
+                return;
+            
+            DrawPreviewCursor();
+        }
+        
+        private void DrawToolGUI()
+        {
+            Handles.BeginGUI();
+            
+            GUILayout.BeginArea(new Rect(10, 10, 250, 200));
+            GUILayout.BeginVertical("box");
+            
+            GUILayout.Label("Waypoint Placement Tool", EditorStyles.boldLabel);
+            
+            GUILayout.Space(5);
+            
+            // Выбор режима размещения
+            GUILayout.Label("Placement Mode:");
+            _currentMode = (PlacementMode)GUILayout.SelectionGrid((int)_currentMode, 
+                new string[] { "Spawn Point", "Waypoint", "End Point" }, 1);
+            
+            GUILayout.Space(5);
+            
+            // Настройки привязки
+            _snapToTerrain = GUILayout.Toggle(_snapToTerrain, "Snap to Terrain");
+            
+            if (_snapToTerrain)
+            {
+                GUILayout.Label("Terrain Layer:");
+                _terrainLayer = EditorGUILayout.LayerField(_terrainLayer);
+            }
+            
+            GUILayout.Space(10);
+            
+            // Информация
+            GUILayout.Label("Instructions:", EditorStyles.boldLabel);
+            GUILayout.Label("• Left Click: Place waypoint", EditorStyles.wordWrappedMiniLabel);
+            GUILayout.Label("• Hold Shift: Place multiple", EditorStyles.wordWrappedMiniLabel);
+            GUILayout.Label("• ESC: Deactivate tool", EditorStyles.wordWrappedMiniLabel);
+            
+            if (_levelMap != null)
+            {
+                GUILayout.Space(5);
+                GUILayout.Label($"Current Waypoints: {_levelMap.Waypoints.Count}", EditorStyles.miniLabel);
+            }
+            
+            GUILayout.EndVertical();
+            GUILayout.EndArea();
+            
+            Handles.EndGUI();
+        }
+        
+        private void HandleSceneViewInput(SceneView sceneView)
+        {
+            Event e = Event.current;
+            
+            if (e.type == EventType.KeyDown && e.keyCode == KeyCode.Escape)
+            {
+                ToolManager.RestorePreviousTool();
+                e.Use();
+                return;
+            }
+            
+            if (e.type == EventType.MouseDown && e.button == 0)
+            {
+                Vector3 worldPosition = GetWorldPositionFromMouse(e.mousePosition);
+                
+                if (worldPosition != Vector3.zero)
+                {
+                    PlaceWaypoint(worldPosition);
+                    
+                    // Если не держим Shift, деактивируем инструмент
+                    if (!e.shift)
+                    {
+                        ToolManager.RestorePreviousTool();
+                    }
+                    
+                    e.Use();
+                }
+            }
+            
+            // Предотвращаем выделение объектов при работе с инструментом
+            if (e.type == EventType.Layout)
+            {
+                HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive));
+            }
+        }
+        
+        private void DrawPreviewCursor()
+        {
+            if (_levelMap == null)
+                return;
+            
+            Vector3 mousePosition = Event.current.mousePosition;
+            Vector3 worldPosition = GetWorldPositionFromMouse(mousePosition);
+            
+            if (worldPosition != Vector3.zero)
+            {
+                // Цвет курсора в зависимости от режима
+                Color cursorColor = _currentMode switch
+                {
+                    PlacementMode.SpawnPoint => Color.green,
+                    PlacementMode.EndPoint => Color.red,
+                    PlacementMode.IntermediateWaypoint => Color.blue,
+                    _ => Color.white
+                };
+                
+                Handles.color = cursorColor;
+                
+                // Рисуем курсор
+                float cursorSize = HandleUtility.GetHandleSize(worldPosition) * 0.1f;
+                Handles.DrawWireDisc(worldPosition, Vector3.up, cursorSize);
+                Handles.DrawLine(worldPosition, worldPosition + Vector3.up * cursorSize * 2);
+                
+                // Показываем тип waypoint который будет создан
+                Handles.color = Color.white;
+                string modeText = _currentMode.ToString();
+                Handles.Label(worldPosition + Vector3.up * cursorSize * 3, modeText);
+                
+                // Отображаем предупреждения
+                if (_currentMode == PlacementMode.SpawnPoint && _levelMap.SpawnPoint != null)
+                {
+                    Handles.color = Color.red;
+                    Handles.Label(worldPosition + Vector3.up * cursorSize * 4, "SpawnPoint already exists!");
+                }
+                else if (_currentMode == PlacementMode.EndPoint && _levelMap.EndPoint != null)
+                {
+                    Handles.color = Color.red;
+                    Handles.Label(worldPosition + Vector3.up * cursorSize * 4, "EndPoint already exists!");
+                }
+            }
+        }
+        
+        private Vector3 GetWorldPositionFromMouse(Vector2 mousePosition)
+        {
+            Ray ray = HandleUtility.GUIPointToWorldRay(mousePosition);
+            
+            if (_snapToTerrain)
+            {
+                // Привязка к terrain
+                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, _terrainLayer))
+                {
+                    return hit.point;
+                }
+            }
+            else
+            {
+                // Привязка к плоскости Y = 0
+                Plane plane = new Plane(Vector3.up, Vector3.zero);
+                if (plane.Raycast(ray, out float distance))
+                {
+                    return ray.GetPoint(distance);
+                }
+            }
+            
+            return Vector3.zero;
+        }
+        
+        private void PlaceWaypoint(Vector3 position)
+        {
+            if (_levelMap == null)
+                return;
+            
+            // Проверяем ограничения
+            if (_currentMode == PlacementMode.SpawnPoint && _levelMap.SpawnPoint != null)
+            {
+                Debug.LogWarning("Cannot place SpawnPoint: Level already has one SpawnPoint");
+                return;
+            }
+            
+            if (_currentMode == PlacementMode.EndPoint && _levelMap.EndPoint != null)
+            {
+                Debug.LogWarning("Cannot place EndPoint: Level already has one EndPoint");
+                return;
+            }
+            
+            // Создаем waypoint
+            GameObject waypointGO = null;
+            Waypoint waypoint = null;
+            
+            switch (_currentMode)
+            {
+                case PlacementMode.SpawnPoint:
+                    waypointGO = new GameObject("SpawnPoint");
+                    waypoint = waypointGO.AddComponent<SpawnPoint>();
+                    break;
+                    
+                case PlacementMode.IntermediateWaypoint:
+                    waypointGO = new GameObject("Waypoint");
+                    waypoint = waypointGO.AddComponent<IntermediateWaypoint>();
+                    break;
+                    
+                case PlacementMode.EndPoint:
+                    waypointGO = new GameObject("EndPoint");
+                    waypoint = waypointGO.AddComponent<EndPoint>();
+                    break;
+            }
+            
+            if (waypointGO != null && waypoint != null)
+            {
+                // Настраиваем waypoint
+                waypointGO.transform.SetParent(_levelMap.transform);
+                waypointGO.transform.position = position;
+                
+                // Регистрируем для Undo
+                Undo.RegisterCreatedObjectUndo(waypointGO, $"Place {_currentMode}");
+                Undo.RecordObject(_levelMap, $"Add {_currentMode}");
+                
+                // Добавляем в карту
+                _levelMap.AddWaypoint(waypoint);
+                
+                EditorUtility.SetDirty(_levelMap);
+                
+                Debug.Log($"Placed {_currentMode} at {position}");
+            }
+        }
+    }
+}
