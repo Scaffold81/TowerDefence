@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelConfigs:
   - {fileID: 11400000, guid: 6f3b00b23ec44e147bba709f1dec75ad, type: 2}
-  visualConfigs: []
+  visualConfigs:
+  - {fileID: 11400000, guid: 04e1c422d84173e4eb19a12ffa619df6, type: 2}

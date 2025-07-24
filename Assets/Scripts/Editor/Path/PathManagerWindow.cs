@@ -332,7 +332,7 @@ namespace Editor.Path
         
         private void FindLevelMapInScene()
         {
-            LevelMap levelMap = FindObjectOfType<LevelMap>();
+            LevelMap levelMap = Object.FindFirstObjectByType<LevelMap>();
             if (levelMap != null)
             {
                 _selectedLevelMap = levelMap;
@@ -346,7 +346,7 @@ namespace Editor.Path
             _selectedLevelMap = levelMapGO.AddComponent<LevelMap>();
             
             // Находим terrain автоматически
-            Terrain terrain = FindObjectOfType<Terrain>();
+            Terrain terrain = Object.FindFirstObjectByType<Terrain>();
             if (terrain != null)
             {
                 _selectedLevelMap.Terrain = terrain;

@@ -244,7 +244,7 @@ namespace Game.Path
         /// </summary>
         public void CollectWaypointsFromScene()
         {
-            var foundWaypoints = FindObjectsOfType<Waypoint>()
+            var foundWaypoints = Object.FindObjectsByType<Waypoint>(FindObjectsSortMode.None)
                 .Where(w => w.transform.IsChildOf(transform))
                 .OrderBy(w => w.Index)
                 .ToList();

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LevelVisualConfig
   m_EditorClassIdentifier: 
   levelId: Lvl_01
-  levelPrefab: {fileID: 0}
+  levelPrefab: {fileID: 4000816471816714890, guid: 9d57a1fced37638409175accc773e0b8, type: 3}

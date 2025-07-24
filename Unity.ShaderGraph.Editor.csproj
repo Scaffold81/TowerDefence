@@ -484,8 +484,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph@5c8f96f445ce\Editor\ShaderGUI\GenericShaderGraphMaterialGUI.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@5c8f96f445ce\Editor\Util\ListUtilities.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@5c8f96f445ce\Editor\Data\Nodes\Math\Basic\AddNode.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph@5c8f96f445ce\Editor\Data\Graphs\Texture2DMaterialSlot.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@5c8f96f445ce\Editor\Data\Nodes\BlockNode.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph@5c8f96f445ce\Editor\Data\Graphs\Texture2DMaterialSlot.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@5c8f96f445ce\Editor\Data\Nodes\Input\Geometry\BitangentVectorNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@5c8f96f445ce\Editor\Drawing\Views\PropertyNodeView.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@5c8f96f445ce\Editor\Data\Nodes\Input\Texture\TexelSizeNode.cs" />

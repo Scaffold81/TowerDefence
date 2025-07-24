@@ -78,7 +78,7 @@ namespace Editor.Path
                 EditorGUILayout.HelpBox("Terrain is not assigned. Click 'Find Terrain' to automatically find it.", MessageType.Warning);
                 if (GUILayout.Button("Find Terrain"))
                 {
-                    Terrain terrain = FindObjectOfType<Terrain>();
+                    Terrain terrain = Object.FindFirstObjectByType<Terrain>();
                     if (terrain != null)
                     {
                         _terrainProp.objectReferenceValue = terrain;

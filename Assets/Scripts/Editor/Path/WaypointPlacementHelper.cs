@@ -184,7 +184,7 @@ namespace Editor.Path
         private static void PlaceWaypoint(Vector3 position)
         {
             // Находим LevelMap в сцене
-            LevelMap levelMap = Object.FindObjectOfType<LevelMap>();
+            LevelMap levelMap = Object.FindFirstObjectByType<LevelMap>();
             if (levelMap == null)
             {
                 Debug.LogWarning("No LevelMap found in scene. Create a LevelMap first.");

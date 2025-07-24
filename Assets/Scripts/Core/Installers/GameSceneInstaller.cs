@@ -25,14 +25,23 @@ namespace Game.Installers
         private void BindGameplayServices()
         {
             Debug.Log("[GameSceneInstaller] Binding gameplay services...");
+
+            // Camera service - manages camera positioning and movement
+            Container.Bind<ICameraService>().To<CameraService>().AsSingle().NonLazy();
+            Debug.Log("[GameSceneInstaller] ✓ CameraService: Camera positioning and control");
+
+            // Level service - manages current level state and configuration
+            Container.Bind<ILevelService>().To<LevelService>().AsSingle().NonLazy();
+            Debug.Log("[GameSceneInstaller] ✓ LevelService: Level management and configuration");
+            
+            // Wave service - manages enemy wave spawning
+            Container.Bind<IWaveService>().To<WaveService>().AsSingle().NonLazy();
+            Debug.Log("[GameSceneInstaller] ✓ WaveService: Enemy wave spawning management");
             
             // Future services that will be added as the project evolves:
             
             // Battle system - manages combat logic and battle interactions
             // Container.Bind<IBattleService>().To<BattleService>().AsSingle().NonLazy();
-            
-            // Wave system - manages spawning and behavior of enemy waves
-            // Container.Bind<IWaveService>().To<WaveService>().AsSingle().NonLazy();
             
             // Hero system - manages the squad of witches and their abilities
             // Container.Bind<IHeroService>().To<HeroService>().AsSingle().NonLazy();
@@ -45,8 +54,6 @@ namespace Game.Installers
             
             // Spell system - manages magical abilities and spells
             // Container.Bind<ISpellService>().To<SpellService>().AsSingle().NonLazy();
-            
-            Debug.Log("[GameSceneInstaller] No gameplay services bound yet - waiting for implementation");
         }
     }
 }
