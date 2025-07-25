@@ -6,40 +6,43 @@ using System.Linq;
 namespace Game.Services
 {
     /// <summary>
-    /// Сервис управления камерой.
+    /// Сервис управления камерой - отвечает за расчеты позиций и параметров камеры
     /// </summary>
     public class CameraService : ICameraService
     {
         [Inject] private ILevelService levelService;
+        private ICameraController cameraController;
         
-        private Camera currentCamera;
+        [Header("Camera Calculation Settings")]
+        [SerializeField] private float defaultHeight = 20f;
+        [SerializeField] private float defaultAngle = 45f;
+        [SerializeField] private float defaultOrthographicSize = 10f;
+        [SerializeField] private bool useOrthographicProjection = false;
         
         [Inject]
         public void Initialize()
         {
             Debug.Log("[CameraService] Initializing camera service...");
-            
-            // Находим основную камеру в сцене
-            currentCamera = Camera.main;
-            if (currentCamera == null)
-            {
-                Debug.LogWarning("[CameraService] Camera.main not found, searching for any camera...");
-                currentCamera = Object.FindFirstObjectByType<Camera>();
-            }
-            
-            if (currentCamera == null)
-            {
-                Debug.LogError("[CameraService] No camera found in scene!");
-                return;
-            }
-            
-            Debug.Log($"[CameraService] Found camera: {currentCamera.name} at position: {currentCamera.transform.position}");
-            
+           
+            cameraController=MonoBehaviour.FindAnyObjectByType<CameraController>();
+            Debug.Log(cameraController);
             // Подписываемся на события уровня
             if (levelService != null)
             {
                 levelService.OnLevelSetupCompleted += OnLevelLoaded;
                 Debug.Log("[CameraService] Subscribed to level events");
+                
+                // Проверяем, есть ли уже загруженный уровень
+                var currentLevel = levelService.GetCurrentLevelInstance();
+                if (currentLevel != null)
+                {
+                    Debug.Log("[CameraService] Found existing level, positioning camera...");
+                    var levelMap = currentLevel.GetComponent<LevelMap>();
+                    if (levelMap != null)
+                    {
+                        OnLevelLoaded(levelService.GetCurrentLevelId(), levelMap);
+                    }
+                }
             }
             else
             {
@@ -50,79 +53,129 @@ namespace Game.Services
         }
         
         /// <summary>
-        /// Обработчик загрузки уровня.
+        /// Обработчик загрузки уровня
         /// </summary>
         private void OnLevelLoaded(string levelId, LevelMap levelMap)
         {
-            Debug.Log($"[CameraService] Positioning camera for level: {levelId}");
+            Debug.Log($"[CameraService] Calculating camera position for level: {levelId}");
             PositionCameraForLevel(levelMap);
         }
         
         /// <summary>
-        /// Позиционировать камеру для уровня.
+        /// Позиционировать камеру для уровня
         /// </summary>
         public void PositionCameraForLevel(LevelMap levelMap)
         {
-            if (currentCamera == null || levelMap == null)
+            if (levelMap == null)
             {
-                Debug.LogWarning("[CameraService] Cannot position camera - camera or levelMap is null");
+                Debug.LogWarning("[CameraService] Cannot position camera - levelMap is null");
                 return;
             }
             
+            // Рассчитываем оптимальные параметры камеры для уровня
+            var cameraData = CalculateCameraDataForLevel(levelMap);
+            
+            // Передаем данные в CameraController для установки
+            ApplyCameraData(cameraData);
+        }
+        
+        /// <summary>
+        /// Позиционировать камеру в конкретную точку
+        /// </summary>
+        public void PositionCamera(Vector3 center, float height = 20f, float angle = 45f)
+        {
+            var cameraData = CalculateCameraData(center, height, angle);
+            ApplyCameraData(cameraData);
+        }
+        
+        /// <summary>
+        /// Получить текущую камеру
+        /// </summary>
+        public Camera GetCurrentCamera()
+        {
+            return cameraController?.GetCamera();
+        }
+        
+        /// <summary>
+        /// Рассчитать данные камеры для уровня
+        /// </summary>
+        private CameraData CalculateCameraDataForLevel(LevelMap levelMap)
+        {
             // Проверяем есть ли CameraTarget на уровне
             var cameraTarget = levelMap.transform.Find("CameraTarget");
             Vector3 center;
             
             if (cameraTarget != null)
             {
-                // Используем заданный CameraTarget
                 center = cameraTarget.position;
                 Debug.Log($"[CameraService] Using CameraTarget position: {center}");
             }
             else
             {
-                // Вычисляем центр автоматически через waypoints
                 center = CalculateLevelCenter(levelMap);
                 Debug.Log($"[CameraService] Calculated level center: {center}");
             }
             
-            // Позиционируем камеру с параметрами по умолчанию
-            PositionCamera(center, height: 20f, angle: 45f);
+            // Рассчитываем оптимальную высоту и размер на основе размера уровня
+            var levelBounds = CalculateLevelBounds(levelMap);
+            float optimalHeight = CalculateOptimalHeight(levelBounds);
+            float optimalOrthographicSize = CalculateOptimalOrthographicSize(levelBounds);
+            
+            return CalculateCameraData(center, optimalHeight, defaultAngle, optimalOrthographicSize);
         }
         
         /// <summary>
-        /// Позиционировать камеру в конкретную точку.
+        /// Рассчитать данные камеры для конкретных параметров
         /// </summary>
-        public void PositionCamera(Vector3 center, float height = 20f, float angle = 45f)
+        private CameraData CalculateCameraData(Vector3 center, float height, float angle, float orthographicSize = 0f)
         {
-            if (currentCamera == null)
+            // Конвертируем угол в радианы
+            float angleRad = angle * Mathf.Deg2Rad;
+            
+            // Вычисляем позицию камеры для изометрического вида
+            float distance = height / Mathf.Tan(angleRad);
+            Vector3 cameraPosition = center + new Vector3(0, height, -distance);
+            
+            if (orthographicSize <= 0f)
+                orthographicSize = defaultOrthographicSize;
+            
+            return new CameraData
             {
-                Debug.LogWarning("[CameraService] Cannot position camera - camera is null");
+                position = cameraPosition,
+                lookAtTarget = center,
+                height = height,
+                angle = angle,
+                orthographicSize = orthographicSize,
+                useOrthographic = useOrthographicProjection
+            };
+        }
+        
+        /// <summary>
+        /// Применить рассчитанные данные камеры через CameraController
+        /// </summary>
+        private void ApplyCameraData(CameraData data)
+        {
+            if (cameraController == null)
+            {
+                Debug.LogError("[CameraService] CameraController is null!");
                 return;
             }
             
-            // Вычисляем позицию камеры для угла 45 градусов
-            float distance = height; // При угле 45° высота равна горизонтальному расстоянию
-            Vector3 offset = new Vector3(0, height, -distance);
-            Vector3 cameraPosition = center + offset;
+            Debug.Log($"[CameraService] Applying camera data - Position: {data.position}, LookAt: {data.lookAtTarget}, Height: {data.height}, Angle: {data.angle}");
             
-            // Устанавливаем позицию и поворот камеры
-            currentCamera.transform.position = cameraPosition;
-            currentCamera.transform.LookAt(center);
-            
-            Debug.Log($"[CameraService] Camera positioned at: {cameraPosition}, looking at: {center}");
+            if (data.useOrthographic)
+            {
+                cameraController.ApplyIsometricView(data.lookAtTarget, data.height, data.angle, data.orthographicSize);
+            }
+            else
+            {
+                cameraController.SetCameraTransform(data.position, data.lookAtTarget);
+                cameraController.SetPerspectiveProjection(70f); // Стандартный FOV
+            }
         }
         
         /// <summary>
-        /// Получить текущую камеру.
-        /// </summary>
-        public Camera GetCurrentCamera()
-        {
-            return currentCamera;
-        }
-        
-        /// <summary>
-        /// Вычислить центр уровня на основе waypoints.
+        /// Вычислить центр уровня на основе waypoints
         /// </summary>
         private Vector3 CalculateLevelCenter(LevelMap levelMap)
         {
@@ -138,12 +191,6 @@ namespace Game.Services
                 return levelMap.transform.position;
             }
             
-            // Логируем позиции всех waypoints
-            for (int i = 0; i < waypoints.Count; i++)
-            {
-                Debug.Log($"[CameraService] Waypoint {i}: {waypoints[i].name} at {waypoints[i].transform.position}");
-            }
-            
             // Вычисляем среднее арифметическое позиций всех waypoints
             Vector3 sum = Vector3.zero;
             foreach (var waypoint in waypoints)
@@ -156,5 +203,71 @@ namespace Game.Services
             Debug.Log($"[CameraService] Calculated center from {waypoints.Count} waypoints: {center}");
             return center;
         }
+        
+        /// <summary>
+        /// Рассчитать границы уровня
+        /// </summary>
+        private Bounds CalculateLevelBounds(LevelMap levelMap)
+        {
+            var waypoints = levelMap.Waypoints.Where(w => w != null).ToList();
+            
+            if (waypoints.Count == 0)
+            {
+                return new Bounds(levelMap.transform.position, Vector3.one * 20f);
+            }
+            
+            Bounds bounds = new Bounds(waypoints[0].transform.position, Vector3.zero);
+            
+            foreach (var waypoint in waypoints)
+            {
+                bounds.Encapsulate(waypoint.transform.position);
+            }
+            
+            // Добавляем небольшой отступ
+            bounds.Expand(5f);
+            
+            return bounds;
+        }
+        
+        /// <summary>
+        /// Рассчитать оптимальную высоту камеры
+        /// </summary>
+        private float CalculateOptimalHeight(Bounds levelBounds)
+        {
+            // Берем большую сторону уровня и добавляем коэффициент
+            float maxSize = Mathf.Max(levelBounds.size.x, levelBounds.size.z);
+            float optimalHeight = Mathf.Max(defaultHeight, maxSize * 0.6f);
+            
+            Debug.Log($"[CameraService] Level bounds: {levelBounds.size}, Optimal height: {optimalHeight}");
+            
+            return optimalHeight;
+        }
+        
+        /// <summary>
+        /// Рассчитать оптимальный размер ортографической проекции
+        /// </summary>
+        private float CalculateOptimalOrthographicSize(Bounds levelBounds)
+        {
+            // Для ортографической проекции берем половину большей стороны
+            float maxSize = Mathf.Max(levelBounds.size.x, levelBounds.size.z);
+            float optimalSize = Mathf.Max(defaultOrthographicSize, maxSize * 0.6f);
+            
+            Debug.Log($"[CameraService] Optimal orthographic size: {optimalSize}");
+            
+            return optimalSize;
+        }
+    }
+    
+    /// <summary>
+    /// Структура данных для передачи параметров камеры
+    /// </summary>
+    public struct CameraData
+    {
+        public Vector3 position;
+        public Vector3 lookAtTarget;
+        public float height;
+        public float angle;
+        public float orthographicSize;
+        public bool useOrthographic;
     }
 }

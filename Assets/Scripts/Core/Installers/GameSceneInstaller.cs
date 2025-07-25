@@ -24,8 +24,6 @@ namespace Game.Installers
         /// </summary>
         private void BindGameplayServices()
         {
-            Debug.Log("[GameSceneInstaller] Binding gameplay services...");
-
             // Camera service - manages camera positioning and movement
             Container.Bind<ICameraService>().To<CameraService>().AsSingle().NonLazy();
             Debug.Log("[GameSceneInstaller] ✓ CameraService: Camera positioning and control");

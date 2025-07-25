@@ -62,14 +62,18 @@ Assets/Scripts/
 │   │   ├── GameSceneInstaller.cs   # Scene-level service bindings
 │   │   └── ProjectContextInstaller.cs # Global service bindings
 │   └── Services/                   # Core service implementations
+│       ├── Camera/                 # Camera management system
+│       │   ├── ICameraController.cs # Camera controller interface
+│       │   ├── CameraController.cs # Camera positioning and control
+│       │   └── CameraControllerTester.cs # Controller testing
 │       ├── Config/                 # Configuration management
 │       ├── Factory/                # Object creation services
+│       ├── Level/                  # Level management
 │       ├── Pool/                   # Object pooling system
 │       ├── Save/                   # Save/load functionality
 │       ├── Scene/                  # Scene management
-│       └── UI/                     # UI page management
-│       ├── PathValidator.cs        # Path validation and analysis
-│       └── PathManagerWindow.cs    # Editor window for path management
+│       ├── UI/                     # UI page management
+│       └── Wave/                   # Enemy wave management
 ├── Game/                           # Game-specific functionality
 │   ├── Objects/                    # Game entities
 │   │   ├── Projectile.cs           # Projectile behavior with pooling
@@ -201,14 +205,16 @@ Services that persist throughout the entire game lifecycle:
 | Configuration | `IConfigService` | `ConfigService` | ScriptableObject configuration management |
 
 #### **Scene Context (Local Services)**
-Services recreated for each scene (planned for future implementation):
+Services and controllers recreated for each scene:
 
-- **IBattleService** - Combat system management
+- **ICameraController** - Camera positioning and control (MonoBehaviour)
+- **ILevelService** - Level management and configuration
 - **IWaveService** - Enemy wave spawning and management
-- **IHeroService** - Witch squad management
-- **IEnemyService** - Enemy behavior and AI
-- **ITowerService** - Tower placement and upgrades
-- **ISpellService** - Magic system implementation
+- **IBattleService** - Combat system management (planned)
+- **IHeroService** - Witch squad management (planned)
+- **IEnemyService** - Enemy behavior and AI (planned)
+- **ITowerService** - Tower placement and upgrades (planned)
+- **ISpellService** - Magic system implementation (planned)
 
 ### Service Injection Example
 
@@ -218,11 +224,15 @@ public class ExampleGameClass : MonoBehaviour
     [Inject] private ISaveService saveService;
     [Inject] private IPoolService poolService;
     [Inject] private IConfigService configService;
+    [Inject] private ICameraController cameraController;
     
     private void Start()
     {
         var gameConfig = configService.GetConfig<GameConfig>();
         var savedData = saveService.LoadJson<PlayerData>("player_progress");
+        
+        // Position camera at specific location
+        cameraController.PositionCamera(Vector3.zero, height: 20f, angle: 45f);
     }
 }
 ```
@@ -334,6 +344,9 @@ projectile.ReturnToPool();
 - **Object Pooling** - Full implementation with MonoBehaviour support
 - **Configuration Management** - ScriptableObject-based system
 - **Save System** - JSON serialization with PlayerPrefs
+- **Camera Controller** - MonoBehaviour-based camera positioning and control
+- **Level Service** - Level management and configuration
+- **Wave Service** - Enemy wave spawning system
 - **Basic Gameplay** - Tower and projectile mechanics
 - **UI Foundation** - Page-based system with animations
 - **Path System** - Complete level design tools and waypoint system
