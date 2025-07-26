@@ -5,51 +5,70 @@ using UnityEngine;
 using Zenject;
 using Cysharp.Threading.Tasks;
 using Game.Services;
-using Game.Enemy.Configs;
 using Game.Path;
+using Game.Wave;
+using Game.Configs.Enemy;
 
 namespace Game.Enemy.Services
 {
     /// <summary>
     /// Сервис управления врагами
     /// </summary>
-    public class EnemyService : MonoBehaviour, IEnemyService
+    public class EnemyService : IEnemyService, IInitializable, IDisposable
     {
         // Инжектируемые сервисы
-        [Inject] private IPoolService _poolService;
-        [Inject] private IGameFactory _gameFactory;
-        [Inject] private IConfigService _configService;
-        
-        private EnemyConfigRepository _enemyConfigRepository;
-        private List<Enemy> _aliveEnemies = new();
-        private LevelMap _currentLevelMap;
-        private System.Threading.CancellationTokenSource _cancellationTokenSource;
+        [Inject] private IPoolService poolService;
+        [Inject] private IGameFactory gameFactory;
+        [Inject] private EnemyConfigRepository enemyConfigRepository;
+
+        private List<Enemy> aliveEnemies = new();
+        private Dictionary<int, List<Enemy>> enemiesByWave = new();
+        private LevelMap currentLevelMap;
+        private System.Threading.CancellationTokenSource cancellationTokenSource;
+        private int currentWaveNumber = 0; // Текущий номер волны для спавна
+        private bool isDisposed = false;
         
         // События
         public System.Action<Enemy> OnEnemySpawned { get; set; }
         public System.Action<Enemy> OnEnemyDied { get; set; }
         public System.Action<Enemy> OnEnemyReachedBase { get; set; }
+        public System.Action<int> OnWaveCompleted { get; set; }
         
-        private void Start()
+        public void Initialize()
         {
+            Debug.Log("[EnemyService] Initializing enemy service...");
+            
             // Инициализируем cancellation token
-            _cancellationTokenSource = new System.Threading.CancellationTokenSource();
+            cancellationTokenSource = new System.Threading.CancellationTokenSource();
             
             // Получаем репозиторий конфигураций
-            _enemyConfigRepository = _configService.GetConfig<EnemyConfigRepository>();
+           // enemyConfigRepository = configService.GetConfig<EnemyConfigRepository>();
             
-            if (_enemyConfigRepository == null)
+            if (enemyConfigRepository == null)
             {
-                Debug.LogError("EnemyConfigRepository not found! Make sure it's in Resources/Configs/");
+                Debug.LogError("[EnemyService] EnemyConfigRepository not found! Make sure it's in Resources/Configs/");
+            }
+            else
+            {
+                Debug.Log("[EnemyService] EnemyConfigRepository loaded successfully");
             }
             
             // Находим карту уровня
-            _currentLevelMap = FindFirstObjectByType<LevelMap>();
+            currentLevelMap = UnityEngine.Object.FindFirstObjectByType<LevelMap>();
             
-            if (_currentLevelMap == null)
+            if (currentLevelMap == null)
             {
-                Debug.LogWarning("LevelMap not found in scene!");
+                Debug.LogWarning("[EnemyService] LevelMap not found in scene!");
             }
+            else
+            {
+                Debug.Log($"[EnemyService] LevelMap found with {currentLevelMap.Waypoints.Count} waypoints");
+            }
+            
+            Debug.Log("[EnemyService] Enemy service initialized");
+            
+            // Запускаем периодическую очистку
+            StartPeriodicCleanup().Forget();
         }
         
         /// <summary>
@@ -57,62 +76,16 @@ namespace Game.Enemy.Services
         /// </summary>
         public Enemy SpawnEnemy(EnemyType enemyType, Vector3 position)
         {
-            // Получаем конфигурации
-            var enemyConfig = _enemyConfigRepository?.GetEnemyConfig(enemyType);
-            var visualConfig = _enemyConfigRepository?.GetEnemyVisualConfig(enemyType);
-            
-            if (enemyConfig == null)
-            {
-                Debug.LogError($"No config found for enemy type: {enemyType}");
-                return null;
-            }
-            
-            if (visualConfig == null)
-            {
-                Debug.LogError($"No visual config found for enemy type: {enemyType}");
-                return null;
-            }
-            
-            if (visualConfig.enemyPrefab == null)
-            {
-                Debug.LogError($"No prefab found in visual config for enemy type: {enemyType}");
-                return null;
-            }
-            
-            // Создаем врага через пул
-            var enemyComponent = _poolService.Get(
-                visualConfig.enemyPrefab.GetComponent<Enemy>(),
-                position,
-                Quaternion.identity
-            );
-            
-            if (enemyComponent == null)
-            {
-                Debug.LogError($"Failed to create enemy of type: {enemyType}");
-                return null;
-            }
-            
-            // Инициализируем врага
-            enemyComponent.Initialize(enemyConfig, position);
-            
-            // Добавляем в список живых врагов
-            _aliveEnemies.Add(enemyComponent);
-            
-            // Подписываемся на события врага
-            SubscribeToEnemyEvents(enemyComponent);
-            
-            // Запускаем движение, если есть карта
-            if (_currentLevelMap != null)
-            {
-                enemyComponent.StartMovement(_currentLevelMap);
-            }
-            
-            // Вызываем событие
-            OnEnemySpawned?.Invoke(enemyComponent);
-            
-            Debug.Log($"Spawned enemy: {enemyType} at {position}");
-            
-            return enemyComponent;
+            return SpawnEnemyInternal(enemyType, position, null, null, -1);
+        }
+        
+        /// <summary>
+        /// Создать врага с модифицированными характеристиками
+        /// </summary>
+        public Enemy SpawnEnemyWithModifiers(EnemyType enemyType, Vector3 position, EnemyGroupConfig groupConfig, WaveModifiers waveModifiers)
+        {
+            // Используем текущий номер волны
+            return SpawnEnemyInternal(enemyType, position, groupConfig, waveModifiers, currentWaveNumber);
         }
         
         /// <summary>
@@ -120,14 +93,152 @@ namespace Game.Enemy.Services
         /// </summary>
         public Enemy SpawnEnemyAtSpawnPoint(EnemyType enemyType)
         {
-            if (_currentLevelMap == null || _currentLevelMap.SpawnPoint == null)
+            if (currentLevelMap == null || currentLevelMap.SpawnPoint == null)
             {
-                Debug.LogError("No spawn point available!");
+                Debug.LogError("[EnemyService] No spawn point available!");
                 return null;
             }
             
-            Vector3 spawnPosition = _currentLevelMap.SpawnPoint.GetRandomSpawnPosition();
+            Vector3 spawnPosition = currentLevelMap.SpawnPoint.GetRandomSpawnPosition();
             return SpawnEnemy(enemyType, spawnPosition);
+        }
+        
+        /// <summary>
+        /// Установить текущий номер волны для спавна
+        /// </summary>
+        public void SetCurrentWaveNumber(int waveNumber)
+        {
+            currentWaveNumber = waveNumber;
+            Debug.Log($"[EnemyService] Current wave number set to: {waveNumber}");
+        }
+        
+        /// <summary>
+        /// Внутренний метод создания врага с поддержкой модификаторов и волн
+        /// </summary>
+        private Enemy SpawnEnemyInternal(EnemyType enemyType, Vector3 position, EnemyGroupConfig groupConfig, WaveModifiers waveModifiers, int waveNumber)
+        {
+            // Получаем конфигурации
+            var enemyConfig = enemyConfigRepository?.GetEnemyConfig(enemyType);
+            var visualConfig = enemyConfigRepository?.GetEnemyVisualConfig(enemyType);
+            Debug.Log(enemyConfigRepository.EnemyConfigs.Count);
+            
+            if (enemyConfig == null)
+            {
+                Debug.LogError($"[EnemyService] No config found for enemy type: {enemyType}");
+                return null;
+            }
+            
+            if (visualConfig == null)
+            {
+                Debug.LogError($"[EnemyService] No visual config found for enemy type: {enemyType}");
+                return null;
+            }
+            
+            if (visualConfig.enemyPrefab == null)
+            {
+                Debug.LogError($"[EnemyService] No prefab found in visual config for enemy type: {enemyType}");
+                return null;
+            }
+            
+            // Создаем врага через пул
+            var enemyComponent = poolService.Get(
+                visualConfig.enemyPrefab.GetComponent<Enemy>(),
+                position,
+                Quaternion.identity
+            );
+            
+            if (enemyComponent == null)
+            {
+                Debug.LogError($"[EnemyService] Failed to create enemy of type: {enemyType}");
+                return null;
+            }
+            
+            // Клонируем конфигурацию для применения модификаторов
+            var modifiedConfig = enemyConfig;
+            if (groupConfig != null && waveModifiers != null)
+            {
+                modifiedConfig = ApplyModifiers(enemyConfig, groupConfig, waveModifiers);
+            }
+            
+            // Инициализируем врага
+            enemyComponent.Initialize(modifiedConfig, position);
+            
+            // Добавляем в список живых врагов
+            aliveEnemies.Add(enemyComponent);
+            
+            // Добавляем в список врагов по волнам
+            if (waveNumber >= 0)
+            {
+                if (!enemiesByWave.ContainsKey(waveNumber))
+                {
+                    enemiesByWave[waveNumber] = new List<Enemy>();
+                }
+                enemiesByWave[waveNumber].Add(enemyComponent);
+            }
+            
+            // Подписываемся на события врага
+            SubscribeToEnemyEvents(enemyComponent, waveNumber);
+            
+            // Запускаем движение, если есть карта
+            if (currentLevelMap != null)
+            {
+                enemyComponent.StartMovement(currentLevelMap);
+            }
+            
+            // Вызываем событие
+            OnEnemySpawned?.Invoke(enemyComponent);
+            
+            string modifiersInfo = "";
+            if (groupConfig != null && waveModifiers != null)
+            {
+                modifiersInfo = $" (HP: x{groupConfig.healthMultiplier * waveModifiers.globalHealthMultiplier:F2}, " +
+                               $"Speed: x{groupConfig.speedMultiplier * waveModifiers.globalSpeedMultiplier:F2}, " +
+                               $"Damage: x{groupConfig.damageMultiplier * waveModifiers.globalDamageMultiplier:F2})";
+            }
+            
+            Debug.Log($"[EnemyService] Spawned enemy: {enemyType} at {position} for wave {waveNumber}{modifiersInfo}");
+            
+            return enemyComponent;
+        }
+        
+        /// <summary>
+        /// Применить модификаторы к конфигурации врага
+        /// </summary>
+        private EnemyConfig ApplyModifiers(EnemyConfig originalConfig, EnemyGroupConfig groupConfig, WaveModifiers waveModifiers)
+        {
+            // Создаем копию конфигурации
+            var modifiedConfig = ScriptableObject.CreateInstance<EnemyConfig>();
+            
+            // Копируем основные параметры
+            modifiedConfig.enemyType = originalConfig.enemyType;
+            modifiedConfig.category = originalConfig.category;
+            
+            // Применяем модификаторы здоровья
+            modifiedConfig.maxHealth = Mathf.RoundToInt(
+                originalConfig.maxHealth * 
+                groupConfig.healthMultiplier * 
+                waveModifiers.globalHealthMultiplier
+            );
+            
+            // Применяем модификаторы скорости
+            modifiedConfig.speed = originalConfig.speed * 
+                                  groupConfig.speedMultiplier * 
+                                  waveModifiers.globalSpeedMultiplier;
+            
+            // Применяем модификаторы урона
+            modifiedConfig.damage = Mathf.RoundToInt(
+                originalConfig.damage * 
+                groupConfig.damageMultiplier * 
+                waveModifiers.globalDamageMultiplier
+            );
+            
+            // Копируем остальные параметры без изменений
+            modifiedConfig.goldReward = originalConfig.goldReward;
+            modifiedConfig.experienceReward = originalConfig.experienceReward;
+            modifiedConfig.resistances = originalConfig.resistances;
+            modifiedConfig.abilities = originalConfig.abilities;
+            
+            return modifiedConfig;
         }
         
         /// <summary>
@@ -135,9 +246,8 @@ namespace Game.Enemy.Services
         /// </summary>
         public int GetAliveEnemiesCount()
         {
-            // Очищаем список от null и мертвых врагов
             CleanupEnemiesList();
-            return _aliveEnemies.Count;
+            return aliveEnemies.Count;
         }
         
         /// <summary>
@@ -146,7 +256,33 @@ namespace Game.Enemy.Services
         public Enemy[] GetAliveEnemies()
         {
             CleanupEnemiesList();
-            return _aliveEnemies.ToArray();
+            return aliveEnemies.ToArray();
+        }
+        
+        /// <summary>
+        /// Получить всех врагов определенной волны
+        /// </summary>
+        public Enemy[] GetEnemiesByWave(int waveNumber)
+        {
+            if (!enemiesByWave.ContainsKey(waveNumber))
+                return new Enemy[0];
+            
+            // Очищаем список от мертвых врагов
+            enemiesByWave[waveNumber] = enemiesByWave[waveNumber].Where(enemy => 
+                enemy != null && 
+                enemy.gameObject != null && 
+                enemy.IsAlive.Value
+            ).ToList();
+            
+            return enemiesByWave[waveNumber].ToArray();
+        }
+        
+        /// <summary>
+        /// Проверить, завершена ли волна (все враги волны мертвы)
+        /// </summary>
+        public bool IsWaveCompleted(int waveNumber)
+        {
+            return GetEnemiesByWave(waveNumber).Length == 0;
         }
         
         /// <summary>
@@ -154,7 +290,9 @@ namespace Game.Enemy.Services
         /// </summary>
         public void ClearAllEnemies()
         {
-            var enemiesToClear = _aliveEnemies.ToArray();
+            Debug.Log("[EnemyService] Clearing all enemies");
+            
+            var enemiesToClear = aliveEnemies.ToArray();
             
             foreach (var enemy in enemiesToClear)
             {
@@ -164,28 +302,39 @@ namespace Game.Enemy.Services
                 }
             }
             
-            _aliveEnemies.Clear();
+            aliveEnemies.Clear();
+            enemiesByWave.Clear();
+            currentWaveNumber = 0;
+        }
+        
+        /// <summary>
+        /// Установить карту уровня
+        /// </summary>
+        public void SetLevelMap(LevelMap levelMap)
+        {
+            currentLevelMap = levelMap;
+            Debug.Log($"[EnemyService] Level map set: {levelMap?.name}");
         }
         
         /// <summary>
         /// Подписка на события врага
         /// </summary>
-        private void SubscribeToEnemyEvents(Enemy enemy)
+        private void SubscribeToEnemyEvents(Enemy enemy, int waveNumber)
         {
             if (enemy?.IsAlive != null)
             {
                 // Используем UniTask для мониторинга
-                MonitorEnemyHealth(enemy).Forget();
+                MonitorEnemyHealth(enemy, waveNumber).Forget();
             }
         }
         
         /// <summary>
         /// Мониторинг здоровья врага
         /// </summary>
-        private async UniTaskVoid MonitorEnemyHealth(Enemy enemy)
+        private async UniTaskVoid MonitorEnemyHealth(Enemy enemy, int waveNumber)
         {
             bool wasAlive = true;
-            var cancellationToken = _cancellationTokenSource.Token;
+            var cancellationToken = cancellationTokenSource.Token;
             
             try
             {
@@ -195,7 +344,7 @@ namespace Game.Enemy.Services
                     
                     if (wasAlive && !isCurrentlyAlive)
                     {
-                        HandleEnemyDied(enemy);
+                        HandleEnemyDied(enemy, waveNumber);
                         return;
                     }
                     
@@ -213,17 +362,30 @@ namespace Game.Enemy.Services
         /// <summary>
         /// Обработка смерти врага
         /// </summary>
-        private void HandleEnemyDied(Enemy enemy)
+        private void HandleEnemyDied(Enemy enemy, int waveNumber)
         {
             if (enemy == null) return;
             
             // Убираем из списка живых
-            _aliveEnemies.Remove(enemy);
+            aliveEnemies.Remove(enemy);
+            
+            // Убираем из списка волны
+            if (waveNumber >= 0 && enemiesByWave.ContainsKey(waveNumber))
+            {
+                enemiesByWave[waveNumber].Remove(enemy);
+                
+                // Проверяем, завершена ли волна
+                if (IsWaveCompleted(waveNumber))
+                {
+                    Debug.Log($"[EnemyService] Wave {waveNumber} completed!");
+                    OnWaveCompleted?.Invoke(waveNumber);
+                }
+            }
             
             // Вызываем событие
             OnEnemyDied?.Invoke(enemy);
             
-            Debug.Log($"Enemy {enemy.EnemyType} died");
+            Debug.Log($"[EnemyService] Enemy {enemy.EnemyType} died");
         }
         
         /// <summary>
@@ -231,7 +393,9 @@ namespace Game.Enemy.Services
         /// </summary>
         private void CleanupEnemiesList()
         {
-            _aliveEnemies = _aliveEnemies.Where(enemy => 
+            if (isDisposed) return;
+            
+            aliveEnemies = aliveEnemies.Where(enemy => 
                 enemy != null && 
                 enemy.gameObject != null && 
                 enemy.IsAlive.Value
@@ -239,27 +403,35 @@ namespace Game.Enemy.Services
         }
         
         /// <summary>
-        /// Установить карту уровня
+        /// Периодическая очистка списка врагов
         /// </summary>
-        public void SetLevelMap(LevelMap levelMap)
+        private async UniTaskVoid StartPeriodicCleanup()
         {
-            _currentLevelMap = levelMap;
-        }
-        
-        private void Update()
-        {
-            // Периодически очищаем список врагов
-            if (Time.frameCount % 60 == 0) // Каждую секунду при 60 FPS
+            try
             {
-                CleanupEnemiesList();
+                while (!isDisposed && !cancellationTokenSource.Token.IsCancellationRequested)
+                {
+                    await UniTask.Delay(1000, cancellationToken: cancellationTokenSource.Token); // Каждую секунду
+                    CleanupEnemiesList();
+                }
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Нормальное завершение
             }
         }
         
-        private void OnDestroy()
+        public void Dispose()
         {
+            if (isDisposed) return;
+            
+            Debug.Log("[EnemyService] Disposing enemy service");
+            
+            isDisposed = true;
+            
             // Отменяем все асинхронные операции
-            _cancellationTokenSource?.Cancel();
-            _cancellationTokenSource?.Dispose();
+            cancellationTokenSource?.Cancel();
+            cancellationTokenSource?.Dispose();
         }
     }
 }

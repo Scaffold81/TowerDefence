@@ -1,7 +1,9 @@
+using Game.Enemy;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-namespace Game.Enemy.Configs
+namespace Game.Configs.Enemy
 {
     /// <summary>
     /// Репозиторий конфигураций врагов
@@ -23,7 +25,7 @@ namespace Game.Enemy.Configs
         /// </summary>
         public EnemyConfig GetEnemyConfig(EnemyType enemyType)
         {
-            return enemyConfigs.Find(config => config.enemyType == enemyType);
+            return enemyConfigs.FirstOrDefault(config => config.enemyType == enemyType);
         }
         
         /// <summary>

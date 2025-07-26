@@ -16,7 +16,6 @@ namespace Game.Services
         System.Action<string, LevelMap> OnLevelSetupCompleted { get; set; }
         System.Action<string> OnLevelUnloaded { get; set; }
         
-        /// <summary>
         /// Получить конфигурацию уровня.
         /// </summary>
         LevelConfig GetLevelConfig(string levelId);
@@ -30,11 +29,6 @@ namespace Game.Services
         /// Загрузить уровень.
         /// </summary>
         GameObject LoadLevel(string levelId);
-        
-        /// <summary>
-        /// Установить префаб уровня (по умолчанию Lvl_01).
-        /// </summary>
-        void SetupLevel();
         
         /// <summary>
         /// Установить префаб уровня по ID.

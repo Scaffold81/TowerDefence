@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Game.Configs;
 using Game.Path;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Game.Services
         [Inject] private IGameFactory gameFactory;
         
         private GameObject currentLevelInstance;
-        private string currentLevelId = "Lvl_01";
+        private string currentLevelId = "level_01";
         
         // События
         public System.Action<string> OnLevelSetupStarted { get; set; }
@@ -27,7 +28,7 @@ namespace Game.Services
             Debug.Log("[LevelService] Initializing level service...");
             
             // Автоматически устанавливаем уровень по умолчанию
-            SetupLevel();
+           SetupLevel().Forget();
         }
         
         /// <summary>
@@ -64,8 +65,9 @@ namespace Game.Services
         /// <summary>
         /// Установить префаб уровня (по умолчанию Lvl_01).
         /// </summary>
-        public void SetupLevel()
+        public async UniTask SetupLevel()
         {
+            await UniTask.WaitForSeconds(0.1f);
             SetupLevel(currentLevelId);
         }
         

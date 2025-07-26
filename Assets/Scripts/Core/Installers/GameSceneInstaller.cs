@@ -1,5 +1,6 @@
 using Game.Path;
 using Game.Services;
+using Game.Enemy.Services;
 using UnityEngine;
 using Zenject;
 
@@ -31,13 +32,18 @@ namespace Game.Installers
             Container.Bind<ICameraController>().FromComponentInHierarchy().AsSingle();
             Debug.Log("[GameSceneInstaller] ✓ Camera System: Service for calculations, Controller for execution");
 
-            // Level service - manages current level state and configuration
-            Container.Bind<ILevelService>().To<LevelService>().AsSingle().NonLazy();
-            Debug.Log("[GameSceneInstaller] ✓ LevelService: Level management and configuration");
-            
             // Wave service - manages enemy wave spawning
             Container.Bind<IWaveService>().To<WaveService>().AsSingle().NonLazy();
             Debug.Log("[GameSceneInstaller] ✓ WaveService: Enemy wave spawning management");
+
+
+            // Enemy system - manages enemy behavior and AI ✅ IMPLEMENTED
+            Container.Bind<IEnemyService>().To<EnemyService>().AsSingle().NonLazy();
+            Debug.Log("[GameSceneInstaller] ✓ EnemyService: Enemy behavior and AI management");
+
+            // Level service - manages current level state and configuration
+            Container.Bind<ILevelService>().To<LevelService>().AsSingle().NonLazy();
+            Debug.Log("[GameSceneInstaller] ✓ LevelService: Level management and configuration");
             
             // Future services that will be added as the project evolves:
             
@@ -46,9 +52,6 @@ namespace Game.Installers
             
             // Hero system - manages the squad of witches and their abilities
             // Container.Bind<IHeroService>().To<HeroService>().AsSingle().NonLazy();
-            
-            // Enemy system - manages enemy behavior and characteristics
-            // Container.Bind<IEnemyService>().To<EnemyService>().AsSingle().NonLazy();
             
             // Tower system - manages tower placement and upgrades
             // Container.Bind<ITowerService>().To<TowerService>().AsSingle().NonLazy();

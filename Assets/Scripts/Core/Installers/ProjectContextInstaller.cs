@@ -1,3 +1,4 @@
+using Game.Configs.Enemy;
 using Game.Services;
 using UnityEngine;
 using Zenject;
@@ -10,6 +11,8 @@ namespace Game.Installers
     /// </summary>
     public class ProjectContextInstaller : MonoInstaller
     {
+        [SerializeField]
+        EnemyConfigRepository enemyConfigRepository;
         public override void InstallBindings()
         {
             Debug.Log("[ProjectContextInstaller] Starting global services initialization...");
@@ -70,10 +73,6 @@ namespace Game.Installers
         {
             Debug.Log("[ProjectContextInstaller] Binding data services...");
             
-            // Configuration service - manages game settings from ScriptableObjects
-            Container.Bind<IConfigService>().To<ConfigService>().AsSingle().NonLazy();
-            Debug.Log("[ProjectContextInstaller] ✓ ConfigService: Game configuration management from ScriptableObjects");
-            
             // Level config repository - manages level configurations
             var levelConfigRepository = Resources.Load<Game.Configs.LevelConfigRepository>("Configs/LevelConfigRepository");
             if (levelConfigRepository != null)
@@ -86,6 +85,18 @@ namespace Game.Installers
                 Debug.LogWarning("[ProjectContextInstaller] LevelConfigRepository not found in Resources/Configs/");
             }
             
+            // enemy config repository - manages enemy configurations
+            var enemyConfigRepository = Resources.Load<Game.Configs.Enemy.EnemyConfigRepository>("Configs/EnemyConfigRepository");
+            if (enemyConfigRepository != null)
+            {
+                Container.Bind<Game.Configs.Enemy.EnemyConfigRepository>().FromInstance(enemyConfigRepository).AsSingle();
+                Debug.Log("[ProjectContextInstaller] ✓ EnemyConfigRepository: Enemy configuration management");
+            }
+            else
+            {
+                Debug.LogWarning("[ProjectContextInstaller] EnemyConfigRepository not found in Resources/Configs/");
+            }
+
             // Future data services:
             // Container.Bind<IDataService>().To<DataService>().AsSingle().NonLazy();
             // Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle().NonLazy();

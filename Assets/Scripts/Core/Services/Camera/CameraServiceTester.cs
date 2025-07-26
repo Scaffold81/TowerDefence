@@ -53,7 +53,7 @@ namespace Game.Services
             }
             
             // Тест установки уровня
-            levelService.SetupLevel("Lvl_01");
+           // levelService.SetupLevel("Lvl_01");
         }
         
         private void Start()

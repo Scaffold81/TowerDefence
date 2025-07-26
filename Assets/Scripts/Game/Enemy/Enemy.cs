@@ -3,9 +3,9 @@ using R3;
 using Zenject;
 using Game.Services;
 using Game.Enemy.Components;
-using Game.Enemy.Configs;
 using Game.Path;
 using PoolableInterface = Game.Services.IPoolable;
+using Game.Configs.Enemy;
 
 namespace Game.Enemy
 {
@@ -149,7 +149,7 @@ namespace Game.Enemy
             // Инициализация движения
             if (_movementComponent != null)
             {
-                _movementComponent.Initialize(_config.movementSpeed);
+                _movementComponent.Initialize(_config.speed);
             }
             
             // Инициализация сопротивлений

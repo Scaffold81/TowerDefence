@@ -1,7 +1,7 @@
 using UnityEngine;
 using R3;
 using Game.Path;
-using Game.Enemy.Configs;
+using Game.Configs.Enemy;
 
 namespace Game.Enemy
 {

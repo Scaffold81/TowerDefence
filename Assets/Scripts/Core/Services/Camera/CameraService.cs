@@ -22,7 +22,7 @@ namespace Game.Services
         [Inject]
         public void Initialize()
         {
-            Debug.Log("[CameraService] Initializing...");
+           // Debug.Log("[CameraService] Initializing...");
            
             // Подписываемся на события уровня
             if (levelService != null)
@@ -41,12 +41,12 @@ namespace Game.Services
                 }
             }
             
-            Debug.Log("[CameraService] Initialized");
+            //Debug.Log("[CameraService] Initialized");
         }
         
         private void OnLevelLoaded(string levelId, LevelMap levelMap)
         {
-            Debug.Log($"[CameraService] Positioning camera for level: {levelId}");
+            //Debug.Log($"[CameraService] Positioning camera for level: {levelId}");
             PositionCameraForLevel(levelMap);
         }
         
@@ -87,7 +87,7 @@ namespace Game.Services
             float optimalHeight = CalculateOptimalHeight(levelBounds);
             float optimalSize = CalculateOptimalSize(levelBounds);
             
-            Debug.Log($"[CameraService] Camera params - Center: {center}, Height: {optimalHeight}, Size: {optimalSize}");
+           // Debug.Log($"[CameraService] Camera params - Center: {center}, Height: {optimalHeight}, Size: {optimalSize}");
             
             return new CameraParams(center, optimalHeight, defaultAngle, useOrthographicProjection, optimalSize);
         }

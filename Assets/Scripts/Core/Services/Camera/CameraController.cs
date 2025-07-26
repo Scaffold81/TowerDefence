@@ -16,7 +16,7 @@ namespace Game.Services
         public void Initialize()
         {
             GetCamera();
-            Debug.Log("[CameraController] Initialized");
+           // Debug.Log("[CameraController] Initialized");
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Game.Services
             // Устанавливаем проекцию
             SetProjection(useOrthographic, orthographicSize);
             
-            Debug.Log($"[CameraController] Applied isometric view - Center: {centerPoint}, Height: {height}, Angle: {angle}");
+            //Debug.Log($"[CameraController] Applied isometric view - Center: {centerPoint}, Height: {height}, Angle: {angle}");
         }
         
         /// <summary>

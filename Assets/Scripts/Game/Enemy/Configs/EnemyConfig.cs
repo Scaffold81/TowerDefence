@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Enemy.Components;
+using Game.Enemy;
 
-namespace Game.Enemy.Configs
+namespace Game.Configs.Enemy
 {
     /// <summary>
     /// Конфигурация игровой логики врага
@@ -18,7 +19,8 @@ namespace Game.Enemy.Configs
         
         [Header("Stats")]
         public float maxHealth = 100f;
-        public float movementSpeed = 3f;
+        public float speed = 3f;
+        public int damage = 10;
         
         [Header("Resistances")]
         public List<ResistanceComponent.ResistanceData> resistances = new();
@@ -34,7 +36,8 @@ namespace Game.Enemy.Configs
         {
             // Валидация значений
             maxHealth = Mathf.Max(1f, maxHealth);
-            movementSpeed = Mathf.Max(0.1f, movementSpeed);
+            speed = Mathf.Max(0.1f, speed);
+            damage = Mathf.Max(1, damage);
             experienceReward = Mathf.Max(0, experienceReward);
             goldReward = Mathf.Max(0, goldReward);
         }

@@ -1,6 +1,7 @@
+using Game.Enemy;
 using UnityEngine;
 
-namespace Game.Enemy.Configs
+namespace Game.Configs.Enemy
 {
     /// <summary>
     /// Визуальная конфигурация врага
