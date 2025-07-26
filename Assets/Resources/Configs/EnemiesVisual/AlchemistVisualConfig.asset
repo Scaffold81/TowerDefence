@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AlchemistVisualConfig
   m_EditorClassIdentifier: 
   enemyType: 7
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 8112124629578326011, guid: 3ac98b717ed0b3b4db717f5a364c10c9, type: 3}
   idleAnimation: {fileID: 0}
   walkAnimation: {fileID: 0}
   attackAnimation: {fileID: 0}

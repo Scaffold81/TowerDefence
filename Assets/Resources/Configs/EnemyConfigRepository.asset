@@ -12,5 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d8ccc2deabbd94bbe46c3d0fce30eb, type: 3}
   m_Name: EnemyConfigRepository
   m_EditorClassIdentifier: 
-  enemyConfigs: []
-  enemyVisualConfigs: []
+  enemyConfigs:
+  - {fileID: 11400000, guid: 2c3eb98c091acc84db170cf5d136203c, type: 2}
+  - {fileID: 11400000, guid: 4f175aedb90746147820aa195f1f101a, type: 2}
+  - {fileID: 11400000, guid: 410a5bf2bc8ab114a8e643380e0dd157, type: 2}
+  - {fileID: 11400000, guid: 82545f5a1e445ba41b59c7b6d62ff0b0, type: 2}
+  - {fileID: 11400000, guid: d2a6de394e411294a986afe6e69423b6, type: 2}
+  - {fileID: 11400000, guid: 43806df0dc26e634a81f802d817ddfd3, type: 2}
+  - {fileID: 11400000, guid: 4107cac48cd5d1c4b84a7f2ae5024c5b, type: 2}
+  - {fileID: 11400000, guid: 07279b4e9dc786e46b9c5f3f3cd9d5c4, type: 2}
+  - {fileID: 11400000, guid: 46cf538a44cf2b84c9d4b8dce4086422, type: 2}
+  - {fileID: 11400000, guid: 3b0e96d606fdc84478362be294c3f8a0, type: 2}
+  - {fileID: 11400000, guid: 95d3c4511721b5545bb3e053759d199f, type: 2}
+  enemyVisualConfigs:
+  - {fileID: 11400000, guid: d3573ae3ef27af448bc121ed2caffb18, type: 2}
+  - {fileID: 11400000, guid: e1c1cb1fd6faf6d47bfdd162dcaf4823, type: 2}
+  - {fileID: 11400000, guid: 0c1baac1d1a9bd3419f7a21314f4f535, type: 2}
+  - {fileID: 11400000, guid: a6c31fcc0b8b46147b02b176576b78df, type: 2}
+  - {fileID: 11400000, guid: 0f166800e59643642827885a881de66c, type: 2}
+  - {fileID: 11400000, guid: a4821006bf4b9f0409d6ded8d4ee2b70, type: 2}
+  - {fileID: 11400000, guid: b495fea2c06ce4e49b8f060009b044bb, type: 2}
+  - {fileID: 11400000, guid: a2cc1fe2f970a744b8580b73bf36a6d4, type: 2}
+  - {fileID: 11400000, guid: 4512d9928f89a58419b16f563d3b06d1, type: 2}
+  - {fileID: 11400000, guid: f731781aff04b1440960f4ba028d0773, type: 2}
+  - {fileID: 11400000, guid: 7369726832c2c074f9c3eded3cf51c4d, type: 2}

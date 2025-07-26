@@ -530,6 +530,31 @@ Assets/Scripts/Game/Enemy/
 
 ---
 
+## 🛠️ Troubleshooting
+
+### Enemy Configuration Issues
+
+**Problem:** Unity not recognizing existing .asset files  
+**Cause:** Corrupted or missing .meta files  
+**Solution:**  
+1. Delete problematic .meta files
+2. Let Unity regenerate them automatically
+3. Use `Assets → Reimport All` if needed
+4. Check console for import errors
+
+**Signs of .meta issues:**
+- Files exist in filesystem but not visible in Unity Project panel
+- "Missing script" errors in Inspector  
+- GUID: 0 references in .asset files
+
+**Example Fix:**
+```bash
+# BardConfig.asset and MonsterConfig.asset were not visible
+# Solution: Fixed .meta files, Unity now recognizes all 11 configs
+```
+
+---
+
 ## 📝 Development Guidelines
 
 ### Code Style
