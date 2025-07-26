@@ -4,7 +4,7 @@ using Zenject;
 namespace Game.Services
 {
     /// <summary>
-    /// Контроллер управления камерой - отвечает за физическое позиционирование камеры
+    /// Упрощенный контроллер камеры - только применение настроек
     /// </summary>
     [RequireComponent(typeof(Camera))]
     public class CameraController : MonoBehaviour, ICameraController
@@ -12,121 +12,83 @@ namespace Game.Services
         [SerializeField]
         private Camera currentCamera;
 
-        private void Awake()
-        {
-            GetCamera();
-        }
-
         [Inject]
         public void Initialize()
         {
-            Debug.Log("[CameraController] Initializing camera controller...");
+            GetCamera();
+            Debug.Log("[CameraController] Initialized");
+        }
+        
+        /// <summary>
+        /// Установить изометрический вид с автоматическими вычислениями
+        /// </summary>
+        public void SetIsometricView(Vector3 centerPoint, float height, float angle, bool useOrthographic = true, float orthographicSize = 10f)
+        {
+            if (currentCamera == null)
+            {
+                Debug.LogWarning("[CameraController] Camera is null");
+                return;
+            }
             
+            // Вычисляем позицию камеры для изометрического вида
+            Vector3 cameraPosition = CalculateIsometricPosition(centerPoint, height, angle);
             
+            // Применяем трансформ
+            SetTransform(cameraPosition, centerPoint);
             
-            Debug.Log("[CameraController] Camera controller initialized");
+            // Устанавливаем проекцию
+            SetProjection(useOrthographic, orthographicSize);
+            
+            Debug.Log($"[CameraController] Applied isometric view - Center: {centerPoint}, Height: {height}, Angle: {angle}");
         }
         
         /// <summary>
         /// Установить позицию и направление камеры
         /// </summary>
-        public void SetCameraTransform(Vector3 position, Vector3 lookAtTarget)
+        public void SetTransform(Vector3 position, Vector3 lookAtTarget)
         {
-            if (currentCamera == null)
-            {
-                Debug.LogWarning("[CameraController] Cannot set camera transform - camera is null");
-                return;
-            }
+            if (currentCamera == null) return;
             
             currentCamera.transform.position = position;
             currentCamera.transform.LookAt(lookAtTarget);
-            
-            Debug.Log($"[CameraController] Camera positioned at: {position}, looking at: {lookAtTarget}");
         }
         
         /// <summary>
-        /// Установить ортографическую проекцию
+        /// Переключить тип проекции
         /// </summary>
-        public void SetOrthographicProjection(float orthographicSize)
+        public void SetProjection(bool orthographic, float size = 10f, float fov = 70f)
         {
-            if (currentCamera == null)
-            {
-                Debug.LogWarning("[CameraController] Cannot set orthographic projection - camera is null");
-                return;
-            }
+            if (currentCamera == null) return;
             
-            currentCamera.orthographic = true;
-            currentCamera.orthographicSize = orthographicSize;
+            currentCamera.orthographic = orthographic;
             
-            Debug.Log($"[CameraController] Set orthographic projection with size: {orthographicSize}");
+            if (orthographic)
+                currentCamera.orthographicSize = size;
+            else
+                currentCamera.fieldOfView = fov;
         }
         
         /// <summary>
-        /// Установить перспективную проекцию
-        /// </summary>
-        public void SetPerspectiveProjection(float fieldOfView)
-        {
-            if (currentCamera == null)
-            {
-                Debug.LogWarning("[CameraController] Cannot set perspective projection - camera is null");
-                return;
-            }
-            
-            currentCamera.orthographic = false;
-            currentCamera.fieldOfView = fieldOfView;
-            
-            Debug.Log($"[CameraController] Set perspective projection with FOV: {fieldOfView}");
-        }
-        
-        /// <summary>
-        /// Получить текущую камеру
+        /// Получить камеру
         /// </summary>
         public Camera GetCamera()
         {
-            Debug.Log("[CameraController] Searching for camera...");
-            if(currentCamera == null)
+            if (currentCamera == null)
                 currentCamera = GetComponent<Camera>();
-            Debug.Log($"[CameraController] Found camera: {currentCamera.name} at position: {currentCamera.transform.position}");
-
+            
             return currentCamera;
         }
         
         /// <summary>
-        /// Применить изометрическую настройку камеры
+        /// Вычислить позицию камеры для изометрического вида
         /// </summary>
-        public void ApplyIsometricView(Vector3 centerPoint, float height, float angle, float orthographicSize = 10f)
+        private Vector3 CalculateIsometricPosition(Vector3 centerPoint, float height, float angle)
         {
-            if (currentCamera == null)
-            {
-                Debug.LogWarning("[CameraController] Cannot apply isometric view - camera is null");
-                return;
-            }
-            
-            // Вычисляем позицию камеры для изометрического вида
             float angleRad = angle * Mathf.Deg2Rad;
             float distance = height / Mathf.Tan(angleRad);
-            Vector3 cameraPosition = centerPoint + new Vector3(0, height, -distance);
-            
-            // Применяем настройки
-            SetCameraTransform(cameraPosition, centerPoint);
-            SetOrthographicProjection(orthographicSize);
-            
-            Debug.Log($"[CameraController] Applied isometric view - Center: {centerPoint}, Height: {height}, Angle: {angle}, OrthographicSize: {orthographicSize}");
+            return centerPoint + new Vector3(0, height, -distance);
         }
         
-        /// <summary>
-        /// Принудительно переинициализировать камеру
-        /// </summary>
-        [ContextMenu("Reinitialize Camera")]
-        public void ReinitializeCamera()
-        {
-            Debug.Log("[CameraController] Manual reinitialization requested...");
-            GetCamera();
-        }
-        
-        /// <summary>
-        /// Получить информацию о текущем состоянии камеры
-        /// </summary>
         [ContextMenu("Log Camera Info")]
         public void LogCameraInfo()
         {
@@ -137,12 +99,10 @@ namespace Game.Services
             }
             
             Debug.Log($"[CameraController] Camera Info:\n" +
-                     $"Name: {currentCamera.name}\n" +
                      $"Position: {currentCamera.transform.position}\n" +
                      $"Rotation: {currentCamera.transform.rotation.eulerAngles}\n" +
                      $"Projection: {(currentCamera.orthographic ? "Orthographic" : "Perspective")}\n" +
-                     $"Orthographic Size: {currentCamera.orthographicSize}\n" +
-                     $"Field of View: {currentCamera.fieldOfView}");
+                     $"Size/FOV: {(currentCamera.orthographic ? currentCamera.orthographicSize.ToString() : currentCamera.fieldOfView.ToString())}");
         }
     }
 }

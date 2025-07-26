@@ -3,36 +3,49 @@ using UnityEngine;
 namespace Game.Services
 {
     /// <summary>
-    /// Интерфейс контроллера управления камерой
+    /// Упрощенный интерфейс контроллера камеры
     /// </summary>
     public interface ICameraController
     {
         /// <summary>
-        /// Позиционировать камеру в указанную точку с заданными параметрами
+        /// Установить изометрический вид с автоматическими вычислениями
         /// </summary>
-        /// <param name="position">Позиция камеры</param>
-        /// <param name="lookAtTarget">Точка, на которую должна смотреть камера</param>
-        void SetCameraTransform(Vector3 position, Vector3 lookAtTarget);
+        void SetIsometricView(Vector3 centerPoint, float height, float angle, bool useOrthographic = true, float orthographicSize = 10f);
         
         /// <summary>
-        /// Установить ортографическую проекцию с заданным размером
+        /// Установить позицию и направление камеры напрямую
         /// </summary>
-        /// <param name="orthographicSize">Размер ортографической проекции</param>
-        void SetOrthographicProjection(float orthographicSize);
+        void SetTransform(Vector3 position, Vector3 lookAtTarget);
         
         /// <summary>
-        /// Установить перспективную проекцию с заданным FOV
+        /// Переключить между ортографической и перспективной проекцией
         /// </summary>
-        /// <param name="fieldOfView">Поле зрения</param>
-        void SetPerspectiveProjection(float fieldOfView);
+        void SetProjection(bool orthographic, float size = 10f, float fov = 70f);
+        
         /// <summary>
-        /// Применить изометрическую настройку камеры
+        /// Получить камеру
         /// </summary>
-        /// <param name="centerPoint">Центральная точка для обзора</param>
-        /// <param name="height">Высота камеры</param>
-        /// <param name="angle">Угол наклона</param>
-        /// <param name="orthographicSize">Размер ортографической проекции (если используется)</param>
-        void ApplyIsometricView(Vector3 centerPoint, float height, float angle, float orthographicSize = 10f);
         Camera GetCamera();
+    }
+
+    /// <summary>
+    /// Простая структура для параметров камеры
+    /// </summary>
+    public readonly struct CameraParams
+    {
+        public readonly Vector3 center;
+        public readonly float height;
+        public readonly float angle;
+        public readonly bool useOrthographic;
+        public readonly float size;
+
+        public CameraParams(Vector3 center, float height = 20f, float angle = 45f, bool useOrthographic = true, float size = 10f)
+        {
+            this.center = center;
+            this.height = height;
+            this.angle = angle;
+            this.useOrthographic = useOrthographic;
+            this.size = size;
+        }
     }
 }

@@ -453,4 +453,103 @@ projectile.ReturnToPool();
 
 ---
 
-This architecture provides a solid foundation for building a complex tower defense game with RPG elements while maintaining code quality, performance, and extensibility for future development.
+## 📷 Camera System Architecture (Updated)
+
+### Simplified Camera Design
+
+The camera system has been refactored for better maintainability and clearer separation of concerns:
+
+#### **Architecture Components**
+- **ICameraService** - High-level interface for camera operations
+- **CameraService** - Handles calculations, level analysis, and coordination
+- **ICameraController** - Low-level interface for camera manipulation
+- **CameraController** - Direct camera positioning and projection control
+- **CameraParams** - Simple data structure for camera parameters
+
+#### **Key Improvements**
+
+**✅ Removed Complexity:**
+- Eliminated complex `CameraData` structure
+- Removed duplicate calculation logic
+- Simplified parameter passing
+- Reduced code by ~40%
+
+**✅ Better Architecture:**
+- Clear separation: Service (calculations) vs Controller (execution)
+- Proper Zenject injection instead of `FindAnyObjectByType`
+- Single responsibility principle
+- Easier testing and maintenance
+
+**✅ Enhanced Features:**
+- Automatic level analysis and optimal positioning
+- Support for both orthographic and perspective projection
+- CameraTarget detection for custom positioning
+- Configurable default parameters
+
+#### **Usage Examples**
+
+**Basic Usage:**
+```csharp
+[Inject] private ICameraService cameraService;
+
+public void PositionForLevel(LevelMap levelMap)
+{
+    // Service automatically calculates optimal parameters
+    cameraService.PositionCameraForLevel(levelMap);
+}
+
+public void PositionManually(Vector3 center)
+{
+    // Manual positioning with defaults
+    cameraService.PositionCamera(center, height: 25f, angle: 45f);
+}
+```
+
+**Advanced Controller Access:**
+```csharp
+[Inject] private ICameraController cameraController;
+
+public void CustomCameraSetup()
+{
+    // Direct controller access for complex scenarios
+    cameraController.SetIsometricView(
+        Vector3.zero, 
+        height: 30f, 
+        angle: 60f, 
+        useOrthographic: true, 
+        orthographicSize: 15f
+    );
+}
+```
+
+#### **Dependency Injection Setup**
+
+In `GameSceneInstaller.cs`:
+```csharp
+private void BindGameplayServices()
+{
+    // Camera System - improved architecture
+    Container.Bind<ICameraService>().To<CameraService>().AsSingle().NonLazy();
+    Container.Bind<ICameraController>().FromComponentInHierarchy().AsSingle();
+}
+```
+
+#### **Configuration**
+
+CameraService supports configurable defaults:
+- **Default Height**: 20f units
+- **Default Angle**: 45° for isometric view
+- **Default Orthographic Size**: 10f units
+- **Projection Type**: Orthographic by default
+
+#### **Level Integration**
+
+Automatic integration with level system:
+1. **Level Loading** → Camera automatically positions for new level
+2. **CameraTarget Detection** → Uses custom positioning if CameraTarget exists
+3. **Bounds Calculation** → Analyzes waypoints for optimal framing
+4. **Smart Defaults** → Calculates height and size based on level dimensions
+
+---
+
+

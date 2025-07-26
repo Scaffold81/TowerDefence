@@ -24,9 +24,10 @@ namespace Game.Installers
         /// </summary>
         private void BindGameplayServices()
         {
-            // Camera service - manages camera positioning and movement
+            // Camera System - улучшенная архитектура с четким разделением ответственности
             Container.Bind<ICameraService>().To<CameraService>().AsSingle().NonLazy();
-            Debug.Log("[GameSceneInstaller] ✓ CameraService: Camera positioning and control");
+            Container.Bind<ICameraController>().FromComponentInHierarchy().AsSingle();
+            Debug.Log("[GameSceneInstaller] ✓ Camera System: Service for calculations, Controller for execution");
 
             // Level service - manages current level state and configuration
             Container.Bind<ILevelService>().To<LevelService>().AsSingle().NonLazy();
