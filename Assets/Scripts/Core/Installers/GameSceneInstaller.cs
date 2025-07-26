@@ -1,3 +1,4 @@
+using Game.Path;
 using Game.Services;
 using UnityEngine;
 using Zenject;
@@ -12,6 +13,7 @@ namespace Game.Installers
     {
         public override void InstallBindings()
         {
+           
             Debug.Log("[GameSceneInstaller] Starting scene-level services initialization...");
             
             BindGameplayServices();

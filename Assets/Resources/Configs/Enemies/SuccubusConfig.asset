@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d7c34e3911f4944a03f257c7a67412, type: 3}
+  m_Name: SuccubusConfig
+  m_EditorClassIdentifier: 
+  enemyType: 10
+  category: 3
+  description: "Суккубы - элитные враги с мощными способностями очарования и высокой устойчивостью к магии."
+  maxHealth: 300
+  movementSpeed: 3.2
+  resistances:
+  - type: 1
+    value: 0.6
+  - type: 4
+    value: 0.4
+  abilities:
+  - abilityType: 4
+    cooldown: 12
+    duration: 4
+    effectValue: 0.8
+  experienceReward: 60
+  goldReward: 40

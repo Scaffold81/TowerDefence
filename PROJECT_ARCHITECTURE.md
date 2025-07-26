@@ -75,6 +75,11 @@ Assets/Scripts/
 │       ├── UI/                     # UI page management
 │       └── Wave/                   # Enemy wave management
 ├── Game/                           # Game-specific functionality
+│   ├── Enemy/                      # Enemy system implementation
+│   │   ├── Components/             # Enemy components (Health, Movement, etc.)
+│   │   ├── Configs/                # Enemy configurations and repository
+│   │   ├── Services/               # Enemy management services
+│   │   └── Enemy.cs                # Main enemy class and enums
 │   ├── Objects/                    # Game entities
 │   │   ├── Projectile.cs           # Projectile behavior with pooling
 │   │   └── Tower.cs                # Tower behavior and targeting
@@ -212,7 +217,7 @@ Services and controllers recreated for each scene:
 - **IWaveService** - Enemy wave spawning and management
 - **IBattleService** - Combat system management (planned)
 - **IHeroService** - Witch squad management (planned)
-- **IEnemyService** - Enemy behavior and AI (planned)
+- **IEnemyService** - Enemy behavior and AI ✅ **IMPLEMENTED**
 - **ITowerService** - Tower placement and upgrades (planned)
 - **ISpellService** - Magic system implementation (planned)
 
@@ -318,6 +323,112 @@ projectile.ReturnToPool();
 - **Lifetime Management** - Automatic return to pool
 - **Collision Detection** - Trigger-based enemy damage
 
+### Enemy System ✅ **IMPLEMENTED**
+
+**Universal Enemy Architecture** - Single `Enemy` class handles all enemy types through configuration:
+
+#### **Core Components:**
+- **HealthComponent** - Health management and death handling
+- **MovementComponent** - Path-following movement with async operations
+- **ResistanceComponent** - Damage type resistances and immunities
+- **AbilityComponent** - Enemy special abilities and cooldown management
+
+#### **Configuration System:**
+- **EnemyConfig** - Game logic configuration (health, speed, resistances, abilities)
+- **EnemyVisualConfig** - Visual assets (prefabs, animations, sounds, effects)
+- **EnemyConfigRepository** - Centralized configuration management
+
+#### **Enemy Types Supported:**
+11 enemy types from design document:
+- **Basic**: Animals, Magical Creatures
+- **Infantry**: Bandits, Warriors, Knights, Mercenaries
+- **Support**: Bards, Alchemists, Priests
+- **Elite**: Monsters, Succubi
+
+#### **Key Features:**
+- **Reactive Programming** - R3 integration for health, position, movement state
+- **Object Pooling** - Full IPoolable implementation for performance
+- **Path Integration** - Uses existing LevelMap and SpawnPoint system
+- **Dependency Injection** - Zenject integration for service access
+- **Component-Based** - Modular design for easy extension
+
+#### **Service Architecture:**
+```
+WaveService (planned) → EnemyService → Enemy instances
+                     ↓
+              EnemyConfigRepository → Configs
+                     ↓
+              IPoolService + IGameFactory
+```
+
+**EnemyService** provides:
+- `SpawnEnemy(EnemyType, Vector3)` - Create enemy at position
+- `SpawnEnemyAtSpawnPoint(EnemyType)` - Use level's spawn point
+- `GetAliveEnemiesCount()` - Track active enemies
+- `ClearAllEnemies()` - Cleanup for level transitions
+- Events: `OnEnemySpawned`, `OnEnemyDied`, `OnEnemyReachedBase`
+
+#### **Integration Points:**
+- **SpawnPoint** - Uses existing path system for enemy spawn locations
+- **LevelMap** - Automatic path following from spawn to end point
+- **IPoolService** - Performance optimization through object reuse
+- **IConfigService** - Configuration loading from Resources/Configs/
+
+#### **Configuration Assets:**
+
+**Game Logic Configurations (Assets/Resources/Configs/Enemies/):**
+- AnimalConfig.asset - Animal stats (HP: 50, Speed: 4.0)
+- MagicalCreatureConfig.asset - Magical creature stats (HP: 80, Speed: 3.5)
+- BanditConfig.asset - Bandit stats (HP: 100, Speed: 3.5)
+- WarriorConfig.asset - Warrior stats (HP: 150, Speed: 2.5)
+- KnightConfig.asset - Knight stats (HP: 250, Speed: 2.0)
+- MercenaryConfig.asset - Mercenary stats (HP: 180, Speed: 3.0)
+- BardConfig.asset - Bard stats with speed boost ability
+- AlchemistConfig.asset - Alchemist stats with heal ability
+- PriestConfig.asset - Priest stats with shield ability
+- MonsterConfig.asset - Monster stats with area attack
+- SuccubusConfig.asset - Succubus stats with charm ability
+
+**Visual Configurations (Assets/Resources/Configs/EnemiesVisual/):**
+- AnimalVisualConfig.asset - Animal prefabs and animations
+- MagicalCreatureVisualConfig.asset - Magical creature visuals
+- BanditVisualConfig.asset - Bandit visuals
+- WarriorVisualConfig.asset - Warrior visuals
+- KnightVisualConfig.asset - Knight visuals
+- MercenaryVisualConfig.asset - Mercenary visuals
+- BardVisualConfig.asset - Bard visuals
+- AlchemistVisualConfig.asset - Alchemist visuals
+- PriestVisualConfig.asset - Priest visuals
+- MonsterVisualConfig.asset - Monster visuals
+- SuccubusVisualConfig.asset - Succubus visuals
+
+**Repository:**
+- EnemyConfigRepository.asset - Central registry ready for Unity Editor setup (11 game + 11 visual configs)
+
+**Status:** All configurations created with correct GUID references and Unity recognition. Ready for EnemyService usage.
+
+#### **File Structure:**
+```
+Assets/Scripts/Game/Enemy/
+├── Components/           # Modular enemy components
+│   ├── HealthComponent.cs
+│   ├── MovementComponent.cs
+│   ├── ResistanceComponent.cs
+│   └── AbilityComponent.cs
+├── Configs/             # Configuration system
+│   ├── EnemyConfig.cs
+│   ├── EnemyVisualConfig.cs
+│   └── EnemyConfigRepository.cs
+├── Services/            # Enemy management
+│   ├── IEnemyService.cs
+│   └── EnemyService.cs
+├── Enemy.cs            # Main enemy class
+├── EnemyType.cs        # Enemy type enumeration
+├── EnemyCategory.cs    # Category grouping
+├── ResistanceType.cs   # Resistance types
+└── AbilityType.cs      # Ability types
+```
+
 ---
 
 ## 🎨 UI Architecture
@@ -347,15 +458,16 @@ projectile.ReturnToPool();
 - **Camera Controller** - MonoBehaviour-based camera positioning and control
 - **Level Service** - Level management and configuration
 - **Wave Service** - Enemy wave spawning system
+- **Enemy System** - Complete universal enemy architecture with all 11 enemy types ✅ **FULLY CONFIGURED**
 - **Basic Gameplay** - Tower and projectile mechanics
 - **UI Foundation** - Page-based system with animations
 - **Path System** - Complete level design tools and waypoint system
 - **Editor Tools** - Comprehensive path management and validation
+- **Enemy Configurations** - All 11 enemy configs with proper Unity recognition and .meta files ✅ **COMPLETE**
 
 ### 🔄 In Development
 - **Spline System** - Smooth path generation from waypoints
-- **Enemy Movement** - Path-following AI system
-- **Game Scene Services** - Battle, wave, and hero management
+- **Game Scene Services** - Battle and hero management
 - **Advanced UI** - Game-specific pages and HUD
 - **Audio System** - Sound effects and music management
 
