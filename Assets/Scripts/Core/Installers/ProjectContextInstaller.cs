@@ -57,11 +57,14 @@ namespace Game.Installers
         {
             Debug.Log("[ProjectContextInstaller] Creating PoolService as MonoBehaviour...");
             
-            // Create PoolService as MonoBehaviour component
+            // Create PoolService as MonoBehaviour component with proper Zenject binding
             var poolServiceGO = new GameObject("[PoolService]");
             var poolService = poolServiceGO.AddComponent<PoolService>();
             DontDestroyOnLoad(poolServiceGO);
+            
+            // Bind and inject dependencies
             Container.Bind<IPoolService>().FromInstance(poolService).AsSingle();
+            Container.QueueForInject(poolService); // Это вызовет Construct()
             
             Debug.Log("[ProjectContextInstaller] ✓ PoolService: Object pooling for performance optimization");
         }

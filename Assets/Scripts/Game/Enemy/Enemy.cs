@@ -104,6 +104,8 @@ namespace Game.Enemy
             
             if (_movementComponent != null)
             {
+                // Подписываемся на событие достижения конечной точки
+                _movementComponent.OnReachedEndPoint = OnReachedEndPoint;
                 _movementComponent.StartMovement(levelMap);
             }
         }
@@ -180,8 +182,59 @@ namespace Game.Enemy
             // Останавливаем движение
             StopMovement();
             
+            // Отписываемся от событий движения
+            if (_movementComponent != null)
+            {
+                _movementComponent.OnReachedEndPoint = null;
+            }
+            
             // Возвращаем в пул через небольшую задержку
             Invoke(nameof(ReturnToPool), 1f);
+        }
+        
+        /// <summary>
+        /// Вызывается при достижении конечной точки
+        /// </summary>
+        private void OnReachedEndPoint()
+        {
+            Debug.Log($"Enemy {EnemyType} reached the end point! Attacking player base...");
+            
+            // TODO: Здесь будет логика атаки базы игрока
+            // Пока просто имитируем атаку базы
+            PerformBaseAttack();
+            
+            // Останавливаем движение
+            StopMovement();
+            
+            // Отписываемся от событий движения
+            if (_movementComponent != null)
+            {
+                _movementComponent.OnReachedEndPoint = null;
+            }
+            
+            // Возвращаем в пул через короткую задержку
+            Invoke(nameof(ReturnToPool), 0.5f);
+        }
+        
+        /// <summary>
+        /// Имитация атаки базы (заглушка)
+        /// </summary>
+        private void PerformBaseAttack()
+        {
+            if (_config != null)
+            {
+                int damage = _config.damage;
+                Debug.Log($"Enemy {EnemyType} deals {damage} damage to player base!");
+                
+                // TODO: Здесь будет:
+                // 1. Получение EndPoint из LevelMap
+                // 2. Нанесение урона базе
+                // 3. Проверка состояния базы (поражение игрока)
+                // 4. Отображение эффектов атаки
+                
+                // Пока просто логируем
+                Debug.Log($"[PLACEHOLDER] Base takes {damage} damage! Implement base health system.");
+            }
         }
         
         #region IPoolable Implementation
@@ -196,6 +249,13 @@ namespace Game.Enemy
         {
             // Сброс состояния
             StopMovement();
+            
+            // Отписываемся от всех событий
+            if (_movementComponent != null)
+            {
+                _movementComponent.OnReachedEndPoint = null;
+            }
+            
             _config = null;
             _isInitialized = false;
             
@@ -255,6 +315,30 @@ namespace Game.Enemy
         public AbilityComponent GetAbilityComponent()
         {
             return _abilityComponent;
+        }
+        
+        /// <summary>
+        /// Безопасная проверка состояния жизни
+        /// </summary>
+        public bool IsAliveSafe()
+        {
+            try
+            {
+                return gameObject != null && 
+                       gameObject.activeInHierarchy &&
+                       _healthComponent != null &&
+                       IsAlive != null && 
+                       !IsAlive.IsDisposed && 
+                       IsAlive.Value;
+            }
+            catch (System.ObjectDisposedException)
+            {
+                return false;
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
         }
         
         private void OnDestroy()

@@ -58,11 +58,45 @@ namespace Game.Services
                 instance.transform.position = position;
                 instance.transform.rotation = rotation;
                 instance.SetActive(true);
+                
+                // Обновляем имя при получении из пула
+                if (!instance.name.Contains("_Active"))
+                {
+                    instance.name = instance.name.Replace("_Pooled", "_Active");
+                }
+                
                 component = instance.GetComponent<T>();
             }
             else
             {
+                Debug.Log($"[PoolService] Creating new instance of {prefab.name} - no objects available in pool");
+                Debug.Log($"[PoolService] GameFactory: {(gameFactory != null ? "OK" : "NULL")}");
+                Debug.Log($"[PoolService] Prefab.gameObject: {(prefab.gameObject != null ? prefab.gameObject.name : "NULL")}");
+                
+                if (gameFactory == null)
+                {
+                    Debug.LogError($"[PoolService] GameFactory is null! Cannot create {prefab.name}");
+                    return null;
+                }
+                
+                if (prefab.gameObject == null)
+                {
+                    Debug.LogError($"[PoolService] Prefab.gameObject is null for {prefab.name}!");
+                    return null;
+                }
+                
                 instance = gameFactory.Create(prefab.gameObject, position, parent);
+                
+                if (instance == null)
+                {
+                    Debug.LogError($"[PoolService] GameFactory.Create returned null for {prefab.name}!");
+                    return null;
+                }
+                
+                // Улучшаем именование объектов
+                instance.name = $"{prefab.name}_Pooled";
+                
+                Debug.Log($"[PoolService] Successfully created {instance.name}");
                 instance.transform.rotation = rotation;
                 instanceToPoolId[instance] = poolId;
                 component = instance.GetComponent<T>();
@@ -103,6 +137,9 @@ namespace Game.Services
                 // Call OnReturnToPool if object supports IPoolable
                 var poolable = instance.GetComponent<IPoolable>();
                 poolable?.OnReturnToPool();
+                
+                // Обновляем имя при возврате в пул
+                instance.name = instance.name.Replace("_Active", "_Pooled");
                 
                 instance.SetActive(false);
                 instance.transform.SetParent(poolParents[poolId]);

@@ -5,9 +5,9 @@ using UnityEngine;
 using Zenject;
 using Cysharp.Threading.Tasks;
 using Game.Services;
+using Game.Configs.Enemy;
 using Game.Path;
 using Game.Wave;
-using Game.Configs.Enemy;
 
 namespace Game.Enemy.Services
 {
@@ -41,9 +41,7 @@ namespace Game.Enemy.Services
             // Инициализируем cancellation token
             cancellationTokenSource = new System.Threading.CancellationTokenSource();
             
-            // Получаем репозиторий конфигураций
-           // enemyConfigRepository = configService.GetConfig<EnemyConfigRepository>();
-            
+            // Проверяем репозиторий конфигураций
             if (enemyConfigRepository == null)
             {
                 Debug.LogError("[EnemyService] EnemyConfigRepository not found! Make sure it's in Resources/Configs/");
@@ -120,7 +118,9 @@ namespace Game.Enemy.Services
             // Получаем конфигурации
             var enemyConfig = enemyConfigRepository?.GetEnemyConfig(enemyType);
             var visualConfig = enemyConfigRepository?.GetEnemyVisualConfig(enemyType);
-            Debug.Log(enemyConfigRepository.EnemyConfigs.Count);
+            
+            Debug.Log($"[EnemyService] EnemyConfigRepository has {enemyConfigRepository?.EnemyConfigs?.Count ?? 0} configs and {enemyConfigRepository?.EnemyVisualConfigs?.Count ?? 0} visual configs");
+            Debug.Log($"[EnemyService] Trying to spawn enemy type: {enemyType} (int value: {(int)enemyType})");
             
             if (enemyConfig == null)
             {
@@ -134,11 +134,22 @@ namespace Game.Enemy.Services
                 return null;
             }
             
+            Debug.Log($"[EnemyService] Visual config found for {enemyType}. Prefab: {(visualConfig.enemyPrefab != null ? visualConfig.enemyPrefab.name : "NULL")}");
+            
             if (visualConfig.enemyPrefab == null)
             {
                 Debug.LogError($"[EnemyService] No prefab found in visual config for enemy type: {enemyType}");
                 return null;
             }
+            
+            var enemyComponentOnPrefab = visualConfig.enemyPrefab.GetComponent<Enemy>();
+            if (enemyComponentOnPrefab == null)
+            {
+                Debug.LogError($"[EnemyService] Prefab {visualConfig.enemyPrefab.name} does not have Enemy component!");
+                return null;
+            }
+            
+            Debug.Log($"[EnemyService] About to spawn {enemyType} using prefab {visualConfig.enemyPrefab.name} at {position}");
             
             // Создаем врага через пул
             var enemyComponent = poolService.Get(
@@ -178,6 +189,13 @@ namespace Game.Enemy.Services
             
             // Подписываемся на события врага
             SubscribeToEnemyEvents(enemyComponent, waveNumber);
+            
+            // Подписываемся на событие достижения конечной точки
+            var movementComponent = enemyComponent.GetMovementComponent();
+            if (movementComponent != null)
+            {
+                movementComponent.OnReachedEndPoint += () => HandleEnemyReachedBase(enemyComponent, waveNumber);
+            }
             
             // Запускаем движение, если есть карта
             if (currentLevelMap != null)
@@ -269,9 +287,7 @@ namespace Game.Enemy.Services
             
             // Очищаем список от мертвых врагов
             enemiesByWave[waveNumber] = enemiesByWave[waveNumber].Where(enemy => 
-                enemy != null && 
-                enemy.gameObject != null && 
-                enemy.IsAlive.Value
+                enemy != null && enemy.IsAliveSafe()
             ).ToList();
             
             return enemiesByWave[waveNumber].ToArray();
@@ -298,6 +314,13 @@ namespace Game.Enemy.Services
             {
                 if (enemy != null)
                 {
+                    // Отписываемся от событий движения
+                    var movementComponent = enemy.GetMovementComponent();
+                    if (movementComponent != null)
+                    {
+                        movementComponent.OnReachedEndPoint = null;
+                    }
+                    
                     enemy.GetHealthComponent()?.Kill();
                 }
             }
@@ -321,10 +344,31 @@ namespace Game.Enemy.Services
         /// </summary>
         private void SubscribeToEnemyEvents(Enemy enemy, int waveNumber)
         {
-            if (enemy?.IsAlive != null)
+            if (enemy != null && enemy.gameObject != null && enemy.gameObject.activeInHierarchy)
             {
-                // Используем UniTask для мониторинга
-                MonitorEnemyHealth(enemy, waveNumber).Forget();
+                // Проверяем, что IsAlive инициализирован и не disposed
+                if (enemy.IsAlive != null && !enemy.IsAlive.IsDisposed)
+                {
+                    // Проверяем, что HealthComponent существует
+                    var healthComponent = enemy.GetHealthComponent();
+                    if (healthComponent != null)
+                    {
+                        // Используем UniTask для мониторинга
+                        MonitorEnemyHealth(enemy, waveNumber).Forget();
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"[EnemyService] Enemy {enemy.name} HealthComponent is null! Skipping health monitoring.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"[EnemyService] Enemy {enemy.name} IsAlive property is null or disposed! Skipping health monitoring.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"[EnemyService] Enemy is null, destroyed or inactive! Skipping event subscription.");
             }
         }
         
@@ -333,6 +377,24 @@ namespace Game.Enemy.Services
         /// </summary>
         private async UniTaskVoid MonitorEnemyHealth(Enemy enemy, int waveNumber)
         {
+            // Проверка на начальное состояние
+            if (enemy == null)
+            {
+                Debug.LogError("[EnemyService] MonitorEnemyHealth called with null enemy!");
+                return;
+            }
+            
+            if (isDisposed)
+            {
+                Debug.LogWarning("[EnemyService] MonitorEnemyHealth called but service is disposed");
+                return;
+            }
+            
+            if (cancellationTokenSource == null || cancellationTokenSource.Token.IsCancellationRequested)
+            {
+                return; // Молчаливо выходим, это нормально при dispose
+            }
+            
             bool wasAlive = true;
             var cancellationToken = cancellationTokenSource.Token;
             
@@ -340,7 +402,45 @@ namespace Game.Enemy.Services
             {
                 while (enemy != null && enemy.gameObject != null && !cancellationToken.IsCancellationRequested)
                 {
-                    bool isCurrentlyAlive = enemy.IsAlive.Value;
+                    // Проверяем, что враг все еще активен и не начал уничтожение
+                    if (!enemy.gameObject.activeInHierarchy)
+                    {
+                        Debug.Log($"[EnemyService] Enemy {enemy.name} became inactive, stopping monitoring");
+                        return;
+                    }
+                    
+                    // Проверяем, что IsAlive все еще существует и не disposed
+                    if (enemy.IsAlive == null || enemy.IsAlive.IsDisposed)
+                    {
+                        Debug.LogWarning($"[EnemyService] Enemy {enemy.name} IsAlive became null or disposed during monitoring!");
+                        return;
+                    }
+                    
+                    // Проверяем, что HealthComponent все еще существует
+                    var healthComponent = enemy.GetHealthComponent();
+                    if (healthComponent == null)
+                    {
+                        Debug.LogWarning($"[EnemyService] Enemy {enemy.name} HealthComponent became null during monitoring!");
+                        return;
+                    }
+                    
+                    bool isCurrentlyAlive;
+                    try
+                    {
+                        isCurrentlyAlive = enemy.IsAliveSafe();
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Debug.LogWarning($"[EnemyService] Error checking IsAliveSafe for enemy {enemy?.name}: {ex.Message}");
+                        return;
+                    }
+                    
+                    // Если метод вернул false, значит враг больше не валиден
+                    if (!isCurrentlyAlive && !wasAlive)
+                    {
+                        // Враг уже не валиден, прекращаем мониторинг
+                        return;
+                    }
                     
                     if (wasAlive && !isCurrentlyAlive)
                     {
@@ -357,8 +457,43 @@ namespace Game.Enemy.Services
                 // Нормальное завершение при отмене
                 return;
             }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"[EnemyService] Unexpected error in MonitorEnemyHealth: {ex.Message}");
+                Debug.LogException(ex);
+            }
         }
         
+        /// <summary>
+        /// Обработка достижения врагом базы
+        /// </summary>
+        private void HandleEnemyReachedBase(Enemy enemy, int waveNumber)
+        {
+            if (enemy == null) return;
+            
+            Debug.Log($"[EnemyService] Enemy {enemy.EnemyType} reached player base!");
+            
+            // Убираем из списка живых
+            aliveEnemies.Remove(enemy);
+            
+            // Убираем из списка волны
+            if (waveNumber >= 0 && enemiesByWave.ContainsKey(waveNumber))
+            {
+                enemiesByWave[waveNumber].Remove(enemy);
+                
+                // Проверяем, завершена ли волна
+                if (IsWaveCompleted(waveNumber))
+                {
+                    Debug.Log($"[EnemyService] Wave {waveNumber} completed after enemy reached base!");
+                    OnWaveCompleted?.Invoke(waveNumber);
+                }
+            }
+            
+            // Вызываем событие
+            OnEnemyReachedBase?.Invoke(enemy);
+            
+            Debug.Log($"[EnemyService] Enemy {enemy.EnemyType} handled for reaching base (will be returned to pool by Enemy class)");
+        }
         /// <summary>
         /// Обработка смерти врага
         /// </summary>
@@ -396,9 +531,7 @@ namespace Game.Enemy.Services
             if (isDisposed) return;
             
             aliveEnemies = aliveEnemies.Where(enemy => 
-                enemy != null && 
-                enemy.gameObject != null && 
-                enemy.IsAlive.Value
+                enemy != null && enemy.IsAliveSafe()
             ).ToList();
         }
         

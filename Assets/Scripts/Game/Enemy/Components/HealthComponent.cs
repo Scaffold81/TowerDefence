@@ -84,9 +84,23 @@ namespace Game.Enemy.Components
         
         private void OnDestroy()
         {
-            _health?.Dispose();
-            _maxHealth?.Dispose();
-            _isAlive?.Dispose();
+            // Отмечаем как мертвого перед dispose
+            if (_isAlive != null && !_isAlive.IsDisposed)
+            {
+                _isAlive.Value = false;
+            }
+            
+            // Dispose в самом конце
+            try
+            {
+                _health?.Dispose();
+                _maxHealth?.Dispose();
+                _isAlive?.Dispose();
+            }
+            catch (System.ObjectDisposedException)
+            {
+                // Уже был disposed, игнорируем
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 using R3;
 using Cysharp.Threading.Tasks;
 using Game.Path;
+using System;
 
 namespace Game.Enemy.Components
 {
@@ -24,6 +25,9 @@ namespace Game.Enemy.Components
         private int _currentWaypointIndex = 0;
         private LevelMap _levelMap;
         private bool _isInitialized = false;
+        
+        // События
+        public System.Action OnReachedEndPoint { get; set; }
         
         public ReactiveProperty<Vector3> Position => _position;
         public ReactiveProperty<bool> IsMoving => _isMoving;
@@ -159,8 +163,10 @@ namespace Game.Enemy.Components
         {
             _isMoving.Value = false;
             
-            // Здесь можно добавить логику достижения базы игрока
             Debug.Log($"{gameObject.name} reached the end of path!");
+            
+            // Уведомляем о достижении конечной точки
+            OnReachedEndPoint?.Invoke();
         }
         
         private void Update()

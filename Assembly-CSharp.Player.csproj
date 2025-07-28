@@ -112,12 +112,14 @@
     <Compile Include="Assets\Scripts\Game\Path\LevelMap.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Game\Path\IntermediateWaypoint.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\Config_UNUSED\ConfigService.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\ResistanceType.cs" />
     <Compile Include="Assets\Scripts\Core\ConfigsExample\LevelConfig.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Factory\GameFactory.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\EnemyCategory.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\Services\EnemyService.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Wave\IWaveService.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\Config_UNUSED\IConfigService.cs" />
     <Compile Include="Assets\Scripts\Core\Enums\SceneId.cs" />
     <Compile Include="Assets\Scripts\Core\ConfigsExample\AudioConfig.cs" />
     <Compile Include="Assets\Scripts\Game\Path\PathSystemTest.cs" />
