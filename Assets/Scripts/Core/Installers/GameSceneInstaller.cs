@@ -1,6 +1,7 @@
 using Game.Path;
 using Game.Services;
 using Game.Enemy.Services;
+using Core.Services.Spline;
 using UnityEngine;
 using Zenject;
 
@@ -44,6 +45,10 @@ namespace Game.Installers
             // Level service - manages current level state and configuration
             Container.Bind<ILevelService>().To<LevelService>().AsSingle().NonLazy();
             Debug.Log("[GameSceneInstaller] ✓ LevelService: Level management and configuration");
+            
+            // Spline system - generates smooth paths from waypoints for enemy movement and designer reference
+            Container.Bind<ISplineSystem>().To<SplineSystem>().AsSingle();
+            Debug.Log("[GameSceneInstaller] ✓ SplineSystem: Catmull-Rom spline generation for smooth paths");
             
             // Future services that will be added as the project evolves:
             

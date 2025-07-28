@@ -81,6 +81,8 @@
     <Compile Include="Assets\Scripts\Core\ConfigsExample\GameConfig.cs" />
     <Compile Include="Assets\Scripts\Game\Wave\WaveModifiers.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\Configs\EnemyConfig.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\Spline\SplinePoint.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\Spline\SplineSettings.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\Configs\EnemyVisualConfig.cs" />
     <Compile Include="Assets\Scripts\Core\ConfigsExample\LevelConfigRepository.cs" />
     <Compile Include="Assets\Scripts\Testing\WaveSystemTester.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="Assets\Scripts\Core\Services\Scene\ISceneManagerService.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Pool\PoolableObject.cs" />
     <Compile Include="Assets\Scripts\UI\Base\IPageBase.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\Spline\ISplineSystem.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Pool\IPoolService.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Save\ISaveService.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\Components\MovementComponent.cs" />
@@ -102,13 +105,16 @@
     <Compile Include="Assets\Scripts\Core\Services\Pool\PoolService.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Camera\CameraService.cs" />
     <Compile Include="Assets\Scripts\UI\Base\PageBase.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\Spline\BakedSplineData.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Save\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\Configs\EnemyConfigRepository.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\Services\IEnemyService.cs" />
     <Compile Include="Assets\Scripts\Core\Services\UI\IUIPageService.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\Spline\SplineMarker.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Level\ILevelService.cs" />
     <Compile Include="Assets\Scripts\Game\Path\EndPoint.cs" />
     <Compile Include="Assets\Scripts\Game\Path\Waypoint.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\Spline\SplineSystem.cs" />
     <Compile Include="Assets\Scripts\Game\Path\LevelMap.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Game\Path\IntermediateWaypoint.cs" />
@@ -119,6 +125,7 @@
     <Compile Include="Assets\Scripts\Game\Enemy\EnemyCategory.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\Services\EnemyService.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Wave\IWaveService.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\Spline\SplineGenerator.cs" />
     <Compile Include="Assets\Scripts\Core\Services\Config_UNUSED\IConfigService.cs" />
     <Compile Include="Assets\Scripts\Core\Enums\SceneId.cs" />
     <Compile Include="Assets\Scripts\Core\ConfigsExample\AudioConfig.cs" />

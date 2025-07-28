@@ -61,9 +61,13 @@
     <Analyzer Include="D:\UnityHubEditor\6000.0.47f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Editor\Spline\SplineSceneGUI.cs" />
     <Compile Include="Assets\Scripts\Editor\Path\LevelMapEditor.cs" />
+    <Compile Include="Assets\Scripts\Editor\PropertyDrawers\ReadOnlyPropertyDrawer.cs" />
     <Compile Include="Assets\Scripts\Editor\Path\WaypointEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\Path\PathManagerWindow.cs" />
+    <Compile Include="Assets\Scripts\Editor\Spline\SplineBaker.cs" />
+    <Compile Include="Assets\Scripts\Editor\Spline\SplineAutoBaker.cs" />
     <Compile Include="Assets\Scripts\Editor\Path\PathValidator.cs" />
     <Compile Include="Assets\Scripts\Editor\Path\WaypointPlacementHelper.cs" />
   </ItemGroup>

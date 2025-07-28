@@ -880,6 +880,3816 @@ MonoBehaviour:
   - {fileID: 2817872397014511199}
   _autoValidate: 1
   _showValidationErrors: 1
+  _useSplines: 1
+  _splineSettings:
+    sampleDistance: 0.5
+    lengthCalculationSamples: 20
+    markerSpacing: 2
+    autoMarkSharpTurns: 1
+    sharpTurnThreshold: 0.7
+    minSpeedMultiplier: 0.3
+    maxSpeedMultiplier: 1
+    quality: 50
+  _bakedSplineData:
+    referencePoints:
+    - position: {x: -40.6, y: 0, z: -10.099998}
+      forward: {x: 0.99991745, y: 0, z: 0.012851334}
+      up: {x: 0, y: 1, z: 0}
+      distance: 0
+      speedMultiplier: 0.8621831
+      waypointIndex: 0
+      curvature: 0.09844063
+    - position: {x: -40.106052, y: 0, z: -10.105102}
+      forward: {x: 0.9995066, y: 0, z: -0.03141061}
+      up: {x: 0, y: 1, z: 0}
+      distance: 0.49397245
+      speedMultiplier: 0.886877
+      waypointIndex: 0
+      curvature: 0.08080214
+    - position: {x: -39.61443, y: 0, z: -10.1296625}
+      forward: {x: 0.99778295, y: 0, z: -0.066552244}
+      up: {x: 0, y: 1, z: 0}
+      distance: 0.9862085
+      speedMultiplier: 0.9129453
+      waypointIndex: 0
+      curvature: 0.06218193
+    - position: {x: -39.124573, y: 0, z: -10.169106}
+      forward: {x: 0.9957271, y: 0, z: -0.092344925}
+      up: {x: 0, y: 1, z: 0}
+      distance: 1.4776506
+      speedMultiplier: 0.93966377
+      waypointIndex: 0
+      curvature: 0.043097276
+    - position: {x: -38.635944, y: 0, z: -10.218852}
+      forward: {x: 0.99407136, y: 0, z: -0.10872984}
+      up: {x: 0, y: 1, z: 0}
+      distance: 1.9688048
+      speedMultiplier: 0.96661824
+      waypointIndex: 0
+      curvature: 0.023844143
+    - position: {x: -38.147995, y: 0, z: -10.274329}
+      forward: {x: 0.99328256, y: 0, z: -0.11571412}
+      up: {x: 0, y: 1, z: 0}
+      distance: 2.4598978
+      speedMultiplier: 0.99362606
+      waypointIndex: 0
+      curvature: 0.0045528044
+    - position: {x: -37.66018, y: 0, z: -10.330924}
+      forward: {x: 0.99356955, y: 0, z: -0.11322335}
+      up: {x: 0, y: 1, z: 0}
+      distance: 2.9509857
+      speedMultiplier: 0.97936213
+      waypointIndex: 0
+      curvature: 0.014741323
+    - position: {x: -37.17194, y: 0, z: -10.383946}
+      forward: {x: 0.99485976, y: 0, z: -0.10126262}
+      up: {x: 0, y: 1, z: 0}
+      distance: 3.4420955
+      speedMultiplier: 0.9523703
+      waypointIndex: 0
+      curvature: 0.034021232
+    - position: {x: -36.682728, y: 0, z: -10.42881}
+      forward: {x: 0.9968032, y: 0, z: -0.079895474}
+      up: {x: 0, y: 1, z: 0}
+      distance: 3.9333603
+      speedMultiplier: 0.92550546
+      waypointIndex: 0
+      curvature: 0.05321039
+    - position: {x: -36.192, y: 0, z: -10.460938}
+      forward: {x: 0.99879193, y: 0, z: -0.049140047}
+      up: {x: 0, y: 1, z: 0}
+      distance: 4.4251375
+      speedMultiplier: 0.8990619
+      waypointIndex: 0
+      curvature: 0.072098635
+    - position: {x: -35.69921, y: 0, z: -10.475756}
+      forward: {x: 0.9999584, y: 0, z: -0.009121701}
+      up: {x: 0, y: 1, z: 0}
+      distance: 4.9181504
+      speedMultiplier: 0.8736116
+      waypointIndex: 0
+      curvature: 0.090277426
+    - position: {x: -35.203815, y: 0, z: -10.468648}
+      forward: {x: 0.999208, y: 0, z: 0.039792586}
+      up: {x: 0, y: 1, z: 0}
+      distance: 5.413597
+      speedMultiplier: 0.8500636
+      waypointIndex: 0
+      curvature: 0.107097395
+    - position: {x: -34.705208, y: 0, z: -10.434546}
+      forward: {x: 0.9952855, y: 0, z: 0.09698894}
+      up: {x: 0, y: 1, z: 0}
+      distance: 5.9133697
+      speedMultiplier: 0.82971275
+      waypointIndex: 0
+      curvature: 0.12163372
+    - position: {x: -34.202892, y: 0, z: -10.369248}
+      forward: {x: 0.9869365, y: 0, z: 0.1611099}
+      up: {x: 0, y: 1, z: 0}
+      distance: 6.4199114
+      speedMultiplier: 0.8139337
+      waypointIndex: 0
+      curvature: 0.1329045
+    - position: {x: -33.69631, y: 0, z: -10.268174}
+      forward: {x: 0.9730886, y: 0, z: 0.23043123}
+      up: {x: 0, y: 1, z: 0}
+      distance: 6.9364805
+      speedMultiplier: 0.80404025
+      waypointIndex: 0
+      curvature: 0.13997123
+    - position: {x: -33.184933, y: 0, z: -10.12675}
+      forward: {x: 0.9530553, y: 0, z: 0.30279616}
+      up: {x: 0, y: 1, z: 0}
+      distance: 7.4670515
+      speedMultiplier: 0.80091095
+      waypointIndex: 0
+      curvature: 0.14220648
+    - position: {x: -32.705868, y: 0, z: -9.955688}
+      forward: {x: 0.9307767, y: 0, z: 0.36558825}
+      up: {x: 0, y: 1, z: 0}
+      distance: 7.9757414
+      speedMultiplier: 0.86634535
+      waypointIndex: 1
+      curvature: 0.095467605
+    - position: {x: -32.308426, y: 0, z: -9.790853}
+      forward: {x: 0.9164285, y: 0, z: 0.40019846}
+      up: {x: 0, y: 1, z: 0}
+      distance: 8.40601
+      speedMultiplier: 0.88911134
+      waypointIndex: 1
+      curvature: 0.079206176
+    - position: {x: -31.898674, y: 0, z: -9.6033745}
+      forward: {x: 0.90284353, y: 0, z: 0.4299693}
+      up: {x: 0, y: 1, z: 0}
+      distance: 8.856614
+      speedMultiplier: 0.90606946
+      waypointIndex: 1
+      curvature: 0.06709325
+    - position: {x: -31.479034, y: 0, z: -9.3959}
+      forward: {x: 0.8899245, y: 0, z: 0.45610785}
+      up: {x: 0, y: 1, z: 0}
+      distance: 9.324741
+      speedMultiplier: 0.91904545
+      waypointIndex: 1
+      curvature: 0.05782465
+    - position: {x: -31.050953, y: 0, z: -9.169169}
+      forward: {x: 0.877666, y: 0, z: 0.47927278}
+      up: {x: 0, y: 1, z: 0}
+      distance: 9.809159
+      speedMultiplier: 0.9289539
+      waypointIndex: 1
+      curvature: 0.05074726
+    - position: {x: -30.61632, y: 0, z: -8.924813}
+      forward: {x: 0.8659813, y: 0, z: 0.5000765}
+      up: {x: 0, y: 1, z: 0}
+      distance: 10.307774
+      speedMultiplier: 0.9365659
+      waypointIndex: 1
+      curvature: 0.045310088
+    - position: {x: -30.177073, y: 0, z: -8.66479}
+      forward: {x: 0.854752, y: 0, z: 0.5190367}
+      up: {x: 0, y: 1, z: 0}
+      distance: 10.818214
+      speedMultiplier: 0.9424522
+      waypointIndex: 1
+      curvature: 0.041105583
+    - position: {x: -29.734816, y: 0, z: -8.389684}
+      forward: {x: 0.84392047, y: 0, z: 0.5364684}
+      up: {x: 0, y: 1, z: 0}
+      distance: 11.339055
+      speedMultiplier: 0.9468893
+      waypointIndex: 1
+      curvature: 0.03793623
+    - position: {x: -29.29151, y: 0, z: -8.101759}
+      forward: {x: 0.83336186, y: 0, z: 0.55272776}
+      up: {x: 0, y: 1, z: 0}
+      distance: 11.867658
+      speedMultiplier: 0.95021
+      waypointIndex: 1
+      curvature: 0.035564303
+    - position: {x: -28.8489, y: 0, z: -7.8023214}
+      forward: {x: 0.8229721, y: 0, z: 0.56808186}
+      up: {x: 0, y: 1, z: 0}
+      distance: 12.402041
+      speedMultiplier: 0.95257586
+      waypointIndex: 1
+      curvature: 0.03387438
+    - position: {x: -28.408888, y: 0, z: -7.492535}
+      forward: {x: 0.81267184, y: 0, z: 0.58272165}
+      up: {x: 0, y: 1, z: 0}
+      distance: 12.940166
+      speedMultiplier: 0.9540789
+      waypointIndex: 1
+      curvature: 0.032800782
+    - position: {x: -27.973116, y: 0, z: -7.1743546}
+      forward: {x: 0.8023312, y: 0, z: 0.59687907}
+      up: {x: 0, y: 1, z: 0}
+      distance: 13.479736
+      speedMultiplier: 0.9548296
+      waypointIndex: 1
+      curvature: 0.03226461
+    - position: {x: -27.543592, y: 0, z: -6.8489275}
+      forward: {x: 0.7918419, y: 0, z: 0.6107261}
+      up: {x: 0, y: 1, z: 0}
+      distance: 14.018618
+      speedMultiplier: 0.95482385
+      waypointIndex: 1
+      curvature: 0.032268673
+    - position: {x: -27.12205, y: 0, z: -6.517866}
+      forward: {x: 0.7810856, y: 0, z: 0.62442404}
+      up: {x: 0, y: 1, z: 0}
+      distance: 14.554622
+      speedMultiplier: 0.95406085
+      waypointIndex: 1
+      curvature: 0.03281366
+    - position: {x: -26.710018, y: 0, z: -6.1827393}
+      forward: {x: 0.76992714, y: 0, z: 0.63813186}
+      up: {x: 0, y: 1, z: 0}
+      distance: 15.085733
+      speedMultiplier: 0.9525084
+      waypointIndex: 1
+      curvature: 0.033922583
+    - position: {x: -26.31004, y: 0, z: -5.844844}
+      forward: {x: 0.7581703, y: 0, z: 0.65205663}
+      up: {x: 0, y: 1, z: 0}
+      distance: 15.609333
+      speedMultiplier: 0.95000476
+      waypointIndex: 1
+      curvature: 0.03571092
+    - position: {x: -25.923176, y: 0, z: -5.5058184}
+      forward: {x: 0.7456608, y: 0, z: 0.6663258}
+      up: {x: 0, y: 1, z: 0}
+      distance: 16.123728
+      speedMultiplier: 0.9464442
+      waypointIndex: 1
+      curvature: 0.038254127
+    - position: {x: -25.551464, y: 0, z: -5.167095}
+      forward: {x: 0.7321471, y: 0, z: 0.6811466}
+      up: {x: 0, y: 1, z: 0}
+      distance: 16.626623
+      speedMultiplier: 0.9415633
+      waypointIndex: 1
+      curvature: 0.04174048
+    - position: {x: -25.197123, y: 0, z: -4.830211}
+      forward: {x: 0.7173193, y: 0, z: 0.6967446}
+      up: {x: 0, y: 1, z: 0}
+      distance: 17.11555
+      speedMultiplier: 0.93495744
+      waypointIndex: 1
+      curvature: 0.046458945
+    - position: {x: -24.861145, y: 0, z: -4.496533}
+      forward: {x: 0.70084804, y: 0, z: 0.71331066}
+      up: {x: 0, y: 1, z: 0}
+      distance: 17.58907
+      speedMultiplier: 0.9261875
+      waypointIndex: 1
+      curvature: 0.0527232
+    - position: {x: -24.54624, y: 0, z: -4.1677275}
+      forward: {x: 0.6821769, y: 0, z: 0.73118716}
+      up: {x: 0, y: 1, z: 0}
+      distance: 18.044348
+      speedMultiplier: 0.9143494
+      waypointIndex: 1
+      curvature: 0.061179
+    - position: {x: -24.233793, y: 0, z: -3.8206577}
+      forward: {x: 0.64841104, y: 0, z: 0.76129043}
+      up: {x: 0, y: 1, z: 0}
+      distance: 18.51134
+      speedMultiplier: 0.7674838
+      waypointIndex: 2
+      curvature: 0.16608302
+    - position: {x: -23.900301, y: 0, z: -3.3928318}
+      forward: {x: 0.5813596, y: 0, z: 0.81364673}
+      up: {x: 0, y: 1, z: 0}
+      distance: 19.05379
+      speedMultiplier: 0.79404736
+      waypointIndex: 2
+      curvature: 0.14710905
+    - position: {x: -23.602358, y: 0, z: -2.9404485}
+      forward: {x: 0.5194633, y: 0, z: 0.8544928}
+      up: {x: 0, y: 1, z: 0}
+      distance: 19.595472
+      speedMultiplier: 0.8228017
+      waypointIndex: 2
+      curvature: 0.1265702
+    - position: {x: -23.3358, y: 0, z: -2.4681058}
+      forward: {x: 0.46458536, y: 0, z: 0.8855283}
+      up: {x: 0, y: 1, z: 0}
+      distance: 20.137838
+      speedMultiplier: 0.85164267
+      waypointIndex: 2
+      curvature: 0.1059695
+    - position: {x: -23.096462, y: 0, z: -1.9803954}
+      forward: {x: 0.41780317, y: 0, z: 0.9085376}
+      up: {x: 0, y: 1, z: 0}
+      distance: 20.68111
+      speedMultiplier: 0.879447
+      waypointIndex: 2
+      curvature: 0.08610928
+    - position: {x: -22.88018, y: 0, z: -1.481916}
+      forward: {x: 0.37963796, y: 0, z: 0.9251352}
+      up: {x: 0, y: 1, z: 0}
+      distance: 21.22449
+      speedMultiplier: 0.9058969
+      waypointIndex: 2
+      curvature: 0.067216516
+    - position: {x: -22.68279, y: 0, z: -0.97726226}
+      forward: {x: 0.35031208, y: 0, z: 0.93663305}
+      up: {x: 0, y: 1, z: 0}
+      distance: 21.766373
+      speedMultiplier: 0.9312564
+      waypointIndex: 2
+      curvature: 0.049102567
+    - position: {x: -22.500126, y: 0, z: -0.47103232}
+      forward: {x: 0.3299673, y: 0, z: 0.9439924}
+      up: {x: 0, y: 1, z: 0}
+      distance: 22.30455
+      speedMultiplier: 0.9562026
+      waypointIndex: 2
+      curvature: 0.031283822
+    - position: {x: -22.328024, y: 0, z: 0.032181244}
+      forward: {x: 0.31875595, y: 0, z: 0.9478368}
+      up: {x: 0, y: 1, z: 0}
+      distance: 22.83638
+      speedMultiplier: 0.9817439
+      waypointIndex: 2
+      curvature: 0.013040097
+    - position: {x: -22.162317, y: 0, z: 0.52778155}
+      forward: {x: 0.31705454, y: 0, z: 0.9484073}
+      up: {x: 0, y: 1, z: 0}
+      distance: 23.35895
+      speedMultiplier: 0.99077755
+      waypointIndex: 2
+      curvature: 0.006587461
+    - position: {x: -21.998844, y: 0, z: 1.0111723}
+      forward: {x: 0.32545012, y: 0, z: 0.9455592}
+      up: {x: 0, y: 1, z: 0}
+      distance: 23.869234
+      speedMultiplier: 0.95960623
+      waypointIndex: 2
+      curvature: 0.028852673
+    - position: {x: -21.83344, y: 0, z: 1.4777579}
+      forward: {x: 0.34484285, y: 0, z: 0.93866044}
+      up: {x: 0, y: 1, z: 0}
+      distance: 24.36427
+      speedMultiplier: 0.92243546
+      waypointIndex: 2
+      curvature: 0.055403233
+    - position: {x: -21.661943, y: 0, z: 1.9229406}
+      forward: {x: 0.37649667, y: 0, z: 0.926418}
+      up: {x: 0, y: 1, z: 0}
+      distance: 24.841343
+      speedMultiplier: 0.87625
+      waypointIndex: 2
+      curvature: 0.08839282
+    - position: {x: -21.48018, y: 0, z: 2.3421283}
+      forward: {x: 0.42189348, y: 0, z: 0.9066454}
+      up: {x: 0, y: 1, z: 0}
+      distance: 25.29824
+      speedMultiplier: 0.81727725
+      waypointIndex: 2
+      curvature: 0.13051626
+    - position: {x: -21.283997, y: 0, z: 2.7307234}
+      forward: {x: 0.48254055, y: 0, z: 0.8758736}
+      up: {x: 0, y: 1, z: 0}
+      distance: 25.733551
+      speedMultiplier: 0.74140334
+      waypointIndex: 2
+      curvature: 0.1847119
+    - position: {x: -21.06922, y: 0, z: 3.0841296}
+      forward: {x: 0.5592291, y: 0, z: 0.82901317}
+      up: {x: 0, y: 1, z: 0}
+      distance: 26.147102
+      speedMultiplier: 0.64586526
+      waypointIndex: 2
+      curvature: 0.25295338
+    - position: {x: -20.83169, y: 0, z: 3.3977504}
+      forward: {x: 0.6506169, y: 0, z: 0.75940615}
+      up: {x: 0, y: 1, z: 0}
+      distance: 26.540522
+      speedMultiplier: 0.53350776
+      waypointIndex: 2
+      curvature: 0.33320874
+    - position: {x: -20.486332, y: 0, z: 3.7537584}
+      forward: {x: 0.72643924, y: 0, z: 0.68723077}
+      up: {x: 0, y: 1, z: 0}
+      distance: 27.03652
+      speedMultiplier: 0.7855942
+      waypointIndex: 3
+      curvature: 0.15314698
+    - position: {x: -20.057085, y: 0, z: 4.127023}
+      forward: {x: 0.78039235, y: 0, z: 0.6252902}
+      up: {x: 0, y: 1, z: 0}
+      distance: 27.60536
+      speedMultiplier: 0.8076012
+      waypointIndex: 3
+      curvature: 0.13742773
+    - position: {x: -19.59429, y: 0, z: 4.4691772}
+      forward: {x: 0.82609606, y: 0, z: 0.56352943}
+      up: {x: 0, y: 1, z: 0}
+      distance: 28.180902
+      speedMultiplier: 0.8165507
+      waypointIndex: 3
+      curvature: 0.13103524
+    - position: {x: -19.108418, y: 0, z: 4.774793}
+      forward: {x: 0.86620563, y: 0, z: 0.49968776}
+      up: {x: 0, y: 1, z: 0}
+      distance: 28.7549
+      speedMultiplier: 0.8135979
+      waypointIndex: 3
+      curvature: 0.13314435
+    - position: {x: -18.609518, y: 0, z: 5.037344}
+      forward: {x: 0.9024582, y: 0, z: 0.4307775}
+      up: {x: 0, y: 1, z: 0}
+      distance: 29.318666
+      speedMultiplier: 0.7974045
+      waypointIndex: 3
+      curvature: 0.14471106
+    - position: {x: -18.108118, y: 0, z: 5.2518196}
+      forward: {x: 0.93564975, y: 0, z: 0.35293004}
+      up: {x: 0, y: 1, z: 0}
+      distance: 29.864012
+      speedMultiplier: 0.7644476
+      waypointIndex: 3
+      curvature: 0.16825168
+    - position: {x: -17.61446, y: 0, z: 5.4122806}
+      forward: {x: 0.9654155, y: 0, z: 0.26071623}
+      up: {x: 0, y: 1, z: 0}
+      distance: 30.383093
+      speedMultiplier: 0.7070658
+      waypointIndex: 3
+      curvature: 0.2092387
+    - position: {x: -17.139029, y: 0, z: 5.5124784}
+      forward: {x: 0.98922974, y: 0, z: 0.14637133}
+      up: {x: 0, y: 1, z: 0}
+      distance: 30.868969
+      speedMultiplier: 0.6114438
+      waypointIndex: 3
+      curvature: 0.27754015
+    - position: {x: -16.691832, y: 0, z: 5.5475283}
+      forward: {x: 1, y: 0, z: 0.000091891736}
+      up: {x: 0, y: 1, z: 0}
+      distance: 31.317537
+      speedMultiplier: 0.45788386
+      waypointIndex: 3
+      curvature: 0.3872258
+    - position: {x: -16.283602, y: 0, z: 5.510793}
+      forward: {x: 0.9819329, y: 0, z: -0.18922973}
+      up: {x: 0, y: 1, z: 0}
+      distance: 31.727417
+      speedMultiplier: 0.3
+      waypointIndex: 3
+      curvature: 0.5519467
+    - position: {x: -15.924459, y: 0, z: 5.396941}
+      forward: {x: 0.9064279, y: 0, z: -0.42236063}
+      up: {x: 0, y: 1, z: 0}
+      distance: 32.10417
+      speedMultiplier: 0.3
+      waypointIndex: 3
+      curvature: 0.7504189
+    - position: {x: -15.635448, y: 0, z: 5.2095084}
+      forward: {x: 0.74541295, y: 0, z: -0.666603}
+      up: {x: 0, y: 1, z: 0}
+      distance: 32.44864
+      speedMultiplier: 0.3
+      waypointIndex: 4
+      curvature: 0.95207703
+    - position: {x: -15.421725, y: 0, z: 4.9621835}
+      forward: {x: 0.57308537, y: 0, z: -0.81949574}
+      up: {x: 0, y: 1, z: 0}
+      distance: 32.775513
+      speedMultiplier: 0.31877467
+      waypointIndex: 4
+      curvature: 0.5173362
+    - position: {x: -15.228081, y: 0, z: 4.63079}
+      forward: {x: 0.44426888, y: 0, z: -0.8958935}
+      up: {x: 0, y: 1, z: 0}
+      distance: 33.159336
+      speedMultiplier: 0.58985394
+      waypointIndex: 4
+      curvature: 0.29296148
+    - position: {x: -15.054418, y: 0, z: 4.2257466}
+      forward: {x: 0.35178414, y: 0, z: -0.9360812}
+      up: {x: 0, y: 1, z: 0}
+      distance: 33.60004
+      speedMultiplier: 0.7467878
+      waypointIndex: 4
+      curvature: 0.1808659
+    - position: {x: -14.899652, y: 0, z: 3.7609744}
+      forward: {x: 0.28315836, y: 0, z: -0.9590732}
+      up: {x: 0, y: 1, z: 0}
+      distance: 34.089905
+      speedMultiplier: 0.8312496
+      waypointIndex: 4
+      curvature: 0.120536014
+    - position: {x: -14.763916, y: 0, z: 3.2466745}
+      forward: {x: 0.23094624, y: 0, z: -0.97296655}
+      up: {x: 0, y: 1, z: 0}
+      distance: 34.621815
+      speedMultiplier: 0.8786467
+      waypointIndex: 4
+      curvature: 0.08668093
+    - position: {x: -14.646049, y: 0, z: 2.6964533}
+      forward: {x: 0.1893042, y: 0, z: -0.9819185}
+      up: {x: 0, y: 1, z: 0}
+      distance: 35.18452
+      speedMultiplier: 0.9071311
+      waypointIndex: 4
+      curvature: 0.06633497
+    - position: {x: -14.545997, y: 0, z: 2.1214623}
+      forward: {x: 0.15505546, y: 0, z: -0.9879058}
+      up: {x: 0, y: 1, z: 0}
+      distance: 35.76815
+      speedMultiplier: 0.9243767
+      waypointIndex: 4
+      curvature: 0.054016642
+    - position: {x: -14.462903, y: 0, z: 1.5342104}
+      forward: {x: 0.12568434, y: 0, z: -0.99207026}
+      up: {x: 0, y: 1, z: 0}
+      distance: 36.36125
+      speedMultiplier: 0.93465835
+      waypointIndex: 4
+      curvature: 0.04667261
+    - position: {x: -14.396433, y: 0, z: 0.946591}
+      forward: {x: 0.099509865, y: 0, z: -0.9950366}
+      up: {x: 0, y: 1, z: 0}
+      distance: 36.952618
+      speedMultiplier: 0.9398338
+      waypointIndex: 4
+      curvature: 0.042975843
+    - position: {x: -14.345995, y: 0, z: 0.37074086}
+      forward: {x: 0.07505999, y: 0, z: -0.99717903}
+      up: {x: 0, y: 1, z: 0}
+      distance: 37.530674
+      speedMultiplier: 0.9405444
+      waypointIndex: 4
+      curvature: 0.04246825
+    - position: {x: -14.311001, y: 0, z: -0.1814525}
+      forward: {x: 0.050958246, y: 0, z: -0.9987008}
+      up: {x: 0, y: 1, z: 0}
+      distance: 38.083977
+      speedMultiplier: 0.9362033
+      waypointIndex: 4
+      curvature: 0.04556907
+    - position: {x: -14.291098, y: 0, z: -0.697476}
+      forward: {x: 0.025551848, y: 0, z: -0.99967355}
+      up: {x: 0, y: 1, z: 0}
+      distance: 38.600384
+      speedMultiplier: 0.92419183
+      waypointIndex: 4
+      curvature: 0.054148674
+    - position: {x: -14.285476, y: 0, z: -1.1661762}
+      forward: {x: -0.0034988746, y: 0, z: -0.99999386}
+      up: {x: 0, y: 1, z: 0}
+      distance: 39.06912
+      speedMultiplier: 0.8979354
+      waypointIndex: 4
+      curvature: 0.0729033
+    - position: {x: -14.295325, y: 0, z: -1.6043656}
+      forward: {x: -0.04577592, y: 0, z: -0.99895173}
+      up: {x: 0, y: 1, z: 0}
+      distance: 39.50742
+      speedMultiplier: 0.8096193
+      waypointIndex: 5
+      curvature: 0.13598622
+    - position: {x: -14.344718, y: 0, z: -2.1726468}
+      forward: {x: -0.12935807, y: 0, z: -0.99159795}
+      up: {x: 0, y: 1, z: 0}
+      distance: 40.077843
+      speedMultiplier: 0.7786175
+      waypointIndex: 5
+      curvature: 0.15813035
+    - position: {x: -14.43712, y: 0, z: -2.6993575}
+      forward: {x: -0.21768734, y: 0, z: -0.97601855}
+      up: {x: 0, y: 1, z: 0}
+      distance: 40.6126
+      speedMultiplier: 0.75270087
+      waypointIndex: 5
+      curvature: 0.17664227
+    - position: {x: -14.570222, y: 0, z: -3.188923}
+      forward: {x: -0.30729342, y: 0, z: -0.9516148}
+      up: {x: 0, y: 1, z: 0}
+      distance: 41.119934
+      speedMultiplier: 0.7366773
+      waypointIndex: 5
+      curvature: 0.18808764
+    - position: {x: -14.741475, y: 0, z: -3.6459672}
+      forward: {x: -0.39406294, y: 0, z: -0.9190835}
+      up: {x: 0, y: 1, z: 0}
+      distance: 41.60801
+      speedMultiplier: 0.7341295
+      waypointIndex: 5
+      curvature: 0.18990752
+    - position: {x: -14.94862, y: 0, z: -4.0748835}
+      forward: {x: -0.47405684, y: 0, z: -0.88049424}
+      up: {x: 0, y: 1, z: 0}
+      distance: 42.084328
+      speedMultiplier: 0.7461291
+      waypointIndex: 5
+      curvature: 0.18133637
+    - position: {x: -15.189066, y: 0, z: -4.480317}
+      forward: {x: -0.54432476, y: 0, z: -0.83887464}
+      up: {x: 0, y: 1, z: 0}
+      distance: 42.5557
+      speedMultiplier: 0.7706577
+      waypointIndex: 5
+      curvature: 0.16381593
+    - position: {x: -15.460592, y: 0, z: -4.866659}
+      forward: {x: -0.60320824, y: 0, z: -0.79758376}
+      up: {x: 0, y: 1, z: 0}
+      distance: 43.027912
+      speedMultiplier: 0.8038118
+      waypointIndex: 5
+      curvature: 0.14013442
+    - position: {x: -15.760576, y: 0, z: -5.238537}
+      forward: {x: -0.6504539, y: 0, z: -0.7595457}
+      up: {x: 0, y: 1, z: 0}
+      distance: 43.505703
+      speedMultiplier: 0.84111613
+      waypointIndex: 5
+      curvature: 0.113488495
+    - position: {x: -16.084503, y: 0, z: -5.5969434}
+      forward: {x: -0.69732416, y: 0, z: -0.7167559}
+      up: {x: 0, y: 1, z: 0}
+      distance: 43.9888
+      speedMultiplier: 0.3
+      waypointIndex: 6
+      curvature: 0.58079684
+    - position: {x: -16.42054, y: 0, z: -5.869137}
+      forward: {x: -0.8410697, y: 0, z: -0.5409268}
+      up: {x: 0, y: 1, z: 0}
+      distance: 44.421246
+      speedMultiplier: 0.36667562
+      waypointIndex: 6
+      curvature: 0.45237458
+    - position: {x: -16.81193, y: 0, z: -6.0750494}
+      forward: {x: -0.9173403, y: 0, z: -0.39810416}
+      up: {x: 0, y: 1, z: 0}
+      distance: 44.863495
+      speedMultiplier: 0.60578066
+      waypointIndex: 6
+      curvature: 0.28158522
+    - position: {x: -17.245512, y: 0, z: -6.236485}
+      forward: {x: -0.95099604, y: 0, z: -0.30920324}
+      up: {x: 0, y: 1, z: 0}
+      distance: 45.326157
+      speedMultiplier: 0.80983686
+      waypointIndex: 6
+      curvature: 0.13583085
+    - position: {x: -17.708176, y: 0, z: -6.3752456}
+      forward: {x: -0.96169806, y: 0, z: -0.27411112}
+      up: {x: 0, y: 1, z: 0}
+      distance: 45.80918
+      speedMultiplier: 0.97058105
+      waypointIndex: 6
+      curvature: 0.021013554
+    - position: {x: -18.186659, y: 0, z: -6.5132847}
+      forward: {x: -0.95764095, y: 0, z: -0.28796488}
+      up: {x: 0, y: 1, z: 0}
+      distance: 46.30718
+      speedMultiplier: 0.89274484
+      waypointIndex: 6
+      curvature: 0.0766108
+    - position: {x: -18.667759, y: 0, z: -6.672446}
+      forward: {x: -0.93781704, y: 0, z: -0.3471301}
+      up: {x: 0, y: 1, z: 0}
+      distance: 46.813923
+      speedMultiplier: 0.7635714
+      waypointIndex: 6
+      curvature: 0.16887762
+    - position: {x: -19.138315, y: 0, z: -6.8745303}
+      forward: {x: -0.8941874, y: 0, z: -0.4476929}
+      up: {x: 0, y: 1, z: 0}
+      distance: 47.32604
+      speedMultiplier: 0.639242
+      waypointIndex: 6
+      curvature: 0.25768432
+    - position: {x: -19.585173, y: 0, z: -7.1413445}
+      forward: {x: -0.8148126, y: 0, z: -0.57972443}
+      up: {x: 0, y: 1, z: 0}
+      distance: 47.846493
+      speedMultiplier: 0.53970164
+      waypointIndex: 6
+      curvature: 0.32878453
+    - position: {x: -19.99518, y: 0, z: -7.49469}
+      forward: {x: -0.69211566, y: 0, z: -0.7217867}
+      up: {x: 0, y: 1, z: 0}
+      distance: 48.38775
+      speedMultiplier: 0.5033607
+      waypointIndex: 6
+      curvature: 0.3547424
+    - position: {x: -20.355179, y: 0, z: -7.9563723}
+      forward: {x: -0.53431994, y: 0, z: -0.8452823}
+      up: {x: 0, y: 1, z: 0}
+      distance: 48.973198
+      speedMultiplier: 0.62111086
+      waypointIndex: 6
+      curvature: 0.2706351
+    - position: {x: -20.562092, y: 0, z: -8.316074}
+      forward: {x: -0.47461745, y: 0, z: -0.8801922}
+      up: {x: 0, y: 1, z: 0}
+      distance: 49.388165
+      speedMultiplier: 0.85378504
+      waypointIndex: 7
+      curvature: 0.10443927
+    - position: {x: -20.760094, y: 0, z: -8.701113}
+      forward: {x: -0.44170564, y: 0, z: -0.89716005}
+      up: {x: 0, y: 1, z: 0}
+      distance: 49.82113
+      speedMultiplier: 0.90085334
+      waypointIndex: 7
+      curvature: 0.07081902
+    - position: {x: -20.966234, y: 0, z: -9.136546}
+      forward: {x: -0.4151184, y: 0, z: -0.9097674}
+      up: {x: 0, y: 1, z: 0}
+      distance: 50.30289
+      speedMultiplier: 0.9253889
+      waypointIndex: 7
+      curvature: 0.053293645
+    - position: {x: -21.176994, y: 0, z: -9.615054}
+      forward: {x: -0.39223215, y: 0, z: -0.9198663}
+      up: {x: 0, y: 1, z: 0}
+      distance: 50.825756
+      speedMultiplier: 0.93883973
+      waypointIndex: 7
+      curvature: 0.043685913
+    - position: {x: -21.388811, y: 0, z: -10.128281}
+      forward: {x: -0.3713231, y: 0, z: -0.9285037}
+      up: {x: 0, y: 1, z: 0}
+      distance: 51.380974
+      speedMultiplier: 0.94618684
+      waypointIndex: 7
+      curvature: 0.03843795
+    - position: {x: -21.598282, y: 0, z: -10.668873}
+      forward: {x: -0.35130212, y: 0, z: -0.9362622}
+      up: {x: 0, y: 1, z: 0}
+      distance: 51.96073
+      speedMultiplier: 0.94959146
+      waypointIndex: 7
+      curvature: 0.036006067
+    - position: {x: -21.801977, y: 0, z: -11.22952}
+      forward: {x: -0.33129603, y: 0, z: -0.9435269}
+      up: {x: 0, y: 1, z: 0}
+      distance: 52.557236
+      speedMultiplier: 0.9500475
+      waypointIndex: 7
+      curvature: 0.03568036
+    - position: {x: -21.996143, y: 0, z: -11.802889}
+      forward: {x: -0.310473, y: 0, z: -0.9505822}
+      up: {x: 0, y: 1, z: 0}
+      distance: 53.16259
+      speedMultiplier: 0.9478348
+      waypointIndex: 7
+      curvature: 0.037260856
+    - position: {x: -22.177526, y: 0, z: -12.38106}
+      forward: {x: -0.28799182, y: 0, z: -0.9576329}
+      up: {x: 0, y: 1, z: 0}
+      distance: 53.768543
+      speedMultiplier: 0.94286454
+      waypointIndex: 7
+      curvature: 0.04081106
+    - position: {x: -22.342735, y: 0, z: -12.95668}
+      forward: {x: -0.26292723, y: 0, z: -0.9648157}
+      up: {x: 0, y: 1, z: 0}
+      distance: 54.367405
+      speedMultiplier: 0.93449396
+      waypointIndex: 7
+      curvature: 0.04679006
+    - position: {x: -22.488361, y: 0, z: -13.522398}
+      forward: {x: -0.23407829, y: 0, z: -0.9722178}
+      up: {x: 0, y: 1, z: 0}
+      distance: 54.951565
+      speedMultiplier: 0.92143595
+      waypointIndex: 7
+      curvature: 0.056117196
+    - position: {x: -22.61029, y: 0, z: -14.070176}
+      forward: {x: -0.19961545, y: 0, z: -0.9798743}
+      up: {x: 0, y: 1, z: 0}
+      distance: 55.51275
+      speedMultiplier: 0.90105
+      waypointIndex: 7
+      curvature: 0.070678584
+    - position: {x: -22.70551, y: 0, z: -14.592765}
+      forward: {x: -0.15715306, y: 0, z: -0.9875743}
+      up: {x: 0, y: 1, z: 0}
+      distance: 56.04394
+      speedMultiplier: 0.8688787
+      waypointIndex: 7
+      curvature: 0.09365808
+    - position: {x: -22.770712, y: 0, z: -15.0828905}
+      forward: {x: -0.1030213, y: 0, z: -0.99467915}
+      up: {x: 0, y: 1, z: 0}
+      distance: 56.538383
+      speedMultiplier: 0.8163712
+      waypointIndex: 7
+      curvature: 0.13116343
+    - position: {x: -22.802504, y: 0, z: -15.5331955}
+      forward: {x: -0.031415265, y: 0, z: -0.9995064}
+      up: {x: 0, y: 1, z: 0}
+      distance: 56.98981
+      speedMultiplier: 0.7265746
+      waypointIndex: 7
+      curvature: 0.19530384
+    - position: {x: -22.796705, y: 0, z: -15.93527}
+      forward: {x: 0.067815885, y: 0, z: -0.9976979}
+      up: {x: 0, y: 1, z: 0}
+      distance: 57.391926
+      speedMultiplier: 0.5619867
+      waypointIndex: 7
+      curvature: 0.3128667
+    - position: {x: -22.750023, y: 0, z: -16.281754}
+      forward: {x: 0.21035734, y: 0, z: -0.9776246}
+      up: {x: 0, y: 1, z: 0}
+      distance: 57.74154
+      speedMultiplier: 0.31472725
+      waypointIndex: 7
+      curvature: 0.5392038
+    - position: {x: -22.65949, y: 0, z: -16.565857}
+      forward: {x: 0.41507816, y: 0, z: -0.90978575}
+      up: {x: 0, y: 1, z: 0}
+      distance: 58.03972
+      speedMultiplier: 0.3
+      waypointIndex: 7
+      curvature: 1.1065415
+    - position: {x: -22.472898, y: 0, z: -16.816387}
+      forward: {x: 0.77155185, y: 0, z: -0.63616645}
+      up: {x: 0, y: 1, z: 0}
+      distance: 58.3521
+      speedMultiplier: 0.3
+      waypointIndex: 8
+      curvature: 1.4990588
+    - position: {x: -22.169863, y: 0, z: -16.968475}
+      forward: {x: 0.9611268, y: 0, z: -0.2761074}
+      up: {x: 0, y: 1, z: 0}
+      distance: 58.69116
+      speedMultiplier: 0.3
+      waypointIndex: 8
+      curvature: 0.88277304
+    - position: {x: -21.773209, y: 0, z: -17.024462}
+      forward: {x: 0.999516, y: 0, z: -0.031108402}
+      up: {x: 0, y: 1, z: 0}
+      distance: 59.091743
+      speedMultiplier: 0.410807
+      waypointIndex: 8
+      curvature: 0.42102507
+    - position: {x: -21.298803, y: 0, z: -17.0015}
+      forward: {x: 0.9940189, y: 0, z: 0.10920796}
+      up: {x: 0, y: 1, z: 0}
+      distance: 59.566704
+      speedMultiplier: 0.71164924
+      waypointIndex: 8
+      curvature: 0.2059648
+    - position: {x: -20.764486, y: 0, z: -16.918741}
+      forward: {x: 0.98208207, y: 0, z: 0.18845373}
+      up: {x: 0, y: 1, z: 0}
+      distance: 60.10739
+      speedMultiplier: 0.855897
+      waypointIndex: 8
+      curvature: 0.102930695
+    - position: {x: -20.185751, y: 0, z: -16.793007}
+      forward: {x: 0.9731794, y: 0, z: 0.23004758}
+      up: {x: 0, y: 1, z: 0}
+      distance: 60.699627
+      speedMultiplier: 0.93429816
+      waypointIndex: 8
+      curvature: 0.046929903
+    - position: {x: -19.580326, y: 0, z: -16.643267}
+      forward: {x: 0.9691197, y: 0, z: 0.24659067}
+      up: {x: 0, y: 1, z: 0}
+      distance: 61.323296
+      speedMultiplier: 0.9874179
+      waypointIndex: 8
+      curvature: 0.008987227
+    - position: {x: -18.964317, y: 0, z: -16.487051}
+      forward: {x: 0.9703481, y: 0, z: 0.24171177}
+      up: {x: 0, y: 1, z: 0}
+      distance: 61.958805
+      speedMultiplier: 0.96591306
+      waypointIndex: 8
+      curvature: 0.024347818
+    - position: {x: -18.354588, y: 0, z: -16.34238}
+      forward: {x: 0.9764566, y: 0, z: 0.21571404}
+      up: {x: 0, y: 1, z: 0}
+      distance: 62.585464
+      speedMultiplier: 0.9112
+      waypointIndex: 8
+      curvature: 0.06342855
+    - position: {x: -17.768114, y: 0, z: -16.227676}
+      forward: {x: 0.9866654, y: 0, z: 0.16276155}
+      up: {x: 0, y: 1, z: 0}
+      distance: 63.18305
+      speedMultiplier: 0.8291114
+      waypointIndex: 8
+      curvature: 0.122063324
+    - position: {x: -17.221125, y: 0, z: -16.160358}
+      forward: {x: 0.9974571, y: 0, z: 0.07127018}
+      up: {x: 0, y: 1, z: 0}
+      distance: 63.734165
+      speedMultiplier: 0.6842983
+      waypointIndex: 8
+      curvature: 0.22550124
+    - position: {x: -16.730751, y: 0, z: -16.158941}
+      forward: {x: 0.99663395, y: 0, z: -0.08198041}
+      up: {x: 0, y: 1, z: 0}
+      distance: 64.22454
+      speedMultiplier: 0.40229425
+      waypointIndex: 8
+      curvature: 0.4269327
+    - position: {x: -16.313541, y: 0, z: -16.241253}
+      forward: {x: 0.94456154, y: 0, z: -0.3283344}
+      up: {x: 0, y: 1, z: 0}
+      distance: 64.649796
+      speedMultiplier: 0.3
+      waypointIndex: 8
+      curvature: 0.79665035
+    - position: {x: -15.985843, y: 0, z: -16.424898}
+      forward: {x: 0.75458235, y: 0, z: -0.6562054}
+      up: {x: 0, y: 1, z: 0}
+      distance: 65.025444
+      speedMultiplier: 0.3
+      waypointIndex: 8
+      curvature: 1.1867099
+    - position: {x: -15.77558, y: 0, z: -16.694077}
+      forward: {x: 0.47427207, y: 0, z: -0.8803783}
+      up: {x: 0, y: 1, z: 0}
+      distance: 65.36701
+      speedMultiplier: 0.3
+      waypointIndex: 9
+      curvature: 0.8132188
+    - position: {x: -15.641748, y: 0, z: -17.041212}
+      forward: {x: 0.2625703, y: 0, z: -0.9649129}
+      up: {x: 0, y: 1, z: 0}
+      distance: 65.73905
+      speedMultiplier: 0.36445543
+      waypointIndex: 9
+      curvature: 0.4539604
+    - position: {x: -15.562691, y: 0, z: -17.46479}
+      forward: {x: 0.118255466, y: 0, z: -0.9929832}
+      up: {x: 0, y: 1, z: 0}
+      distance: 66.169945
+      speedMultiplier: 0.64210355
+      waypointIndex: 9
+      curvature: 0.25564036
+    - position: {x: -15.5304985, y: 0, z: -17.952654}
+      forward: {x: 0.022338126, y: 0, z: -0.9997505}
+      up: {x: 0, y: 1, z: 0}
+      distance: 66.65887
+      speedMultiplier: 0.78843397
+      waypointIndex: 9
+      curvature: 0.15111862
+    - position: {x: -15.537274, y: 0, z: -18.492624}
+      forward: {x: -0.04185061, y: 0, z: -0.9991239}
+      up: {x: 0, y: 1, z: 0}
+      distance: 67.19888
+      speedMultiplier: 0.8696799
+      waypointIndex: 9
+      curvature: 0.09308576
+    - position: {x: -15.575112, y: 0, z: -19.07254}
+      forward: {x: -0.0847702, y: 0, z: -0.99640054}
+      up: {x: 0, y: 1, z: 0}
+      distance: 67.78003
+      speedMultiplier: 0.918655
+      waypointIndex: 9
+      curvature: 0.058103573
+    - position: {x: -15.636112, y: 0, z: -19.680222}
+      forward: {x: -0.112521194, y: 0, z: -0.9936493}
+      up: {x: 0, y: 1, z: 0}
+      distance: 68.39076
+      speedMultiplier: 0.9512939
+      waypointIndex: 9
+      curvature: 0.034790095
+    - position: {x: -15.712369, y: 0, z: -20.303497}
+      forward: {x: -0.12850197, y: 0, z: -0.9917093}
+      up: {x: 0, y: 1, z: 0}
+      distance: 69.018684
+      speedMultiplier: 0.9759551
+      waypointIndex: 9
+      curvature: 0.017174939
+    - position: {x: -15.7959795, y: 0, z: -20.9302}
+      forward: {x: -0.13435559, y: 0, z: -0.9909332}
+      up: {x: 0, y: 1, z: 0}
+      distance: 69.65094
+      speedMultiplier: 0.99645174
+      waypointIndex: 9
+      curvature: 0.0025344735
+    - position: {x: -15.879044, y: 0, z: -21.54816}
+      forward: {x: -0.13036749, y: 0, z: -0.99146575}
+      up: {x: 0, y: 1, z: 0}
+      distance: 70.27446
+      speedMultiplier: 0.978982
+      waypointIndex: 9
+      curvature: 0.015012854
+    - position: {x: -15.953655, y: 0, z: -22.145205}
+      forward: {x: -0.115486056, y: 0, z: -0.99330914}
+      up: {x: 0, y: 1, z: 0}
+      distance: 70.876144
+      speedMultiplier: 0.9492463
+      waypointIndex: 9
+      curvature: 0.03625263
+    - position: {x: -16.011917, y: 0, z: -22.70917}
+      forward: {x: -0.0868835, y: 0, z: -0.9962185}
+      up: {x: 0, y: 1, z: 0}
+      distance: 71.44311
+      speedMultiplier: 0.904414
+      waypointIndex: 9
+      curvature: 0.06827571
+    - position: {x: -16.04592, y: 0, z: -23.227873}
+      forward: {x: -0.038846925, y: 0, z: -0.9992452}
+      up: {x: 0, y: 1, z: 0}
+      distance: 71.96292
+      speedMultiplier: 0.8265687
+      waypointIndex: 9
+      curvature: 0.123879485
+    - position: {x: -16.047762, y: 0, z: -23.689146}
+      forward: {x: 0.039780818, y: 0, z: -0.99920845}
+      up: {x: 0, y: 1, z: 0}
+      distance: 72.424194
+      speedMultiplier: 0.6725741
+      waypointIndex: 9
+      curvature: 0.23387566
+    - position: {x: -16.009542, y: 0, z: -24.080826}
+      forward: {x: 0.17084971, y: 0, z: -0.98529714}
+      up: {x: 0, y: 1, z: 0}
+      distance: 72.81773
+      speedMultiplier: 0.3278162
+      waypointIndex: 9
+      curvature: 0.4801313
+    - position: {x: -15.923361, y: 0, z: -24.39073}
+      forward: {x: 0.3929503, y: 0, z: -0.9195598}
+      up: {x: 0, y: 1, z: 0}
+      distance: 73.1394
+      speedMultiplier: 0.3
+      waypointIndex: 9
+      curvature: 1.0688368
+    - position: {x: -15.756633, y: 0, z: -24.634298}
+      forward: {x: 0.71299285, y: 0, z: -0.7011713}
+      up: {x: 0, y: 1, z: 0}
+      distance: 73.43456
+      speedMultiplier: 0.3
+      waypointIndex: 10
+      curvature: 1.2111948
+    - position: {x: -15.463283, y: 0, z: -24.82054}
+      forward: {x: 0.9365298, y: 0, z: -0.350588}
+      up: {x: 0, y: 1, z: 0}
+      distance: 73.782036
+      speedMultiplier: 0.3
+      waypointIndex: 10
+      curvature: 1.0792617
+    - position: {x: -15.098487, y: 0, z: -24.887875}
+      forward: {x: 0.9993147, y: 0, z: -0.037014913}
+      up: {x: 0, y: 1, z: 0}
+      distance: 74.15299
+      speedMultiplier: 0.3
+      waypointIndex: 10
+      curvature: 0.6613063
+    - position: {x: -14.676508, y: 0, z: -24.854843}
+      forward: {x: 0.98478234, y: 0, z: 0.1737923}
+      up: {x: 0, y: 1, z: 0}
+      distance: 74.57626
+      speedMultiplier: 0.48321474
+      waypointIndex: 10
+      curvature: 0.36913234
+    - position: {x: -14.2092, y: 0, z: -24.735764}
+      forward: {x: 0.95220554, y: 0, z: 0.30545816}
+      up: {x: 0, y: 1, z: 0}
+      distance: 75.0585
+      speedMultiplier: 0.69903785
+      waypointIndex: 10
+      curvature: 0.21497296
+    - position: {x: -13.710383, y: 0, z: -24.548632}
+      forward: {x: 0.9207538, y: 0, z: 0.39014426}
+      up: {x: 0, y: 1, z: 0}
+      distance: 75.59126
+      speedMultiplier: 0.81376225
+      waypointIndex: 10
+      curvature: 0.13302694
+    - position: {x: -13.192525, y: 0, z: -24.308666}
+      forward: {x: 0.89507186, y: 0, z: 0.445922}
+      up: {x: 0, y: 1, z: 0}
+      distance: 76.16202
+      speedMultiplier: 0.8782953
+      waypointIndex: 10
+      curvature: 0.08693193
+    - position: {x: -12.668824, y: 0, z: -24.032892}
+      forward: {x: 0.87538934, y: 0, z: 0.48341855}
+      up: {x: 0, y: 1, z: 0}
+      distance: 76.75389
+      speedMultiplier: 0.9186549
+      waypointIndex: 10
+      curvature: 0.058103647
+    - position: {x: -12.152215, y: 0, z: -23.737288}
+      forward: {x: 0.8614159, y: 0, z: 0.5079003}
+      up: {x: 0, y: 1, z: 0}
+      distance: 77.3491
+      speedMultiplier: 0.94744736
+      waypointIndex: 10
+      curvature: 0.0375376
+    - position: {x: -11.655599, y: 0, z: -23.438332}
+      forward: {x: 0.8528879, y: 0, z: 0.522094}
+      up: {x: 0, y: 1, z: 0}
+      distance: 77.92876
+      speedMultiplier: 0.9729436
+      waypointIndex: 10
+      curvature: 0.019326018
+    - position: {x: -11.192021, y: 0, z: -23.152328}
+      forward: {x: 0.8502747, y: 0, z: 0.5263393}
+      up: {x: 0, y: 1, z: 0}
+      distance: 78.47346
+      speedMultiplier: 0.9951144
+      waypointIndex: 10
+      curvature: 0.0034897388
+    - position: {x: -10.778077, y: 0, z: -22.899202}
+      forward: {x: 0.8631543, y: 0, z: 0.50494033}
+      up: {x: 0, y: 1, z: 0}
+      distance: 78.958664
+      speedMultiplier: 0.7874416
+      waypointIndex: 11
+      curvature: 0.15182745
+    - position: {x: -10.39112, y: 0, z: -22.687817}
+      forward: {x: 0.8891207, y: 0, z: 0.45767283}
+      up: {x: 0, y: 1, z: 0}
+      distance: 79.3996
+      speedMultiplier: 0.8730061
+      waypointIndex: 11
+      curvature: 0.09070991
+    - position: {x: -10.002916, y: 0, z: -22.49515}
+      forward: {x: 0.9000176, y: 0, z: 0.43585357}
+      up: {x: 0, y: 1, z: 0}
+      distance: 79.832985
+      speedMultiplier: 0.971585
+      waypointIndex: 11
+      curvature: 0.02029643
+    - position: {x: -9.616514, y: 0, z: -22.307611}
+      forward: {x: 0.89690864, y: 0, z: 0.44221586}
+      up: {x: 0, y: 1, z: 0}
+      distance: 80.26249
+      speedMultiplier: 0.9243407
+      waypointIndex: 11
+      curvature: 0.054042332
+    - position: {x: -9.235048, y: 0, z: -22.111336}
+      forward: {x: 0.87892085, y: 0, z: 0.47696763}
+      up: {x: 0, y: 1, z: 0}
+      distance: 80.69149
+      speedMultiplier: 0.8223636
+      waypointIndex: 11
+      curvature: 0.12688315
+    - position: {x: -8.861529, y: 0, z: -21.892704}
+      forward: {x: 0.84378636, y: 0, z: 0.5366792}
+      up: {x: 0, y: 1, z: 0}
+      distance: 81.12429
+      speedMultiplier: 0.7329498
+      waypointIndex: 11
+      curvature: 0.19075017
+    - position: {x: -8.498981, y: 0, z: -21.638157}
+      forward: {x: 0.78885114, y: 0, z: 0.61458427}
+      up: {x: 0, y: 1, z: 0}
+      distance: 81.567276
+      speedMultiplier: 0.6700534
+      waypointIndex: 11
+      curvature: 0.23567615
+    - position: {x: -8.15063, y: 0, z: -21.333488}
+      forward: {x: 0.71365637, y: 0, z: 0.70049596}
+      up: {x: 0, y: 1, z: 0}
+      distance: 82.03006
+      speedMultiplier: 0.64668
+      waypointIndex: 11
+      curvature: 0.25237143
+    - position: {x: -7.819486, y: 0, z: -20.96514}
+      forward: {x: 0.62237227, y: 0, z: 0.7827214}
+      up: {x: 0, y: 1, z: 0}
+      distance: 82.525375
+      speedMultiplier: 0.6647943
+      waypointIndex: 11
+      curvature: 0.2394326
+    - position: {x: -7.508512, y: 0, z: -20.519794}
+      forward: {x: 0.5230059, y: 0, z: 0.8523291}
+      up: {x: 0, y: 1, z: 0}
+      distance: 83.06855
+      speedMultiplier: 0.7125382
+      waypointIndex: 11
+      curvature: 0.20532987
+    - position: {x: -7.2207885, y: 0, z: -19.983715}
+      forward: {x: 0.42443702, y: 0, z: 0.90545744}
+      up: {x: 0, y: 1, z: 0}
+      distance: 83.67696
+      speedMultiplier: 0.7718819
+      waypointIndex: 11
+      curvature: 0.16294152
+    - position: {x: -6.9597154, y: 0, z: -19.341888}
+      forward: {x: 0.33360165, y: 0, z: 0.94271415}
+      up: {x: 0, y: 1, z: 0}
+      distance: 84.36986
+      speedMultiplier: 0.8281266
+      waypointIndex: 11
+      curvature: 0.1227667
+    - position: {x: -6.8032684, y: 0, z: -18.859392}
+      forward: {x: 0.28967723, y: 0, z: 0.9571244}
+      up: {x: 0, y: 1, z: 0}
+      distance: 84.87708
+      speedMultiplier: 0.927764
+      waypointIndex: 12
+      curvature: 0.05159716
+    - position: {x: -6.7002907, y: 0, z: -18.508152}
+      forward: {x: 0.27348053, y: 0, z: 0.9618775}
+      up: {x: 0, y: 1, z: 0}
+      distance: 85.24311
+      speedMultiplier: 0.94198734
+      waypointIndex: 12
+      curvature: 0.041437622
+    - position: {x: -6.5955453, y: 0, z: -18.128298}
+      forward: {x: 0.25918025, y: 0, z: 0.96582896}
+      up: {x: 0, y: 1, z: 0}
+      distance: 85.63714
+      speedMultiplier: 0.9515171
+      waypointIndex: 12
+      curvature: 0.034630638
+    - position: {x: -6.489778, y: 0, z: -17.722757}
+      forward: {x: 0.24619417, y: 0, z: 0.9692205}
+      up: {x: 0, y: 1, z: 0}
+      distance: 86.056244
+      speedMultiplier: 0.9581597
+      waypointIndex: 12
+      curvature: 0.029885937
+    - position: {x: -6.3836536, y: 0, z: -17.293497}
+      forward: {x: 0.23413154, y: 0, z: 0.9722049}
+      up: {x: 0, y: 1, z: 0}
+      distance: 86.49843
+      speedMultiplier: 0.9628523
+      waypointIndex: 12
+      curvature: 0.02653408
+    - position: {x: -6.2778344, y: 0, z: -16.84247}
+      forward: {x: 0.22272743, y: 0, z: 0.97488075}
+      up: {x: 0, y: 1, z: 0}
+      distance: 86.9617
+      speedMultiplier: 0.9661766
+      waypointIndex: 12
+      curvature: 0.024159556
+    - position: {x: -6.172985, y: 0, z: -16.371637}
+      forward: {x: 0.21175736, y: 0, z: 0.9773223}
+      up: {x: 0, y: 1, z: 0}
+      distance: 87.44407
+      speedMultiplier: 0.9685033
+      waypointIndex: 12
+      curvature: 0.02249763
+    - position: {x: -6.0698504, y: 0, z: -15.882459}
+      forward: {x: 0.20104985, y: 0, z: 0.979581}
+      up: {x: 0, y: 1, z: 0}
+      distance: 87.944
+      speedMultiplier: 0.9700544
+      waypointIndex: 12
+      curvature: 0.021389725
+    - position: {x: -5.9691234, y: 0, z: -15.377266}
+      forward: {x: 0.19044024, y: 0, z: 0.9816988}
+      up: {x: 0, y: 1, z: 0}
+      distance: 88.45914
+      speedMultiplier: 0.97100484
+      waypointIndex: 12
+      curvature: 0.020710832
+    - position: {x: -5.871437, y: 0, z: -14.858384}
+      forward: {x: 0.1797876, y: 0, z: 0.98370546}
+      up: {x: 0, y: 1, z: 0}
+      distance: 88.98714
+      speedMultiplier: 0.97146595
+      waypointIndex: 12
+      curvature: 0.020381449
+    - position: {x: -5.7774553, y: 0, z: -14.327769}
+      forward: {x: 0.16899909, y: 0, z: 0.9856162}
+      up: {x: 0, y: 1, z: 0}
+      distance: 89.52601
+      speedMultiplier: 0.9714992
+      waypointIndex: 12
+      curvature: 0.020357717
+    - position: {x: -5.687843, y: 0, z: -13.787379}
+      forward: {x: 0.15793966, y: 0, z: 0.98744875}
+      up: {x: 0, y: 1, z: 0}
+      distance: 90.07378
+      speedMultiplier: 0.9711396
+      waypointIndex: 12
+      curvature: 0.020614536
+    - position: {x: -5.6032643, y: 0, z: -13.239183}
+      forward: {x: 0.1465109, y: 0, z: 0.9892091}
+      up: {x: 0, y: 1, z: 0}
+      distance: 90.628456
+      speedMultiplier: 0.9704016
+      waypointIndex: 12
+      curvature: 0.021141715
+    - position: {x: -5.524676, y: 0, z: -12.684964}
+      forward: {x: 0.13457611, y: 0, z: 0.99090326}
+      up: {x: 0, y: 1, z: 0}
+      distance: 91.18822
+      speedMultiplier: 0.96926296
+      waypointIndex: 12
+      curvature: 0.021954997
+    - position: {x: -5.452568, y: 0, z: -12.127047}
+      forward: {x: 0.12202665, y: 0, z: 0.9925268}
+      up: {x: 0, y: 1, z: 0}
+      distance: 91.75078
+      speedMultiplier: 0.96771497
+      waypointIndex: 12
+      curvature: 0.023060722
+    - position: {x: -5.387563, y: 0, z: -11.567425}
+      forward: {x: 0.108734, y: 0, z: 0.9940709}
+      up: {x: 0, y: 1, z: 0}
+      distance: 92.31416
+      speedMultiplier: 0.96571976
+      waypointIndex: 12
+      curvature: 0.024485873
+    - position: {x: -5.330326, y: 0, z: -11.008059}
+      forward: {x: 0.094557784, y: 0, z: 0.9955194}
+      up: {x: 0, y: 1, z: 0}
+      distance: 92.87645
+      speedMultiplier: 0.9632179
+      waypointIndex: 12
+      curvature: 0.02627291
+    - position: {x: -5.281521, y: 0, z: -10.450918}
+      forward: {x: 0.07934436, y: 0, z: 0.9968473}
+      up: {x: 0, y: 1, z: 0}
+      distance: 93.43572
+      speedMultiplier: 0.9601276
+      waypointIndex: 12
+      curvature: 0.02848028
+    - position: {x: -5.241867, y: 0, z: -9.897983}
+      forward: {x: 0.06290817, y: 0, z: 0.99801934}
+      up: {x: 0, y: 1, z: 0}
+      distance: 93.99008
+      speedMultiplier: 0.95633453
+      waypointIndex: 12
+      curvature: 0.031189598
+    - position: {x: -5.2124763, y: 0, z: -9.351606}
+      forward: {x: 0.044942234, y: 0, z: 0.99898964}
+      up: {x: 0, y: 1, z: 0}
+      distance: 94.53725
+      speedMultiplier: 0.9516469
+      waypointIndex: 12
+      curvature: 0.034537897
+    - position: {x: -5.193588, y: 0, z: -8.813569}
+      forward: {x: 0.025272826, y: 0, z: 0.99968064}
+      up: {x: 0, y: 1, z: 0}
+      distance: 95.075615
+      speedMultiplier: 0.945897
+      waypointIndex: 12
+      curvature: 0.038645003
+    - position: {x: -5.1858654, y: 0, z: -8.28581}
+      forward: {x: 0.0035908083, y: 0, z: 0.99999356}
+      up: {x: 0, y: 1, z: 0}
+      distance: 95.60343
+      speedMultiplier: 0.9388203
+      waypointIndex: 12
+      curvature: 0.043699782
+    - position: {x: -5.1899734, y: 0, z: -7.770304}
+      forward: {x: -0.02045894, y: 0, z: 0.99979067}
+      up: {x: 0, y: 1, z: 0}
+      distance: 96.11896
+      speedMultiplier: 0.930067
+      waypointIndex: 12
+      curvature: 0.04995214
+    - position: {x: -5.206576, y: 0, z: -7.2690077}
+      forward: {x: -0.047300834, y: 0, z: 0.9988807}
+      up: {x: 0, y: 1, z: 0}
+      distance: 96.62053
+      speedMultiplier: 0.91917163
+      waypointIndex: 12
+      curvature: 0.057734564
+    - position: {x: -5.2365937, y: 0, z: -6.784214}
+      forward: {x: -0.07752175, y: 0, z: 0.9969907}
+      up: {x: 0, y: 1, z: 0}
+      distance: 97.106255
+      speedMultiplier: 0.90544444
+      waypointIndex: 12
+      curvature: 0.06753968
+    - position: {x: -5.28096, y: 0, z: -6.318334}
+      forward: {x: -0.11186731, y: 0, z: 0.99372315}
+      up: {x: 0, y: 1, z: 0}
+      distance: 97.57424
+      speedMultiplier: 0.8879017
+      waypointIndex: 12
+      curvature: 0.08007017
+    - position: {x: -5.3398924, y: 0, z: -5.872771}
+      forward: {x: -0.15098998, y: 0, z: 0.9885353}
+      up: {x: 0, y: 1, z: 0}
+      distance: 98.02368
+      speedMultiplier: 0.86544454
+      waypointIndex: 12
+      curvature: 0.096111044
+    - position: {x: -5.4202266, y: 0, z: -5.425173}
+      forward: {x: -0.20810318, y: 0, z: 0.9781069}
+      up: {x: 0, y: 1, z: 0}
+      distance: 98.47843
+      speedMultiplier: 0.72406536
+      waypointIndex: 13
+      curvature: 0.19709617
+    - position: {x: -5.558242, y: 0, z: -4.9031653}
+      forward: {x: -0.29980615, y: 0, z: 0.9540001}
+      up: {x: 0, y: 1, z: 0}
+      distance: 99.01838
+      speedMultiplier: 0.78231657
+      waypointIndex: 13
+      curvature: 0.15548815
+    - position: {x: -5.7484736, y: 0, z: -4.3721166}
+      forward: {x: -0.3735073, y: 0, z: 0.92762727}
+      up: {x: 0, y: 1, z: 0}
+      distance: 99.58247
+      speedMultiplier: 0.82832795
+      waypointIndex: 13
+      curvature: 0.12262293
+    - position: {x: -5.9867167, y: 0, z: -3.8346303}
+      forward: {x: -0.432145, y: 0, z: 0.90180415}
+      up: {x: 0, y: 1, z: 0}
+      distance: 100.170395
+      speedMultiplier: 0.863492
+      waypointIndex: 13
+      curvature: 0.097505696
+    - position: {x: -6.264629, y: 0, z: -3.293873}
+      forward: {x: -0.47934178, y: 0, z: 0.8776283}
+      up: {x: 0, y: 1, z: 0}
+      distance: 100.77839
+      speedMultiplier: 0.8906101
+      waypointIndex: 13
+      curvature: 0.07813565
+    - position: {x: -6.576286, y: 0, z: -2.7525818}
+      forward: {x: -0.517439, y: 0, z: 0.8557201}
+      up: {x: 0, y: 1, z: 0}
+      distance: 101.40299
+      speedMultiplier: 0.91166884
+      waypointIndex: 13
+      curvature: 0.06309369
+    - position: {x: -6.9158363, y: 0, z: -2.2135181}
+      forward: {x: -0.5482294, y: 0, z: 0.836328}
+      up: {x: 0, y: 1, z: 0}
+      distance: 102.040085
+      speedMultiplier: 0.9282555
+      waypointIndex: 13
+      curvature: 0.051246054
+    - position: {x: -7.277986, y: 0, z: -1.6797906}
+      forward: {x: -0.57289165, y: 0, z: 0.81963116}
+      up: {x: 0, y: 1, z: 0}
+      distance: 102.68508
+      speedMultiplier: 0.94152135
+      waypointIndex: 13
+      curvature: 0.041770466
+    - position: {x: -7.6555514, y: 0, z: -1.1540192}
+      forward: {x: -0.59270257, y: 0, z: 0.8054214}
+      up: {x: 0, y: 1, z: 0}
+      distance: 103.332375
+      speedMultiplier: 0.9526031
+      waypointIndex: 13
+      curvature: 0.03385491
+    - position: {x: -8.042605, y: 0, z: -0.63894904}
+      forward: {x: -0.608357, y: 0, z: 0.79366356}
+      up: {x: 0, y: 1, z: 0}
+      distance: 103.97666
+      speedMultiplier: 0.96226734
+      waypointIndex: 13
+      curvature: 0.026951894
+    - position: {x: -8.433209, y: 0, z: -0.13738687}
+      forward: {x: -0.6203253, y: 0, z: 0.7843446}
+      up: {x: 0, y: 1, z: 0}
+      distance: 104.61238
+      speedMultiplier: 0.97119516
+      waypointIndex: 13
+      curvature: 0.020574903
+    - position: {x: -8.821026, y: 0, z: 0.3470865}
+      forward: {x: -0.6287207, y: 0, z: 0.77763116}
+      up: {x: 0, y: 1, z: 0}
+      distance: 105.232956
+      speedMultiplier: 0.980114
+      waypointIndex: 13
+      curvature: 0.014204294
+    - position: {x: -9.200005, y: 0, z: 0.81237245}
+      forward: {x: -0.63374346, y: 0, z: 0.77354336}
+      up: {x: 0, y: 1, z: 0}
+      distance: 105.83305
+      speedMultiplier: 0.9899035
+      waypointIndex: 13
+      curvature: 0.0072117792
+    - position: {x: -9.564212, y: 0, z: 1.2557209}
+      forward: {x: -0.63519, y: 0, z: 0.772356}
+      up: {x: 0, y: 1, z: 0}
+      distance: 106.406815
+      speedMultiplier: 0.9969913
+      waypointIndex: 13
+      curvature: 0.0021490892
+    - position: {x: -9.907603, y: 0, z: 1.6742643}
+      forward: {x: -0.63251406, y: 0, z: 0.7745489}
+      up: {x: 0, y: 1, z: 0}
+      distance: 106.9482
+      speedMultiplier: 0.9822729
+      waypointIndex: 13
+      curvature: 0.0126622105
+    - position: {x: -10.222841, y: 0, z: 2.0639815}
+      forward: {x: -0.6244041, y: 0, z: 0.7811015}
+      up: {x: 0, y: 1, z: 0}
+      distance: 107.44945
+      speedMultiplier: 0.9580483
+      waypointIndex: 13
+      curvature: 0.029965525
+    - position: {x: -10.504985, y: 0, z: 2.423276}
+      forward: {x: -0.60904914, y: 0, z: 0.79313254}
+      up: {x: 0, y: 1, z: 0}
+      distance: 107.90628
+      speedMultiplier: 0.91795003
+      waypointIndex: 13
+      curvature: 0.058607094
+    - position: {x: -10.7481, y: 0, z: 2.7493966}
+      forward: {x: -0.5826763, y: 0, z: 0.8127043}
+      up: {x: 0, y: 1, z: 0}
+      distance: 108.31305
+      speedMultiplier: 0.84442574
+      waypointIndex: 13
+      curvature: 0.111124486
+    - position: {x: -10.946021, y: 0, z: 3.039418}
+      forward: {x: -0.53758436, y: 0, z: 0.84321}
+      up: {x: 0, y: 1, z: 0}
+      distance: 108.66417
+      speedMultiplier: 0.69214594
+      waypointIndex: 13
+      curvature: 0.21989575
+    - position: {x: -11.09044, y: 0, z: 3.2888787}
+      forward: {x: -0.45408025, y: 0, z: 0.8909608}
+      up: {x: 0, y: 1, z: 0}
+      distance: 108.952415
+      speedMultiplier: 0.3624628
+      waypointIndex: 13
+      curvature: 0.4967718
+    - position: {x: -11.177503, y: 0, z: 3.496676}
+      forward: {x: -0.28611976, y: 0, z: 0.95819384}
+      up: {x: 0, y: 1, z: 0}
+      distance: 109.17771
+      speedMultiplier: 0.3
+      waypointIndex: 13
+      curvature: 1.3166909
+    - position: {x: -11.201281, y: 0, z: 3.6600657}
+      forward: {x: 0.08237669, y: 0, z: 0.9966013}
+      up: {x: 0, y: 1, z: 0}
+      distance: 109.34282
+      speedMultiplier: 0.3
+      waypointIndex: 13
+      curvature: 3.7915452
+    - position: {x: -11.155483, y: 0, z: 3.775989}
+      forward: {x: 0.6814691, y: 0, z: 0.7318469}
+      up: {x: 0, y: 1, z: 0}
+      distance: 109.46746
+      speedMultiplier: 0.3
+      waypointIndex: 14
+      curvature: 6.915558
+    - position: {x: -11.035687, y: 0, z: 3.825249}
+      forward: {x: 0.99649864, y: 0, z: 0.0836092}
+      up: {x: 0, y: 1, z: 0}
+      distance: 109.59699
+      speedMultiplier: 0.3
+      waypointIndex: 14
+      curvature: 3.5729725
+    - position: {x: -10.852656, y: 0, z: 3.7997081}
+      forward: {x: 0.96259433, y: 0, z: -0.2709467}
+      up: {x: 0, y: 1, z: 0}
+      distance: 109.7818
+      speedMultiplier: 0.3
+      waypointIndex: 14
+      curvature: 1.0519798
+    - position: {x: -10.61137, y: 0, z: 3.7063327}
+      forward: {x: 0.906218, y: 0, z: -0.42281085}
+      up: {x: 0, y: 1, z: 0}
+      distance: 110.04052
+      speedMultiplier: 0.47854608
+      waypointIndex: 14
+      curvature: 0.3761231
+    - position: {x: -10.315649, y: 0, z: 3.550795}
+      forward: {x: 0.8676931, y: 0, z: -0.49710023}
+      up: {x: 0, y: 1, z: 0}
+      distance: 110.37465
+      speedMultiplier: 0.7650191
+      waypointIndex: 14
+      curvature: 0.16784348
+    - position: {x: -9.970547, y: 0, z: 3.3402398}
+      forward: {x: 0.842783, y: 0, z: -0.5382536}
+      up: {x: 0, y: 1, z: 0}
+      distance: 110.778915
+      speedMultiplier: 0.87954247
+      waypointIndex: 14
+      curvature: 0.08604113
+    - position: {x: -9.582621, y: 0, z: 3.0834289}
+      forward: {x: 0.8265048, y: 0, z: -0.5629297}
+      up: {x: 0, y: 1, z: 0}
+      distance: 111.24415
+      speedMultiplier: 0.9347887
+      waypointIndex: 14
+      curvature: 0.046579495
+    - position: {x: -9.156848, y: 0, z: 2.787325}
+      forward: {x: 0.8161857, y: 0, z: -0.57778966}
+      up: {x: 0, y: 1, z: 0}
+      distance: 111.762764
+      speedMultiplier: 0.96501786
+      waypointIndex: 14
+      curvature: 0.024987243
+    - position: {x: -8.696999, y: 0, z: 2.4577925}
+      forward: {x: 0.81032884, y: 0, z: -0.5859754}
+      up: {x: 0, y: 1, z: 0}
+      distance: 112.3285
+      speedMultiplier: 0.9832713
+      waypointIndex: 14
+      curvature: 0.011949089
+    - position: {x: -8.209401, y: 0, z: 2.1032372}
+      forward: {x: 0.8078186, y: 0, z: -0.58943117}
+      up: {x: 0, y: 1, z: 0}
+      distance: 112.93137
+      speedMultiplier: 0.9958705
+      waypointIndex: 14
+      curvature: 0.0029496916
+    - position: {x: -7.6993847, y: 0, z: 1.7309659}
+      forward: {x: 0.8080606, y: 0, z: -0.58909947}
+      up: {x: 0, y: 1, z: 0}
+      distance: 113.562805
+      speedMultiplier: 0.99433047
+      waypointIndex: 14
+      curvature: 0.0040496574
+    - position: {x: -7.1718283, y: 0, z: 1.3479165}
+      forward: {x: 0.8107747, y: 0, z: -0.5853583}
+      up: {x: 0, y: 1, z: 0}
+      distance: 114.21476
+      speedMultiplier: 0.985738
+      waypointIndex: 14
+      curvature: 0.0101871425
+    - position: {x: -6.6315446, y: 0, z: 0.9613201}
+      forward: {x: 0.8159202, y: 0, z: -0.57816464}
+      up: {x: 0, y: 1, z: 0}
+      distance: 114.87911
+      speedMultiplier: 0.97721
+      waypointIndex: 14
+      curvature: 0.016278576
+    - position: {x: -6.0842624, y: 0, z: 0.57857925}
+      forward: {x: 0.82340795, y: 0, z: -0.56744987}
+      up: {x: 0, y: 1, z: 0}
+      distance: 115.54695
+      speedMultiplier: 0.96777004
+      waypointIndex: 14
+      curvature: 0.023021411
+    - position: {x: -5.5349708, y: 0, z: 0.20666641}
+      forward: {x: 0.833372, y: 0, z: -0.55271256}
+      up: {x: 0, y: 1, z: 0}
+      distance: 116.210304
+      speedMultiplier: 0.95638883
+      waypointIndex: 14
+      curvature: 0.031150823
+    - position: {x: -4.9888687, y: 0, z: -0.14677273}
+      forward: {x: 0.84615004, y: 0, z: -0.5329448}
+      up: {x: 0, y: 1, z: 0}
+      distance: 116.8608
+      speedMultiplier: 0.94156206
+      waypointIndex: 14
+      curvature: 0.04174141
+    - position: {x: -4.451297, y: 0, z: -0.47428656}
+      forward: {x: 0.86210215, y: 0, z: -0.50673455}
+      up: {x: 0, y: 1, z: 0}
+      distance: 117.49029
+      speedMultiplier: 0.92104644
+      waypointIndex: 14
+      curvature: 0.056395385
+    - position: {x: -3.9271424, y: 0, z: -0.7693958}
+      forward: {x: 0.8815546, y: 0, z: -0.47208208}
+      up: {x: 0, y: 1, z: 0}
+      distance: 118.09181
+      speedMultiplier: 0.8914498
+      waypointIndex: 14
+      curvature: 0.077535875
+    - position: {x: -3.421387, y: 0, z: -1.025135}
+      forward: {x: 0.90485257, y: 0, z: -0.425725}
+      up: {x: 0, y: 1, z: 0}
+      distance: 118.65855
+      speedMultiplier: 0.8468469
+      waypointIndex: 14
+      curvature: 0.109395094
+    - position: {x: -2.9403238, y: 0, z: -1.2320676}
+      forward: {x: 0.9323483, y: 0, z: -0.36156148}
+      up: {x: 0, y: 1, z: 0}
+      distance: 119.18223
+      speedMultiplier: 0.7748758
+      waypointIndex: 14
+      curvature: 0.16080298
+    - position: {x: -2.4882782, y: 0, z: -1.3846802}
+      forward: {x: 0.9624401, y: 0, z: -0.2714942}
+      up: {x: 0, y: 1, z: 0}
+      distance: 119.65934
+      speedMultiplier: 0.65612435
+      waypointIndex: 14
+      curvature: 0.24562547
+    - position: {x: -2.0700595, y: 0, z: -1.4763461}
+      forward: {x: 0.98974866, y: 0, z: -0.14282021}
+      up: {x: 0, y: 1, z: 0}
+      distance: 120.08749
+      speedMultiplier: 0.4582494
+      waypointIndex: 14
+      curvature: 0.38696474
+    - position: {x: -1.6886693, y: 0, z: -1.4990183}
+      forward: {x: 0.9990884, y: 0, z: 0.04268894}
+      up: {x: 0, y: 1, z: 0}
+      distance: 120.46955
+      speedMultiplier: 0.3
+      waypointIndex: 15
+      curvature: 0.6134867
+    - position: {x: -1.2465696, y: 0, z: -1.4220023}
+      forward: {x: 0.95802706, y: 0, z: 0.28667778}
+      up: {x: 0, y: 1, z: 0}
+      distance: 120.91831
+      speedMultiplier: 0.3315421
+      waypointIndex: 15
+      curvature: 0.48073903
+    - position: {x: -0.8063393, y: 0, z: -1.2385638}
+      forward: {x: 0.8851114, y: 0, z: 0.4653793}
+      up: {x: 0, y: 1, z: 0}
+      distance: 121.39523
+      speedMultiplier: 0.5287087
+      waypointIndex: 15
+      curvature: 0.33663666
+    - position: {x: -0.36960053, y: 0, z: -0.9640978}
+      forward: {x: 0.80955595, y: 0, z: 0.58704275}
+      up: {x: 0, y: 1, z: 0}
+      distance: 121.91106
+      speedMultiplier: 0.6813875
+      waypointIndex: 15
+      curvature: 0.22758038
+    - position: {x: 0.062000778, y: 0, z: -0.61286694}
+      forward: {x: 0.74379194, y: 0, z: 0.66841125}
+      up: {x: 0, y: 1, z: 0}
+      distance: 122.467514
+      speedMultiplier: 0.7839125
+      waypointIndex: 15
+      curvature: 0.15434822
+    - position: {x: 0.48682764, y: 0, z: -0.19913127}
+      forward: {x: 0.6906563, y: 0, z: 0.72318316}
+      up: {x: 0, y: 1, z: 0}
+      distance: 123.06052
+      speedMultiplier: 0.85129255
+      waypointIndex: 15
+      curvature: 0.10621958
+    - position: {x: 0.90316063, y: 0, z: 0.26314878}
+      forward: {x: 0.64958227, y: 0, z: 0.76029134}
+      up: {x: 0, y: 1, z: 0}
+      distance: 123.68264
+      speedMultiplier: 0.89666104
+      waypointIndex: 15
+      curvature: 0.07381356
+    - position: {x: 1.3092263, y: 0, z: 0.7594186}
+      forward: {x: 0.61912435, y: 0, z: 0.785293}
+      up: {x: 0, y: 1, z: 0}
+      distance: 124.32387
+      speedMultiplier: 0.92907107
+      waypointIndex: 15
+      curvature: 0.05066354
+    - position: {x: 1.7035291, y: 0, z: 1.2746814}
+      forward: {x: 0.5979135, y: 0, z: 0.80156064}
+      up: {x: 0, y: 1, z: 0}
+      distance: 124.97269
+      speedMultiplier: 0.95456344
+      waypointIndex: 15
+      curvature: 0.032454677
+    - position: {x: 2.0844262, y: 0, z: 1.7946713}
+      forward: {x: 0.58527154, y: 0, z: 0.8108373}
+      up: {x: 0, y: 1, z: 0}
+      distance: 125.617256
+      speedMultiplier: 0.9773559
+      waypointIndex: 15
+      curvature: 0.016174357
+    - position: {x: 2.450275, y: 0, z: 2.3051221}
+      forward: {x: 0.5812168, y: 0, z: 0.8137487}
+      up: {x: 0, y: 1, z: 0}
+      distance: 126.24527
+      speedMultiplier: 0.99824584
+      waypointIndex: 15
+      curvature: 0.0012529831
+    - position: {x: 2.7993991, y: 0, z: 2.7916842}
+      forward: {x: 0.58661115, y: 0, z: 0.80986875}
+      up: {x: 0, y: 1, z: 0}
+      distance: 126.844124
+      speedMultiplier: 0.96785027
+      waypointIndex: 15
+      curvature: 0.022964112
+    - position: {x: 3.1297596, y: 0, z: 3.2389479}
+      forward: {x: 0.6038195, y: 0, z: 0.7971211}
+      up: {x: 0, y: 1, z: 0}
+      distance: 127.40017
+      speedMultiplier: 0.92024046
+      waypointIndex: 15
+      curvature: 0.0569711
+    - position: {x: 3.4400842, y: 0, z: 3.6331627}
+      forward: {x: 0.63687974, y: 0, z: 0.7709632}
+      up: {x: 0, y: 1, z: 0}
+      distance: 127.90187
+      speedMultiplier: 0.8333236
+      waypointIndex: 15
+      curvature: 0.11905457
+    - position: {x: 3.728733, y: 0, z: 3.960066}
+      forward: {x: 0.6935129, y: 0, z: 0.72044426}
+      up: {x: 0, y: 1, z: 0}
+      distance: 128.33797
+      speedMultiplier: 0.64690375
+      waypointIndex: 15
+      curvature: 0.25221163
+    - position: {x: 3.9940648, y: 0, z: 4.2053957}
+      forward: {x: 0.78640515, y: 0, z: 0.61771107}
+      up: {x: 0, y: 1, z: 0}
+      distance: 128.69934
+      speedMultiplier: 0.3
+      waypointIndex: 15
+      curvature: 0.5875754
+    - position: {x: 4.234451, y: 0, z: 4.3549}
+      forward: {x: 0.92184925, y: 0, z: 0.38754877}
+      up: {x: 0, y: 1, z: 0}
+      distance: 128.98242
+      speedMultiplier: 0.3
+      waypointIndex: 15
+      curvature: 1.5157818
+    - position: {x: 4.447651, y: 0, z: 4.3916736}
+      forward: {x: 0.9934414, y: 0, z: -0.1143423}
+      up: {x: 0, y: 1, z: 0}
+      distance: 129.19878
+      speedMultiplier: 0.3
+      waypointIndex: 15
+      curvature: 3.1457565
+    - position: {x: 4.626865, y: 0, z: 4.308638}
+      forward: {x: 0.7634366, y: 0, z: -0.6458827}
+      up: {x: 0, y: 1, z: 0}
+      distance: 129.39629
+      speedMultiplier: 0.3
+      waypointIndex: 16
+      curvature: 2.0840845
+    - position: {x: 4.764906, y: 0, z: 4.1430063}
+      forward: {x: 0.52683437, y: 0, z: -0.84996796}
+      up: {x: 0, y: 1, z: 0}
+      distance: 129.6119
+      speedMultiplier: 0.3
+      waypointIndex: 16
+      curvature: 0.95454246
+    - position: {x: 4.88423, y: 0, z: 3.8961976}
+      forward: {x: 0.36606547, y: 0, z: -0.9305891}
+      up: {x: 0, y: 1, z: 0}
+      distance: 129.88603
+      speedMultiplier: 0.35663736
+      waypointIndex: 16
+      curvature: 0.4641321
+    - position: {x: 4.986411, y: 0, z: 3.5795374}
+      forward: {x: 0.25871176, y: 0, z: -0.96595454}
+      up: {x: 0, y: 1, z: 0}
+      distance: 130.21877
+      speedMultiplier: 0.6480751
+      waypointIndex: 16
+      curvature: 0.25137496
+    - position: {x: 5.0717707, y: 0, z: 3.1988947}
+      forward: {x: 0.18463708, y: 0, z: -0.98280674}
+      up: {x: 0, y: 1, z: 0}
+      distance: 130.60886
+      speedMultiplier: 0.78763086
+      waypointIndex: 16
+      curvature: 0.15169226
+    - position: {x: 5.140671, y: 0, z: 2.7606435}
+      forward: {x: 0.13102278, y: 0, z: -0.9913794}
+      up: {x: 0, y: 1, z: 0}
+      distance: 131.05249
+      speedMultiplier: 0.85917705
+      waypointIndex: 16
+      curvature: 0.10058781
+    - position: {x: 5.19443, y: 0, z: 2.2742126}
+      forward: {x: 0.089752875, y: 0, z: -0.99596405}
+      up: {x: 0, y: 1, z: 0}
+      distance: 131.54189
+      speedMultiplier: 0.9001394
+      waypointIndex: 16
+      curvature: 0.07132899
+    - position: {x: 5.2327504, y: 0, z: 1.7441524}
+      forward: {x: 0.057089284, y: 0, z: -0.9983691}
+      up: {x: 0, y: 1, z: 0}
+      distance: 132.07333
+      speedMultiplier: 0.924298
+      waypointIndex: 16
+      curvature: 0.05407288
+    - position: {x: 5.2570577, y: 0, z: 1.1798757}
+      forward: {x: 0.0299114, y: 0, z: -0.99955255}
+      up: {x: 0, y: 1, z: 0}
+      distance: 132.63814
+      speedMultiplier: 0.9395977
+      waypointIndex: 16
+      curvature: 0.04314449
+    - position: {x: 5.2677155, y: 0, z: 0.58789307}
+      forward: {x: 0.0065940893, y: 0, z: -0.99997824}
+      up: {x: 0, y: 1, z: 0}
+      distance: 133.23021
+      speedMultiplier: 0.94939893
+      waypointIndex: 16
+      curvature: 0.03614363
+    - position: {x: 5.2651515, y: 0, z: -0.024807066}
+      forward: {x: -0.0140544195, y: 0, z: -0.99990124}
+      up: {x: 0, y: 1, z: 0}
+      distance: 133.84291
+      speedMultiplier: 0.955572
+      waypointIndex: 16
+      curvature: 0.03173428
+    - position: {x: 5.250539, y: 0, z: -0.6503515}
+      forward: {x: -0.03301508, y: 0, z: -0.99945486}
+      up: {x: 0, y: 1, z: 0}
+      distance: 134.46863
+      speedMultiplier: 0.95928264
+      waypointIndex: 16
+      curvature: 0.029083828
+    - position: {x: 5.223776, y: 0, z: -1.2819802}
+      forward: {x: -0.050938953, y: 0, z: -0.99870175}
+      up: {x: 0, y: 1, z: 0}
+      distance: 135.10083
+      speedMultiplier: 0.9609346
+      waypointIndex: 16
+      curvature: 0.02790388
+    - position: {x: 5.186123, y: 0, z: -1.9122177}
+      forward: {x: -0.06848143, y: 0, z: -0.9976524}
+      up: {x: 0, y: 1, z: 0}
+      distance: 135.7322
+      speedMultiplier: 0.96084124
+      waypointIndex: 16
+      curvature: 0.027970562
+    - position: {x: 5.1379957, y: 0, z: -2.5338352}
+      forward: {x: -0.086219, y: 0, z: -0.99627626}
+      up: {x: 0, y: 1, z: 0}
+      distance: 136.35567
+      speedMultiplier: 0.9588978
+      waypointIndex: 16
+      curvature: 0.029358704
+    - position: {x: 5.07988, y: 0, z: -3.1393213}
+      forward: {x: -0.104820125, y: 0, z: -0.9944912}
+      up: {x: 0, y: 1, z: 0}
+      distance: 136.96393
+      speedMultiplier: 0.95468867
+      waypointIndex: 16
+      curvature: 0.03236524
+    - position: {x: 5.0128117, y: 0, z: -3.7223048}
+      forward: {x: -0.12498627, y: 0, z: -0.9921585}
+      up: {x: 0, y: 1, z: 0}
+      distance: 137.55075
+      speedMultiplier: 0.9475204
+      waypointIndex: 16
+      curvature: 0.03748548
+    - position: {x: 4.9368777, y: 0, z: -4.2738304}
+      forward: {x: -0.14788257, y: 0, z: -0.9890049}
+      up: {x: 0, y: 1, z: 0}
+      distance: 138.10748
+      speedMultiplier: 0.93552583
+      waypointIndex: 16
+      curvature: 0.04605296
+    - position: {x: 4.853179, y: 0, z: -4.788329}
+      forward: {x: -0.1747778, y: 0, z: -0.98460793}
+      up: {x: 0, y: 1, z: 0}
+      distance: 138.62874
+      speedMultiplier: 0.9158575
+      waypointIndex: 16
+      curvature: 0.06010181
+    - position: {x: 4.7621818, y: 0, z: -5.2579174}
+      forward: {x: -0.20798497, y: 0, z: -0.978132}
+      up: {x: 0, y: 1, z: 0}
+      distance: 139.10706
+      speedMultiplier: 0.8819106
+      waypointIndex: 16
+      curvature: 0.08434958
+    - position: {x: 4.6644316, y: 0, z: -5.674494}
+      forward: {x: -0.25141883, y: 0, z: -0.9678784}
+      up: {x: 0, y: 1, z: 0}
+      distance: 139.53494
+      speedMultiplier: 0.818366
+      waypointIndex: 16
+      curvature: 0.1297386
+    - position: {x: 4.528848, y: 0, z: -6.1212482}
+      forward: {x: -0.34126392, y: 0, z: -0.9399676}
+      up: {x: 0, y: 1, z: 0}
+      distance: 140.00182
+      speedMultiplier: 0.6314201
+      waypointIndex: 17
+      curvature: 0.2632714
+    - position: {x: 4.3028116, y: 0, z: -6.6220975}
+      forward: {x: -0.48199883, y: 0, z: -0.8761718}
+      up: {x: 0, y: 1, z: 0}
+      distance: 140.55132
+      speedMultiplier: 0.58759266
+      waypointIndex: 17
+      curvature: 0.2945767
+    - position: {x: 4.0242696, y: 0, z: -7.048755}
+      forward: {x: -0.6081596, y: 0, z: -0.79381484}
+      up: {x: 0, y: 1, z: 0}
+      distance: 141.06085
+      speedMultiplier: 0.5938106
+      waypointIndex: 17
+      curvature: 0.29013526
+    - position: {x: 3.7021747, y: 0, z: -7.4146523}
+      forward: {x: -0.7080817, y: 0, z: -0.7061305}
+      up: {x: 0, y: 1, z: 0}
+      distance: 141.54832
+      speedMultiplier: 0.65019524
+      waypointIndex: 17
+      curvature: 0.24986054
+    - position: {x: 3.345491, y: 0, z: -7.733208}
+      forward: {x: -0.778263, y: 0, z: -0.62793845}
+      up: {x: 0, y: 1, z: 0}
+      distance: 142.02655
+      speedMultiplier: 0.73834467
+      waypointIndex: 17
+      curvature: 0.18689664
+    - position: {x: 2.9631808, y: 0, z: -8.017844}
+      forward: {x: -0.8215475, y: 0, z: -0.5701401}
+      up: {x: 0, y: 1, z: 0}
+      distance: 142.50319
+      speedMultiplier: 0.8382566
+      waypointIndex: 17
+      curvature: 0.11553099
+    - position: {x: 2.564198, y: 0, z: -8.281992}
+      forward: {x: -0.84265167, y: 0, z: -0.5384591}
+      up: {x: 0, y: 1, z: 0}
+      distance: 142.98169
+      speedMultiplier: 0.93868494
+      waypointIndex: 17
+      curvature: 0.043796483
+    - position: {x: 2.1574876, y: 0, z: -8.539086}
+      forward: {x: -0.84490407, y: 0, z: -0.5349179}
+      up: {x: 0, y: 1, z: 0}
+      distance: 143.46284
+      speedMultiplier: 0.9634671
+      waypointIndex: 17
+      curvature: 0.026094904
+    - position: {x: 1.7520329, y: 0, z: -8.802537}
+      forward: {x: -0.82895494, y: 0, z: -0.5593154}
+      up: {x: 0, y: 1, z: 0}
+      distance: 143.94638
+      speedMultiplier: 0.86804247
+      waypointIndex: 17
+      curvature: 0.09425534
+    - position: {x: 1.3567797, y: 0, z: -9.085775}
+      forward: {x: -0.7927747, y: 0, z: -0.6095149}
+      up: {x: 0, y: 1, z: 0}
+      distance: 144.43265
+      speedMultiplier: 0.77660215
+      waypointIndex: 17
+      curvature: 0.15956987
+    - position: {x: 0.980676, y: 0, z: -9.402238}
+      forward: {x: -0.7327139, y: 0, z: -0.68053687}
+      up: {x: 0, y: 1, z: 0}
+      distance: 144.92418
+      speedMultiplier: 0.6964536
+      waypointIndex: 17
+      curvature: 0.21681887
+    - position: {x: 0.63269967, y: 0, z: -9.765336}
+      forward: {x: -0.6459777, y: 0, z: -0.7633563}
+      up: {x: 0, y: 1, z: 0}
+      distance: 145.4271
+      speedMultiplier: 0.6415802
+      waypointIndex: 17
+      curvature: 0.2560141
+    - position: {x: 0.3219295, y: 0, z: -10.188706}
+      forward: {x: -0.5341488, y: 0, z: -0.8453905}
+      up: {x: 0, y: 1, z: 0}
+      distance: 145.95229
+      speedMultiplier: 0.62658226
+      waypointIndex: 17
+      curvature: 0.26672694
+    - position: {x: 0.08744951, y: 0, z: -10.593416}
+      forward: {x: -0.4868166, y: 0, z: -0.8735042}
+      up: {x: 0, y: 1, z: 0}
+      distance: 146.42001
+      speedMultiplier: 0.93281776
+      waypointIndex: 18
+      curvature: 0.047987312
+    - position: {x: -0.13587089, y: 0, z: -11.004351}
+      forward: {x: -0.46868315, y: 0, z: -0.8833664}
+      up: {x: 0, y: 1, z: 0}
+      distance: 146.88771
+      speedMultiplier: 0.9425706
+      waypointIndex: 18
+      curvature: 0.04102097
+    - position: {x: -0.36397836, y: 0, z: -11.444684}
+      forward: {x: -0.45159292, y: 0, z: -0.8922241}
+      up: {x: 0, y: 1, z: 0}
+      distance: 147.38362
+      speedMultiplier: 0.9481209
+      waypointIndex: 18
+      curvature: 0.037056524
+    - position: {x: -0.5939047, y: 0, z: -11.909799}
+      forward: {x: -0.43488234, y: 0, z: -0.9004873}
+      up: {x: 0, y: 1, z: 0}
+      distance: 147.90247
+      speedMultiplier: 0.95085704
+      waypointIndex: 18
+      curvature: 0.035102107
+    - position: {x: -0.8226816, y: 0, z: -12.395073}
+      forward: {x: -0.41801292, y: 0, z: -0.9084411}
+      up: {x: 0, y: 1, z: 0}
+      distance: 148.43896
+      speedMultiplier: 0.9514799
+      waypointIndex: 18
+      curvature: 0.034657236
+    - position: {x: -1.0473406, y: 0, z: -12.895885}
+      forward: {x: -0.40049583, y: 0, z: -0.91629857}
+      up: {x: 0, y: 1, z: 0}
+      distance: 148.98785
+      speedMultiplier: 0.9502998
+      waypointIndex: 18
+      curvature: 0.035500146
+    - position: {x: -1.2649137, y: 0, z: -13.4076185}
+      forward: {x: -0.38184333, y: 0, z: -0.92422706}
+      up: {x: 0, y: 1, z: 0}
+      distance: 149.54391
+      speedMultiplier: 0.9473666
+      waypointIndex: 18
+      curvature: 0.03759528
+    - position: {x: -1.4724324, y: 0, z: -13.925648}
+      forward: {x: -0.3615301, y: 0, z: -0.9323604}
+      up: {x: 0, y: 1, z: 0}
+      distance: 150.10196
+      speedMultiplier: 0.94251275
+      waypointIndex: 18
+      curvature: 0.041062325
+    - position: {x: -1.6669285, y: 0, z: -14.445356}
+      forward: {x: -0.3389512, y: 0, z: -0.94080395}
+      up: {x: 0, y: 1, z: 0}
+      distance: 150.65688
+      speedMultiplier: 0.9353404
+      waypointIndex: 18
+      curvature: 0.046185404
+    - position: {x: -1.8454338, y: 0, z: -14.962121}
+      forward: {x: -0.3133107, y: 0, z: -0.9496507}
+      up: {x: 0, y: 1, z: 0}
+      distance: 151.2036
+      speedMultiplier: 0.9251554
+      waypointIndex: 18
+      curvature: 0.053460445
+    - position: {x: -2.0049798, y: 0, z: -15.471323}
+      forward: {x: -0.2836536, y: 0, z: -0.9589268}
+      up: {x: 0, y: 1, z: 0}
+      distance: 151.73721
+      speedMultiplier: 0.9108306
+      waypointIndex: 18
+      curvature: 0.06369243
+    - position: {x: -2.1425982, y: 0, z: -15.968342}
+      forward: {x: -0.2486351, y: 0, z: -0.96859723}
+      up: {x: 0, y: 1, z: 0}
+      distance: 152.25293
+      speedMultiplier: 0.8905596
+      waypointIndex: 18
+      curvature: 0.07817171
+    - position: {x: -2.2553208, y: 0, z: -16.448557}
+      forward: {x: -0.20646195, y: 0, z: -0.97845465}
+      up: {x: 0, y: 1, z: 0}
+      distance: 152.7462
+      speedMultiplier: 0.8614192
+      waypointIndex: 18
+      curvature: 0.098986305
+    - position: {x: -2.3401792, y: 0, z: -16.907347}
+      forward: {x: -0.15458712, y: 0, z: -0.9879792}
+      up: {x: 0, y: 1, z: 0}
+      distance: 153.21277
+      speedMultiplier: 0.8186007
+      waypointIndex: 18
+      curvature: 0.12957095
+    - position: {x: -2.3942056, y: 0, z: -17.340092}
+      forward: {x: -0.08940286, y: 0, z: -0.9959956}
+      up: {x: 0, y: 1, z: 0}
+      distance: 153.64888
+      speedMultiplier: 0.7540878
+      waypointIndex: 18
+      curvature: 0.1756516
+    - position: {x: -2.414431, y: 0, z: -17.74217}
+      forward: {x: -0.0058059315, y: 0, z: -0.99998313}
+      up: {x: 0, y: 1, z: 0}
+      distance: 154.05147
+      speedMultiplier: 0.6545681
+      waypointIndex: 18
+      curvature: 0.24673711
+    - position: {x: -2.3927345, y: 0, z: -18.157642}
+      forward: {x: 0.11025887, y: 0, z: -0.9939029}
+      up: {x: 0, y: 1, z: 0}
+      distance: 154.4675
+      speedMultiplier: 0.62195534
+      waypointIndex: 19
+      curvature: 0.2700319
+    - position: {x: -2.3003411, y: 0, z: -18.676163}
+      forward: {x: 0.23492306, y: 0, z: -0.97201395}
+      up: {x: 0, y: 1, z: 0}
+      distance: 154.99419
+      speedMultiplier: 0.69877464
+      waypointIndex: 19
+      curvature: 0.21516101
+    - position: {x: -2.14247, y: 0, z: -19.20086}
+      forward: {x: 0.33825105, y: 0, z: -0.94105595}
+      up: {x: 0, y: 1, z: 0}
+      distance: 155.54211
+      speedMultiplier: 0.745798
+      waypointIndex: 19
+      curvature: 0.18157287
+    - position: {x: -1.9268196, y: 0, z: -19.71931}
+      forward: {x: 0.42730597, y: 0, z: -0.9041071}
+      up: {x: 0, y: 1, z: 0}
+      distance: 156.10362
+      speedMultiplier: 0.7699948
+      waypointIndex: 19
+      curvature: 0.16428944
+    - position: {x: -1.6618168, y: 0, z: -20.219023}
+      forward: {x: 0.5079317, y: 0, z: -0.8613974}
+      up: {x: 0, y: 1, z: 0}
+      distance: 156.66925
+      speedMultiplier: 0.7753278
+      waypointIndex: 19
+      curvature: 0.16048017
+    - position: {x: -1.355949, y: 0, z: -20.68777}
+      forward: {x: 0.5847756, y: 0, z: -0.81119514}
+      up: {x: 0, y: 1, z: 0}
+      distance: 157.22896
+      speedMultiplier: 0.76213795
+      waypointIndex: 19
+      curvature: 0.16990148
+    - position: {x: -1.0173534, y: 0, z: -21.113281}
+      forward: {x: 0.66163087, y: 0, z: -0.74982977}
+      up: {x: 0, y: 1, z: 0}
+      distance: 157.77275
+      speedMultiplier: 0.7265535
+      waypointIndex: 19
+      curvature: 0.19531897
+    - position: {x: -0.6539222, y: 0, z: -21.482384}
+      forward: {x: 0.74168706, y: 0, z: -0.67074615}
+      up: {x: 0, y: 1, z: 0}
+      distance: 158.29074
+      speedMultiplier: 0.65852237
+      waypointIndex: 19
+      curvature: 0.24391259
+    - position: {x: -0.274212, y: 0, z: -21.783302}
+      forward: {x: 0.8261607, y: 0, z: -0.56343454}
+      up: {x: 0, y: 1, z: 0}
+      distance: 158.77524
+      speedMultiplier: 0.540709
+      waypointIndex: 19
+      curvature: 0.328065
+    - position: {x: 0.11361498, y: 0, z: -22.003849}
+      forward: {x: 0.9113392, y: 0, z: -0.41165623}
+      up: {x: 0, y: 1, z: 0}
+      distance: 159.22139
+      speedMultiplier: 0.34869245
+      waypointIndex: 19
+      curvature: 0.4652197
+    - position: {x: 0.50139964, y: 0, z: -22.13138}
+      forward: {x: 0.9807992, y: 0, z: -0.1950202}
+      up: {x: 0, y: 1, z: 0}
+      distance: 159.62961
+      speedMultiplier: 0.3
+      waypointIndex: 19
+      curvature: 0.66107476
+    - position: {x: 0.88080794, y: 0, z: -22.152603}
+      forward: {x: 0.99555963, y: 0, z: 0.09413357}
+      up: {x: 0, y: 1, z: 0}
+      distance: 160.00961
+      speedMultiplier: 0.3
+      waypointIndex: 19
+      curvature: 0.84820455
+    - position: {x: 1.1865543, y: 0, z: -22.07129}
+      forward: {x: 0.89725614, y: 0, z: 0.44151044}
+      up: {x: 0, y: 1, z: 0}
+      distance: 160.32599
+      speedMultiplier: 0.3
+      waypointIndex: 20
+      curvature: 1.1158048
+    - position: {x: 1.4587814, y: 0, z: -21.884548}
+      forward: {x: 0.7562673, y: 0, z: 0.65426284}
+      up: {x: 0, y: 1, z: 0}
+      distance: 160.65611
+      speedMultiplier: 0.3
+      waypointIndex: 20
+      curvature: 0.52091575
+    - position: {x: 1.7394066, y: 0, z: -21.598455}
+      forward: {x: 0.6524093, y: 0, z: 0.75786686}
+      up: {x: 0, y: 1, z: 0}
+      distance: 161.05685
+      speedMultiplier: 0.6440978
+      waypointIndex: 20
+      curvature: 0.25421587
+    - position: {x: 2.027947, y: 0, z: -21.228544}
+      forward: {x: 0.58428854, y: 0, z: 0.811546}
+      up: {x: 0, y: 1, z: 0}
+      distance: 161.52599
+      speedMultiplier: 0.8128708
+      waypointIndex: 20
+      curvature: 0.1336637
+    - position: {x: 2.3238251, y: 0, z: -20.791367}
+      forward: {x: 0.54101765, y: 0, z: 0.8410113}
+      up: {x: 0, y: 1, z: 0}
+      distance: 162.05388
+      speedMultiplier: 0.8987568
+      waypointIndex: 20
+      curvature: 0.07231657
+    - position: {x: 2.62649, y: 0, z: -20.302858}
+      forward: {x: 0.5152504, y: 0, z: 0.8570397}
+      up: {x: 0, y: 1, z: 0}
+      distance: 162.62856
+      speedMultiplier: 0.9485929
+      waypointIndex: 20
+      curvature: 0.036719345
+    - position: {x: 2.9354217, y: 0, z: -19.77893}
+      forward: {x: 0.5027142, y: 0, z: 0.86445266}
+      up: {x: 0, y: 1, z: 0}
+      distance: 163.23679
+      speedMultiplier: 0.98222476
+      waypointIndex: 20
+      curvature: 0.012696606
+    - position: {x: 3.2500887, y: 0, z: -19.235495}
+      forward: {x: 0.5012237, y: 0, z: 0.86531776}
+      up: {x: 0, y: 1, z: 0}
+      distance: 163.86475
+      speedMultiplier: 0.9906164
+      waypointIndex: 20
+      curvature: 0.006702581
+    - position: {x: 3.569947, y: 0, z: -18.688492}
+      forward: {x: 0.51004803, y: 0, z: 0.860146}
+      up: {x: 0, y: 1, z: 0}
+      distance: 164.4984
+      speedMultiplier: 0.9638386
+      waypointIndex: 20
+      curvature: 0.025829561
+    - position: {x: 3.8944812, y: 0, z: -18.15381}
+      forward: {x: 0.52965415, y: 0, z: 0.8482137}
+      up: {x: 0, y: 1, z: 0}
+      distance: 165.12386
+      speedMultiplier: 0.9318998
+      waypointIndex: 20
+      curvature: 0.048643023
+    - position: {x: 4.2231393, y: 0, z: -17.647402}
+      forward: {x: 0.56168985, y: 0, z: 0.82734793}
+      up: {x: 0, y: 1, z: 0}
+      distance: 165.72757
+      speedMultiplier: 0.887388
+      waypointIndex: 20
+      curvature: 0.08043714
+    - position: {x: 4.555397, y: 0, z: -17.185173}
+      forward: {x: 0.60917336, y: 0, z: 0.7930371}
+      up: {x: 0, y: 1, z: 0}
+      distance: 166.29683
+      speedMultiplier: 0.81756383
+      waypointIndex: 20
+      curvature: 0.13031155
+    - position: {x: 4.890734, y: 0, z: -16.783026}
+      forward: {x: 0.6765294, y: 0, z: 0.7364157}
+      up: {x: 0, y: 1, z: 0}
+      distance: 166.82045
+      speedMultiplier: 0.6978989
+      waypointIndex: 20
+      curvature: 0.21578646
+    - position: {x: 5.2285967, y: 0, z: -16.45691}
+      forward: {x: 0.76828307, y: 0, z: 0.64011025}
+      up: {x: 0, y: 1, z: 0}
+      distance: 167.29002
+      speedMultiplier: 0.48143983
+      waypointIndex: 20
+      curvature: 0.37040013
+    - position: {x: 5.5684614, y: 0, z: -16.222727}
+      forward: {x: 0.8815477, y: 0, z: 0.47209498}
+      up: {x: 0, y: 1, z: 0}
+      distance: 167.70276
+      speedMultiplier: 0.3
+      waypointIndex: 20
+      curvature: 0.6421082
+    - position: {x: 5.909808, y: 0, z: -16.096395}
+      forward: {x: 0.9815132, y: 0, z: 0.19139451}
+      up: {x: 0, y: 1, z: 0}
+      distance: 168.06673
+      speedMultiplier: 0.3
+      waypointIndex: 20
+      curvature: 1.0022199
+    - position: {x: 6.239727, y: 0, z: -16.092657}
+      forward: {x: 0.9841624, y: 0, z: -0.17726938}
+      up: {x: 0, y: 1, z: 0}
+      distance: 168.39667
+      speedMultiplier: 0.3
+      waypointIndex: 21
+      curvature: 1.1361237
+    - position: {x: 6.54915, y: 0, z: -16.202135}
+      forward: {x: 0.8916115, y: 0, z: -0.45280123}
+      up: {x: 0, y: 1, z: 0}
+      distance: 168.72488
+      speedMultiplier: 0.3
+      waypointIndex: 21
+      curvature: 0.67044985
+    - position: {x: 6.8695993, y: 0, z: -16.409668}
+      forward: {x: 0.7889029, y: 0, z: -0.61451787}
+      up: {x: 0, y: 1, z: 0}
+      distance: 169.10666
+      speedMultiplier: 0.48406747
+      waypointIndex: 21
+      curvature: 0.36852324
+    - position: {x: 7.1995707, y: 0, z: -16.704685}
+      forward: {x: 0.70718956, y: 0, z: -0.70702404}
+      up: {x: 0, y: 1, z: 0}
+      distance: 169.54929
+      speedMultiplier: 0.70524496
+      waypointIndex: 21
+      curvature: 0.21053931
+    - position: {x: 7.5373163, y: 0, z: -17.074303}
+      forward: {x: 0.6472001, y: 0, z: -0.76232016}
+      up: {x: 0, y: 1, z: 0}
+      distance: 170.04997
+      speedMultiplier: 0.8222494
+      waypointIndex: 21
+      curvature: 0.12696469
+    - position: {x: 7.880948, y: 0, z: -17.504332}
+      forward: {x: 0.60390055, y: 0, z: -0.7970597}
+      up: {x: 0, y: 1, z: 0}
+      distance: 170.60043
+      speedMultiplier: 0.88909006
+      waypointIndex: 21
+      curvature: 0.07922142
+    - position: {x: 8.228847, y: 0, z: -17.983225}
+      forward: {x: 0.57353914, y: 0, z: -0.8191782}
+      up: {x: 0, y: 1, z: 0}
+      distance: 171.19235
+      speedMultiplier: 0.9300227
+      waypointIndex: 21
+      curvature: 0.04998377
+    - position: {x: 8.579264, y: 0, z: -18.498415}
+      forward: {x: 0.5533016, y: 0, z: -0.83298105}
+      up: {x: 0, y: 1, z: 0}
+      distance: 171.81541
+      speedMultiplier: 0.9575395
+      waypointIndex: 21
+      curvature: 0.030328937
+    - position: {x: 8.930432, y: 0, z: -19.036392}
+      forward: {x: 0.5411267, y: 0, z: -0.8409411}
+      up: {x: 0, y: 1, z: 0}
+      distance: 172.45786
+      speedMultiplier: 0.97841185
+      waypointIndex: 21
+      curvature: 0.0154201
+    - position: {x: 9.280663, y: 0, z: -19.584988}
+      forward: {x: 0.53619105, y: 0, z: -0.84409666}
+      up: {x: 0, y: 1, z: 0}
+      distance: 173.10872
+      speedMultiplier: 0.9964309
+      waypointIndex: 21
+      curvature: 0.002549366
+    - position: {x: 9.628119, y: 0, z: -20.131222}
+      forward: {x: 0.53837276, y: 0, z: -0.8427068}
+      up: {x: 0, y: 1, z: 0}
+      distance: 173.7561
+      speedMultiplier: 0.985318
+      waypointIndex: 21
+      curvature: 0.010487142
+    - position: {x: 9.971181, y: 0, z: -20.662586}
+      forward: {x: 0.54782695, y: 0, z: -0.83659166}
+      up: {x: 0, y: 1, z: 0}
+      distance: 174.3886
+      speedMultiplier: 0.9636627
+      waypointIndex: 21
+      curvature: 0.0259552
+    - position: {x: 10.3081455, y: 0, z: -21.166718}
+      forward: {x: 0.56570226, y: 0, z: -0.8246096}
+      up: {x: 0, y: 1, z: 0}
+      distance: 174.99498
+      speedMultiplier: 0.9341211
+      waypointIndex: 21
+      curvature: 0.047056384
+    - position: {x: 10.636999, y: 0, z: -21.62944}
+      forward: {x: 0.5945749, y: 0, z: -0.8040402}
+      up: {x: 0, y: 1, z: 0}
+      distance: 175.56265
+      speedMultiplier: 0.8876975
+      waypointIndex: 21
+      curvature: 0.08021605
+    - position: {x: 10.95631, y: 0, z: -22.03964}
+      forward: {x: 0.6376799, y: 0, z: -0.7703015}
+      up: {x: 0, y: 1, z: 0}
+      distance: 176.08249
+      speedMultiplier: 0.8075131
+      waypointIndex: 21
+      curvature: 0.13749062
+    - position: {x: 11.264421, y: 0, z: -22.385153}
+      forward: {x: 0.7004448, y: 0, z: -0.71370655}
+      up: {x: 0, y: 1, z: 0}
+      distance: 176.54543
+      speedMultiplier: 0.65550756
+      waypointIndex: 21
+      curvature: 0.24606603
+    - position: {x: 11.559023, y: 0, z: -22.649807}
+      forward: {x: 0.79181963, y: 0, z: -0.610755}
+      up: {x: 0, y: 1, z: 0}
+      distance: 176.94145
+      speedMultiplier: 0.34532025
+      waypointIndex: 21
+      curvature: 0.4808633
+    - position: {x: 11.838948, y: 0, z: -22.824306}
+      forward: {x: 0.90974104, y: 0, z: -0.41517612}
+      up: {x: 0, y: 1, z: 0}
+      distance: 177.27132
+      speedMultiplier: 0.3
+      waypointIndex: 21
+      curvature: 0.983763
+    - position: {x: 12.102533, y: 0, z: -22.896528}
+      forward: {x: 0.9983741, y: 0, z: -0.057001587}
+      up: {x: 0, y: 1, z: 0}
+      distance: 177.54462
+      speedMultiplier: 0.3
+      waypointIndex: 21
+      curvature: 1.7575407
+    - position: {x: 12.359717, y: 0, z: -22.853868}
+      forward: {x: 0.9400916, y: 0, z: 0.34092185}
+      up: {x: 0, y: 1, z: 0}
+      distance: 177.80531
+      speedMultiplier: 0.3
+      waypointIndex: 22
+      curvature: 1.2653478
+    - position: {x: 12.609161, y: 0, z: -22.714327}
+      forward: {x: 0.79801524, y: 0, z: 0.60263735}
+      up: {x: 0, y: 1, z: 0}
+      distance: 178.09114
+      speedMultiplier: 0.3
+      waypointIndex: 22
+      curvature: 0.8266139
+    - position: {x: 12.845689, y: 0, z: -22.488811}
+      forward: {x: 0.6560382, y: 0, z: 0.7547277}
+      up: {x: 0, y: 1, z: 0}
+      distance: 178.41795
+      speedMultiplier: 0.34351897
+      waypointIndex: 22
+      curvature: 0.4851456
+    - position: {x: 13.070159, y: 0, z: -22.18634}
+      forward: {x: 0.5436081, y: 0, z: 0.8393392}
+      up: {x: 0, y: 1, z: 0}
+      distance: 178.79462
+      speedMultiplier: 0.5977726
+      waypointIndex: 22
+      curvature: 0.2873053
+    - position: {x: 13.283422, y: 0, z: -21.81594}
+      forward: {x: 0.45998746, y: 0, z: 0.88792545}
+      up: {x: 0, y: 1, z: 0}
+      distance: 179.22203
+      speedMultiplier: 0.7506769
+      waypointIndex: 22
+      curvature: 0.17808795
+    - position: {x: 13.486344, y: 0, z: -21.386612}
+      forward: {x: 0.39830112, y: 0, z: 0.91725475}
+      up: {x: 0, y: 1, z: 0}
+      distance: 179.6969
+      speedMultiplier: 0.83786184
+      waypointIndex: 22
+      curvature: 0.115812965
+    - position: {x: 13.679771, y: 0, z: -20.907394}
+      forward: {x: 0.352542, y: 0, z: 0.935796}
+      up: {x: 0, y: 1, z: 0}
+      distance: 180.21368
+      speedMultiplier: 0.8903876
+      waypointIndex: 22
+      curvature: 0.07829458
+    - position: {x: 13.864479, y: 0, z: -20.38695}
+      forward: {x: 0.31856042, y: 0, z: 0.94790256}
+      up: {x: 0, y: 1, z: 0}
+      distance: 180.76593
+      speedMultiplier: 0.9238949
+      waypointIndex: 22
+      curvature: 0.054360766
+    - position: {x: 14.041399, y: 0, z: -19.83475}
+      forward: {x: 0.29341915, y: 0, z: 0.95598394}
+      up: {x: 0, y: 1, z: 0}
+      distance: 181.34578
+      speedMultiplier: 0.9467835
+      waypointIndex: 22
+      curvature: 0.03801183
+    - position: {x: 14.211431, y: 0, z: -19.259998}
+      forward: {x: 0.27521658, y: 0, z: 0.96138227}
+      up: {x: 0, y: 1, z: 0}
+      distance: 181.94516
+      speedMultiplier: 0.96357983
+      waypointIndex: 22
+      curvature: 0.026014436
+    - position: {x: 14.375423, y: 0, z: -18.671743}
+      forward: {x: 0.2628224, y: 0, z: 0.9648442}
+      up: {x: 0, y: 1, z: 0}
+      distance: 182.55585
+      speedMultiplier: 0.9769591
+      waypointIndex: 22
+      curvature: 0.016457742
+    - position: {x: 14.534243, y: 0, z: -18.078974}
+      forward: {x: 0.25558564, y: 0, z: 0.96678644}
+      up: {x: 0, y: 1, z: 0}
+      distance: 183.16953
+      speedMultiplier: 0.9887407
+      waypointIndex: 22
+      curvature: 0.008042395
+    - position: {x: 14.688738, y: 0, z: -17.490736}
+      forward: {x: 0.25326246, y: 0, z: 0.96739763}
+      up: {x: 0, y: 1, z: 0}
+      distance: 183.77771
+      speedMultiplier: 0.99860895
+      waypointIndex: 22
+      curvature: 0.0009935977
+    - position: {x: 14.839771, y: 0, z: -16.91603}
+      forward: {x: 0.25600418, y: 0, z: 0.9666757}
+      up: {x: 0, y: 1, z: 0}
+      distance: 184.37193
+      speedMultiplier: 0.98644197
+      waypointIndex: 22
+      curvature: 0.009684324
+    - position: {x: 14.988192, y: 0, z: -16.363941}
+      forward: {x: 0.26442525, y: 0, z: 0.9644062}
+      up: {x: 0, y: 1, z: 0}
+      distance: 184.94362
+      speedMultiplier: 0.9696694
+      waypointIndex: 22
+      curvature: 0.02166472
+    - position: {x: 15.134857, y: 0, z: -15.844032}
+      forward: {x: 0.2798624, y: 0, z: 0.96004015}
+      up: {x: 0, y: 1, z: 0}
+      distance: 185.48383
+      speedMultiplier: 0.94548535
+      waypointIndex: 22
+      curvature: 0.03893903
+    - position: {x: 15.280655, y: 0, z: -15.365037}
+      forward: {x: 0.3045033, y: 0, z: 0.9525113}
+      up: {x: 0, y: 1, z: 0}
+      distance: 185.98451
+      speedMultiplier: 0.9068076
+      waypointIndex: 22
+      curvature: 0.06656598
+    - position: {x: 15.434704, y: 0, z: -14.909992}
+      forward: {x: 0.3312395, y: 0, z: 0.9435467}
+      up: {x: 0, y: 1, z: 0}
+      distance: 186.46492
+      speedMultiplier: 0.9789397
+      waypointIndex: 23
+      curvature: 0.015043066
+    - position: {x: 15.617659, y: 0, z: -14.381715}
+      forward: {x: 0.32329682, y: 0, z: 0.94629765}
+      up: {x: 0, y: 1, z: 0}
+      distance: 187.02399
+      speedMultiplier: 0.9789267
+      waypointIndex: 23
+      curvature: 0.015052343
+    - position: {x: 15.794843, y: 0, z: -13.855992}
+      forward: {x: 0.3153481, y: 0, z: 0.9489761}
+      up: {x: 0, y: 1, z: 0}
+      distance: 187.57877
+      speedMultiplier: 0.97869915
+      waypointIndex: 23
+      curvature: 0.015214924
+    - position: {x: 15.965768, y: 0, z: -13.334267}
+      forward: {x: 0.30733147, y: 0, z: 0.9516026}
+      up: {x: 0, y: 1, z: 0}
+      distance: 188.12778
+      speedMultiplier: 0.97823864
+      waypointIndex: 23
+      curvature: 0.015543856
+    - position: {x: 16.130093, y: 0, z: -12.817925}
+      forward: {x: 0.29918158, y: 0, z: 0.9541962}
+      up: {x: 0, y: 1, z: 0}
+      distance: 188.66963
+      speedMultiplier: 0.9775233
+      waypointIndex: 23
+      curvature: 0.016054772
+    - position: {x: 16.287483, y: 0, z: -12.308303}
+      forward: {x: 0.2908289, y: 0, z: 0.95677507}
+      up: {x: 0, y: 1, z: 0}
+      distance: 189.203
+      speedMultiplier: 0.9765209
+      waypointIndex: 23
+      curvature: 0.016770793
+    - position: {x: 16.437437, y: 0, z: -11.806912}
+      forward: {x: 0.28219065, y: 0, z: 0.9593584}
+      up: {x: 0, y: 1, z: 0}
+      distance: 189.72633
+      speedMultiplier: 0.9751776
+      waypointIndex: 23
+      curvature: 0.017730298
+    - position: {x: 16.579609, y: 0, z: -11.315109}
+      forward: {x: 0.2731757, y: 0, z: 0.9619642}
+      up: {x: 0, y: 1, z: 0}
+      distance: 190.23828
+      speedMultiplier: 0.9734266
+      waypointIndex: 23
+      curvature: 0.018981012
+    - position: {x: 16.713684, y: 0, z: -10.834182}
+      forward: {x: 0.26368245, y: 0, z: 0.96460956}
+      up: {x: 0, y: 1, z: 0}
+      distance: 190.73755
+      speedMultiplier: 0.9711794
+      waypointIndex: 23
+      curvature: 0.020586124
+    - position: {x: 16.839157, y: 0, z: -10.365688}
+      forward: {x: 0.25357768, y: 0, z: 0.967315}
+      up: {x: 0, y: 1, z: 0}
+      distance: 191.22255
+      speedMultiplier: 0.9682999
+      waypointIndex: 23
+      curvature: 0.022642916
+    - position: {x: 16.955662, y: 0, z: -9.911007}
+      forward: {x: 0.24270706, y: 0, z: 0.9700996}
+      up: {x: 0, y: 1, z: 0}
+      distance: 191.69193
+      speedMultiplier: 0.9646073
+      waypointIndex: 23
+      curvature: 0.025280485
+    - position: {x: 17.062902, y: 0, z: -9.471373}
+      forward: {x: 0.23089056, y: 0, z: 0.9729797}
+      up: {x: 0, y: 1, z: 0}
+      distance: 192.14445
+      speedMultiplier: 0.95985895
+      waypointIndex: 23
+      curvature: 0.02867218
+    - position: {x: 17.160376, y: 0, z: -9.048372}
+      forward: {x: 0.21787737, y: 0, z: 0.97597617}
+      up: {x: 0, y: 1, z: 0}
+      distance: 192.57854
+      speedMultiplier: 0.9536763
+      waypointIndex: 23
+      curvature: 0.033088356
+    - position: {x: 17.24769, y: 0, z: -8.64341}
+      forward: {x: 0.2033539, y: 0, z: 0.9791053}
+      up: {x: 0, y: 1, z: 0}
+      distance: 192.99281
+      speedMultiplier: 0.9455126
+      waypointIndex: 23
+      curvature: 0.03891955
+    - position: {x: 17.34251, y: 0, z: -8.111498}
+      forward: {x: 0.13254163, y: 0, z: 0.99117744}
+      up: {x: 0, y: 1, z: 0}
+      distance: 193.53311
+      speedMultiplier: 0.75128824
+      waypointIndex: 24
+      curvature: 0.17765123
+    - position: {x: 17.389433, y: 0, z: -7.5388927}
+      forward: {x: 0.03082662, y: 0, z: 0.9995248}
+      up: {x: 0, y: 1, z: 0}
+      distance: 194.10764
+      speedMultiplier: 0.76053816
+      waypointIndex: 24
+      curvature: 0.17104416
+    - position: {x: 17.384249, y: 0, z: -7.0218873}
+      forward: {x: -0.04686097, y: 0, z: 0.9989014}
+      up: {x: 0, y: 1, z: 0}
+      distance: 194.62466
+      speedMultiplier: 0.8311068
+      waypointIndex: 24
+      curvature: 0.12063802
+    - position: {x: 17.351267, y: 0, z: -6.5449853}
+      forward: {x: -0.08335698, y: 0, z: 0.99651974}
+      up: {x: 0, y: 1, z: 0}
+      distance: 195.1027
+      speedMultiplier: 0.96527535
+      waypointIndex: 24
+      curvature: 0.024803335
+    - position: {x: 17.315027, y: 0, z: -6.0923543}
+      forward: {x: -0.06665611, y: 0, z: 0.99777603}
+      up: {x: 0, y: 1, z: 0}
+      distance: 195.5568
+      speedMultiplier: 0.856734
+      waypointIndex: 24
+      curvature: 0.10233289
+    - position: {x: 17.299852, y: 0, z: -5.64839}
+      forward: {x: 0.007770382, y: 0, z: 0.99996984}
+      up: {x: 0, y: 1, z: 0}
+      distance: 196.00102
+      speedMultiplier: 0.6792299
+      waypointIndex: 24
+      curvature: 0.22912152
+    - position: {x: 17.330057, y: 0, z: -5.197491}
+      forward: {x: 0.13163592, y: 0, z: 0.99129814}
+      up: {x: 0, y: 1, z: 0}
+      distance: 196.45293
+      speedMultiplier: 0.568992
+      waypointIndex: 24
+      curvature: 0.30786282
+    - position: {x: 17.42997, y: 0, z: -4.724058}
+      forward: {x: 0.28011346, y: 0, z: 0.9599669}
+      up: {x: 0, y: 1, z: 0}
+      distance: 196.93678
+      speedMultiplier: 0.5718438
+      waypointIndex: 24
+      curvature: 0.30582586
+    - position: {x: 17.58908, y: 0, z: -4.2731104}
+      forward: {x: 0.34895584, y: 0, z: 0.9371392}
+      up: {x: 0, y: 1, z: 0}
+      distance: 197.41498
+      speedMultiplier: 0.96901345
+      waypointIndex: 25
+      curvature: 0.022133248
+    - position: {x: 17.74592, y: 0, z: -3.8498437}
+      forward: {x: 0.3488351, y: 0, z: 0.9371841}
+      up: {x: 0, y: 1, z: 0}
+      distance: 197.86636
+      speedMultiplier: 0.9736
+      waypointIndex: 25
+      curvature: 0.018857135
+    - position: {x: 17.91653, y: 0, z: -3.4014804}
+      forward: {x: 0.36459708, y: 0, z: 0.9311654}
+      up: {x: 0, y: 1, z: 0}
+      distance: 198.34608
+      speedMultiplier: 0.92996013
+      waypointIndex: 25
+      curvature: 0.05002846
+    - position: {x: 18.105507, y: 0, z: -2.9392354}
+      forward: {x: 0.39430442, y: 0, z: 0.91897994}
+      up: {x: 0, y: 1, z: 0}
+      distance: 198.84547
+      speedMultiplier: 0.8903838
+      waypointIndex: 25
+      curvature: 0.07829727
+    - position: {x: 18.317564, y: 0, z: -2.4738233}
+      forward: {x: 0.4373928, y: 0, z: 0.8992706}
+      up: {x: 0, y: 1, z: 0}
+      distance: 199.35692
+      speedMultiplier: 0.84933096
+      waypointIndex: 25
+      curvature: 0.10762073
+    - position: {x: 18.557863, y: 0, z: -2.0162897}
+      forward: {x: 0.4940687, y: 0, z: 0.86942285}
+      up: {x: 0, y: 1, z: 0}
+      distance: 199.87372
+      speedMultiplier: 0.8029543
+      waypointIndex: 25
+      curvature: 0.14074689
+    - position: {x: 18.830807, y: 0, z: -1.5774162}
+      forward: {x: 0.5640106, y: 0, z: 0.8257676}
+      up: {x: 0, y: 1, z: 0}
+      distance: 200.39055
+      speedMultiplier: 0.74907553
+      waypointIndex: 25
+      curvature: 0.17923175
+    - position: {x: 19.141088, y: 0, z: -1.1679554}
+      forward: {x: 0.6459647, y: 0, z: 0.76336735}
+      up: {x: 0, y: 1, z: 0}
+      distance: 200.9043
+      speedMultiplier: 0.6879902
+      waypointIndex: 25
+      curvature: 0.22286418
+    - position: {x: 19.493973, y: 0, z: -0.799264}
+      forward: {x: 0.73642904, y: 0, z: 0.6765148}
+      up: {x: 0, y: 1, z: 0}
+      distance: 201.41466
+      speedMultiplier: 0.6248002
+      waypointIndex: 25
+      curvature: 0.26799986
+    - position: {x: 19.893867, y: 0, z: -0.48189992}
+      forward: {x: 0.8277033, y: 0, z: 0.561166}
+      up: {x: 0, y: 1, z: 0}
+      distance: 201.92519
+      speedMultiplier: 0.57184505
+      waypointIndex: 25
+      curvature: 0.305825
+    - position: {x: 20.345367, y: 0, z: -0.22650689}
+      forward: {x: 0.9084924, y: 0, z: 0.41790152}
+      up: {x: 0, y: 1, z: 0}
+      distance: 202.44391
+      speedMultiplier: 0.563022
+      waypointIndex: 25
+      curvature: 0.31212714
+    - position: {x: 20.714773, y: 0, z: -0.07979965}
+      forward: {x: 0.94519365, y: 0, z: 0.32651037}
+      up: {x: 0, y: 1, z: 0}
+      distance: 202.84138
+      speedMultiplier: 0.68023086
+      waypointIndex: 26
+      curvature: 0.22840652
+    - position: {x: 21.055635, y: 0, z: 0.022737743}
+      forward: {x: 0.96886456, y: 0, z: 0.24759151}
+      up: {x: 0, y: 1, z: 0}
+      distance: 203.19734
+      speedMultiplier: 0.6762659
+      waypointIndex: 26
+      curvature: 0.23123868
+    - position: {x: 21.399664, y: 0, z: 0.095976874}
+      forward: {x: 0.98534954, y: 0, z: 0.17054702}
+      up: {x: 0, y: 1, z: 0}
+      distance: 203.54907
+      speedMultiplier: 0.70059806
+      waypointIndex: 26
+      curvature: 0.2138585
+    - position: {x: 21.752003, y: 0, z: 0.14380291}
+      forward: {x: 0.9949143, y: 0, z: 0.10072496}
+      up: {x: 0, y: 1, z: 0}
+      distance: 203.90465
+      speedMultiplier: 0.7468426
+      waypointIndex: 26
+      curvature: 0.18082671
+    - position: {x: 22.117743, y: 0, z: 0.1696}
+      forward: {x: 0.9991199, y: 0, z: 0.041945472}
+      up: {x: 0, y: 1, z: 0}
+      distance: 204.2713
+      speedMultiplier: 0.8041414
+      waypointIndex: 26
+      curvature: 0.13989899
+    - position: {x: 22.50222, y: 0, z: 0.17645353}
+      forward: {x: 0.9999929, y: 0, z: -0.0037724269}
+      up: {x: 0, y: 1, z: 0}
+      distance: 204.65584
+      speedMultiplier: 0.8618321
+      waypointIndex: 26
+      curvature: 0.098691344
+    - position: {x: 22.91079, y: 0, z: 0.1676659}
+      forward: {x: 0.9993418, y: 0, z: -0.03627747}
+      up: {x: 0, y: 1, z: 0}
+      distance: 205.0645
+      speedMultiplier: 0.9125399
+      waypointIndex: 26
+      curvature: 0.062471513
+    - position: {x: 23.348259, y: 0, z: 0.14679264}
+      forward: {x: 0.9983793, y: 0, z: -0.05691042}
+      up: {x: 0, y: 1, z: 0}
+      distance: 205.50247
+      speedMultiplier: 0.9531844
+      waypointIndex: 26
+      curvature: 0.0334397
+    - position: {x: 23.819702, y: 0, z: 0.11709431}
+      forward: {x: 0.9977319, y: 0, z: -0.06731359}
+      up: {x: 0, y: 1, z: 0}
+      distance: 205.97485
+      speedMultiplier: 0.9834605
+      waypointIndex: 26
+      curvature: 0.011813921
+    - position: {x: 24.33134, y: 0, z: 0.081767276}
+      forward: {x: 0.9976058, y: 0, z: -0.06915668}
+      up: {x: 0, y: 1, z: 0}
+      distance: 206.48772
+      speedMultiplier: 0.9956237
+      waypointIndex: 26
+      curvature: 0.0031259041
+    - position: {x: 24.887403, y: 0, z: 0.044295933}
+      forward: {x: 0.99792135, y: 0, z: -0.06444334}
+      up: {x: 0, y: 1, z: 0}
+      distance: 207.04504
+      speedMultiplier: 0.98200786
+      waypointIndex: 26
+      curvature: 0.012851526
+    - position: {x: 25.492916, y: 0, z: 0.007945618}
+      forward: {x: 0.99850124, y: 0, z: -0.054729253}
+      up: {x: 0, y: 1, z: 0}
+      distance: 207.65164
+      speedMultiplier: 0.97390586
+      waypointIndex: 26
+      curvature: 0.018638669
+    - position: {x: 26.153873, y: 0, z: -0.023912584}
+      forward: {x: 0.9991468, y: 0, z: -0.041299418}
+      up: {x: 0, y: 1, z: 0}
+      distance: 208.31337
+      speedMultiplier: 0.9698118
+      waypointIndex: 26
+      curvature: 0.021563029
+    - position: {x: 26.87539, y: 0, z: -0.047909845}
+      forward: {x: 0.99968004, y: 0, z: -0.02529399}
+      up: {x: 0, y: 1, z: 0}
+      distance: 209.03528
+      speedMultiplier: 0.96844286
+      waypointIndex: 26
+      curvature: 0.022540838
+    - position: {x: 27.661848, y: 0, z: -0.06084151}
+      forward: {x: 0.9999711, y: 0, z: -0.0076066456}
+      up: {x: 0, y: 1, z: 0}
+      distance: 209.82184
+      speedMultiplier: 0.96882814
+      waypointIndex: 26
+      curvature: 0.02226564
+    - position: {x: 28.202156, y: 0, z: -0.06247585}
+      forward: {x: 0.9999993, y: 0, z: -0.0011937158}
+      up: {x: 0, y: 1, z: 0}
+      distance: 210.36215
+      speedMultiplier: 0.9961348
+      waypointIndex: 27
+      curvature: 0.0027608685
+    - position: {x: 28.573208, y: 0, z: -0.06310281}
+      forward: {x: 0.99999774, y: 0, z: -0.0021339387}
+      up: {x: 0, y: 1, z: 0}
+      distance: 210.7332
+      speedMultiplier: 0.99672955
+      waypointIndex: 27
+      curvature: 0.0023360152
+    - position: {x: 28.959389, y: 0, z: -0.06409899}
+      forward: {x: 0.9999956, y: 0, z: -0.0029639823}
+      up: {x: 0, y: 1, z: 0}
+      distance: 211.11938
+      speedMultiplier: 0.9972094
+      waypointIndex: 27
+      curvature: 0.0019932732
+    - position: {x: 29.358885, y: 0, z: -0.06542014}
+      forward: {x: 0.99999315, y: 0, z: -0.0037070413}
+      up: {x: 0, y: 1, z: 0}
+      distance: 211.51889
+      speedMultiplier: 0.99760765
+      waypointIndex: 27
+      curvature: 0.0017088082
+    - position: {x: 29.773464, y: 0, z: -0.067109585}
+      forward: {x: 0.99999046, y: 0, z: -0.0043611154}
+      up: {x: 0, y: 1, z: 0}
+      distance: 211.93347
+      speedMultiplier: 0.9979309
+      waypointIndex: 27
+      curvature: 0.0014779291
+    - position: {x: 30.200377, y: 0, z: -0.06910005}
+      forward: {x: 0.9999878, y: 0, z: -0.0049489196}
+      up: {x: 0, y: 1, z: 0}
+      distance: 212.36038
+      speedMultiplier: 0.9982038
+      waypointIndex: 27
+      curvature: 0.0012829829
+    - position: {x: 30.639244, y: 0, z: -0.071382195}
+      forward: {x: 0.99998504, y: 0, z: -0.005477139}
+      up: {x: 0, y: 1, z: 0}
+      distance: 212.79926
+      speedMultiplier: 0.99843556
+      waypointIndex: 27
+      curvature: 0.0011174718
+    - position: {x: 31.090807, y: 0, z: -0.073974386}
+      forward: {x: 0.99998236, y: 0, z: -0.005946262}
+      up: {x: 0, y: 1, z: 0}
+      distance: 213.25082
+      speedMultiplier: 0.99863017
+      waypointIndex: 27
+      curvature: 0.0009784285
+    - position: {x: 31.552591, y: 0, z: -0.07681609}
+      forward: {x: 0.99997973, y: 0, z: -0.006370611}
+      up: {x: 0, y: 1, z: 0}
+      distance: 213.71262
+      speedMultiplier: 0.9987994
+      waypointIndex: 27
+      curvature: 0.0008575736
+    - position: {x: 32.02503, y: 0, z: -0.07991766}
+      forward: {x: 0.99997723, y: 0, z: -0.0067504314}
+      up: {x: 0, y: 1, z: 0}
+      distance: 214.18506
+      speedMultiplier: 0.9989455
+      waypointIndex: 27
+      curvature: 0.00075322535
+    - position: {x: 32.50742, y: 0, z: -0.08326241}
+      forward: {x: 0.99997485, y: 0, z: -0.00709009}
+      up: {x: 0, y: 1, z: 0}
+      distance: 214.66747
+      speedMultiplier: 0.9990727
+      waypointIndex: 27
+      curvature: 0.0006624079
+    - position: {x: 32.99823, y: 0, z: -0.086812384}
+      forward: {x: 0.99997264, y: 0, z: -0.0073967394}
+      up: {x: 0, y: 1, z: 0}
+      distance: 215.1583
+      speedMultiplier: 0.9991856
+      waypointIndex: 27
+      curvature: 0.00058171083
+    - position: {x: 33.49814, y: 0, z: -0.090584636}
+      forward: {x: 0.9999706, y: 0, z: -0.0076680863}
+      up: {x: 0, y: 1, z: 0}
+      distance: 215.65822
+      speedMultiplier: 0.99928486
+      waypointIndex: 27
+      curvature: 0.00051081984
+    - position: {x: 34.005505, y: 0, z: -0.09453888}
+      forward: {x: 0.9999687, y: 0, z: -0.0079105925}
+      up: {x: 0, y: 1, z: 0}
+      distance: 216.1656
+      speedMultiplier: 0.999374
+      waypointIndex: 27
+      curvature: 0.00044715064
+    - position: {x: 34.519592, y: 0, z: -0.09865727}
+      forward: {x: 0.999967, y: 0, z: -0.008126784}
+      up: {x: 0, y: 1, z: 0}
+      distance: 216.6797
+      speedMultiplier: 0.9994548
+      waypointIndex: 27
+      curvature: 0.0003894422
+    - position: {x: 35.040752, y: 0, z: -0.10294824}
+      forward: {x: 0.9999654, y: 0, z: -0.008314481}
+      up: {x: 0, y: 1, z: 0}
+      distance: 217.20088
+      speedMultiplier: 0.9995275
+      waypointIndex: 27
+      curvature: 0.00033748895
+    - position: {x: 35.567223, y: 0, z: -0.10736891}
+      forward: {x: 0.99996406, y: 0, z: -0.008479772}
+      up: {x: 0, y: 1, z: 0}
+      distance: 217.72737
+      speedMultiplier: 0.9995946
+      waypointIndex: 27
+      curvature: 0.00028953064
+    - position: {x: 36.09884, y: 0, z: -0.11191499}
+      forward: {x: 0.99996287, y: 0, z: -0.008622004}
+      up: {x: 0, y: 1, z: 0}
+      distance: 218.259
+      speedMultiplier: 0.99965674
+      waypointIndex: 27
+      curvature: 0.00024519503
+    - position: {x: 36.635063, y: 0, z: -0.1165737}
+      forward: {x: 0.9999618, y: 0, z: -0.008741557}
+      up: {x: 0, y: 1, z: 0}
+      distance: 218.79524
+      speedMultiplier: 0.9997145
+      waypointIndex: 27
+      curvature: 0.00020393067
+    - position: {x: 37.174786, y: 0, z: -0.12131774}
+      forward: {x: 0.9999609, y: 0, z: -0.008841822}
+      up: {x: 0, y: 1, z: 0}
+      distance: 219.33499
+      speedMultiplier: 0.99976915
+      waypointIndex: 27
+      curvature: 0.00016487611
+    - position: {x: 37.717823, y: 0, z: -0.1261428}
+      forward: {x: 0.99996024, y: 0, z: -0.008920681}
+      up: {x: 0, y: 1, z: 0}
+      distance: 219.87805
+      speedMultiplier: 0.99982107
+      waypointIndex: 27
+      curvature: 0.00012783191
+    - position: {x: 38.263252, y: 0, z: -0.13102622}
+      forward: {x: 0.9999597, y: 0, z: -0.00898042}
+      up: {x: 0, y: 1, z: 0}
+      distance: 220.42351
+      speedMultiplier: 0.9998709
+      waypointIndex: 27
+      curvature: 0.000092189664
+    - position: {x: 38.81038, y: 0, z: -0.1359508}
+      forward: {x: 0.99995935, y: 0, z: -0.009022458}
+      up: {x: 0, y: 1, z: 0}
+      distance: 220.97066
+      speedMultiplier: 0.9999195
+      waypointIndex: 27
+      curvature: 0.00005750804
+    - position: {x: 39.358746, y: 0, z: -0.14090596}
+      forward: {x: 0.9999591, y: 0, z: -0.009043526}
+      up: {x: 0, y: 1, z: 0}
+      distance: 221.51904
+      speedMultiplier: 0.99996704
+      waypointIndex: 27
+      curvature: 0.000023533177
+    - position: {x: 39.90752, y: 0, z: -0.145871}
+      forward: {x: 0.9999591, y: 0, z: -0.009047406}
+      up: {x: 0, y: 1, z: 0}
+      distance: 222.06784
+      speedMultiplier: 0.9999799
+      waypointIndex: 27
+      curvature: 0.000014338654
+    - position: {x: 40.456116, y: 0, z: -0.15083148}
+      forward: {x: 0.99995923, y: 0, z: -0.009032937}
+      up: {x: 0, y: 1, z: 0}
+      distance: 222.61646
+      speedMultiplier: 0.9999383
+      waypointIndex: 27
+      curvature: 0.000044074135
+    - position: {x: 41.003784, y: 0, z: -0.15576956}
+      forward: {x: 0.9999595, y: 0, z: -0.008998704}
+      up: {x: 0, y: 1, z: 0}
+      distance: 223.16414
+      speedMultiplier: 0.9998902
+      waypointIndex: 27
+      curvature: 0.0000784405
+    - position: {x: 41.550037, y: 0, z: -0.16067317}
+      forward: {x: 0.99995995, y: 0, z: -0.00894698}
+      up: {x: 0, y: 1, z: 0}
+      distance: 223.71042
+      speedMultiplier: 0.9998409
+      waypointIndex: 27
+      curvature: 0.00011360705
+    - position: {x: 42.094, y: 0, z: -0.16552086}
+      forward: {x: 0.99996066, y: 0, z: -0.00887502}
+      up: {x: 0, y: 1, z: 0}
+      distance: 224.25441
+      speedMultiplier: 0.99978983
+      waypointIndex: 27
+      curvature: 0.00015010333
+    - position: {x: 42.635117, y: 0, z: -0.17029884}
+      forward: {x: 0.99996144, y: 0, z: -0.008783246}
+      up: {x: 0, y: 1, z: 0}
+      distance: 224.79555
+      speedMultiplier: 0.99973637
+      waypointIndex: 27
+      curvature: 0.00018830544
+    - position: {x: 43.172993, y: 0, z: -0.17499796}
+      forward: {x: 0.9999624, y: 0, z: -0.00867251}
+      up: {x: 0, y: 1, z: 0}
+      distance: 225.33345
+      speedMultiplier: 0.9996801
+      waypointIndex: 27
+      curvature: 0.00022851012
+    - position: {x: 43.706253, y: 0, z: -0.17958418}
+      forward: {x: 0.9999635, y: 0, z: -0.008538063}
+      up: {x: 0, y: 1, z: 0}
+      distance: 225.86673
+      speedMultiplier: 0.99961954
+      waypointIndex: 27
+      curvature: 0.0002717304
+    - position: {x: 44.234943, y: 0, z: -0.184059}
+      forward: {x: 0.9999649, y: 0, z: -0.008382517}
+      up: {x: 0, y: 1, z: 0}
+      distance: 226.39543
+      speedMultiplier: 0.9995547
+      waypointIndex: 27
+      curvature: 0.00031809535
+    - position: {x: 44.7583, y: 0, z: -0.1884037}
+      forward: {x: 0.9999663, y: 0, z: -0.008203972}
+      up: {x: 0, y: 1, z: 0}
+      distance: 226.91881
+      speedMultiplier: 0.99948424
+      waypointIndex: 27
+      curvature: 0.00036836375
+    - position: {x: 45.275043, y: 0, z: -0.19258666}
+      forward: {x: 0.99996805, y: 0, z: -0.007998302}
+      up: {x: 0, y: 1, z: 0}
+      distance: 227.43556
+      speedMultiplier: 0.9994066
+      waypointIndex: 27
+      curvature: 0.000423863
+    - position: {x: 45.78545, y: 0, z: -0.19661522}
+      forward: {x: 0.99996984, y: 0, z: -0.007767659}
+      up: {x: 0, y: 1, z: 0}
+      distance: 227.94598
+      speedMultiplier: 0.99932134
+      waypointIndex: 27
+      curvature: 0.00048476827
+    - position: {x: 46.21582, y: 0, z: -0.19991684}
+      forward: {x: 0.99997157, y: 0, z: -0.0075481897}
+      up: {x: 0, y: 1, z: 0}
+      distance: 228.37637
+      speedMultiplier: 0.999241
+      waypointIndex: 27
+      curvature: 0.0005421426
+    totalLength: 228.42723
+    sampleDistance: 0.5
+    designerMarkers:
+    - position: {x: -40.6, y: 0, z: -10.099998}
+      forward: {x: 0.99991745, y: 0, z: 0.012851334}
+      distance: 0
+      type: 1
+      index: 0
+    - position: {x: -38.60495, y: 0, z: -10.222376}
+      forward: {x: 0.9940227, y: 0, z: -0.10917343}
+      distance: 2
+      type: 0
+      index: 1
+    - position: {x: -36.61623, y: 0, z: -10.433164}
+      forward: {x: 0.9971282, y: 0, z: -0.07573192}
+      distance: 4
+      type: 0
+      index: 2
+    - position: {x: -34.6193, y: 0, z: -10.423379}
+      forward: {x: 0.9941519, y: 0, z: 0.10799106}
+      distance: 6
+      type: 0
+      index: 3
+    - position: {x: -32.68346, y: 0, z: -9.946395}
+      forward: {x: 0.93000233, y: 0, z: 0.36755356}
+      distance: 8
+      type: 0
+      index: 4
+    - position: {x: -30.8846, y: 0, z: -9.0756445}
+      forward: {x: 0.87325233, y: 0, z: 0.4872682}
+      distance: 10
+      type: 0
+      index: 5
+    - position: {x: -29.181896, y: 0, z: -8.027602}
+      forward: {x: 0.83081585, y: 0, z: 0.55654746}
+      distance: 12
+      type: 0
+      index: 6
+    - position: {x: -27.558432, y: 0, z: -6.8601704}
+      forward: {x: 0.7922071, y: 0, z: 0.6102524}
+      distance: 14
+      type: 0
+      index: 7
+    - position: {x: -26.016228, y: 0, z: -5.5873647}
+      forward: {x: 0.7486955, y: 0, z: 0.66291404}
+      distance: 16
+      type: 0
+      index: 8
+    - position: {x: -24.576914, y: 0, z: -4.1997557}
+      forward: {x: 0.68401605, y: 0, z: 0.72946703}
+      distance: 18
+      type: 0
+      index: 9
+    - position: {x: -23.403543, y: 0, z: -2.5881484}
+      forward: {x: 0.478716, y: 0, z: 0.8779698}
+      distance: 20
+      type: 0
+      index: 10
+    - position: {x: -22.603495, y: 0, z: -0.7575036}
+      forward: {x: 0.34150034, y: 0, z: 0.9398817}
+      distance: 22
+      type: 0
+      index: 11
+    - position: {x: -21.955153, y: 0, z: 1.1344231}
+      forward: {x: 0.33058655, y: 0, z: 0.9437757}
+      distance: 24
+      type: 0
+      index: 12
+    - position: {x: -21.145617, y: 0, z: 2.9584212}
+      forward: {x: 0.53243715, y: 0, z: 0.8464695}
+      distance: 26
+      type: 0
+      index: 13
+    - position: {x: -19.739754, y: 0, z: 4.361633}
+      forward: {x: 0.81224334, y: 0, z: 0.5833187}
+      distance: 28
+      type: 0
+      index: 14
+    - position: {x: -17.97879, y: 0, z: 5.293857}
+      forward: {x: 0.94430983, y: 0, z: 0.32905772}
+      distance: 30
+      type: 0
+      index: 15
+    - position: {x: -16.023762, y: 0, z: 5.428421}
+      forward: {x: 0.93300533, y: 0, z: -0.3598627}
+      distance: 32
+      type: 0
+      index: 16
+    - position: {x: -14.928056, y: 0, z: 3.8462741}
+      forward: {x: 0.2958755, y: 0, z: -0.95522654}
+      distance: 34
+      type: 0
+      index: 17
+    - position: {x: -14.5135145, y: 0, z: 1.8918993}
+      forward: {x: 0.14358959, y: 0, z: -0.9896374}
+      distance: 36
+      type: 0
+      index: 18
+    - position: {x: -14.316312, y: 0, z: -0.09764414}
+      forward: {x: 0.05461917, y: 0, z: -0.99850726}
+      distance: 38
+      type: 0
+      index: 19
+    - position: {x: -14.337977, y: 0, z: -2.0950963}
+      forward: {x: -0.11799247, y: 0, z: -0.9930145}
+      distance: 40
+      type: 0
+      index: 20
+    - position: {x: -14.911947, y: 0, z: -3.9989479}
+      forward: {x: -0.4601491, y: 0, z: -0.88784164}
+      distance: 42
+      type: 0
+      index: 21
+    - position: {x: -16.093206, y: 0, z: -5.603993}
+      forward: {x: -0.7015371, y: 0, z: -0.712633}
+      distance: 44
+      type: 0
+      index: 22
+    - position: {x: -17.891518, y: 0, z: -6.4281383}
+      forward: {x: -0.9601676, y: 0, z: -0.27942476}
+      distance: 46
+      type: 0
+      index: 23
+    - position: {x: -19.701456, y: 0, z: -7.241558}
+      forward: {x: -0.7827607, y: 0, z: -0.62232286}
+      distance: 48
+      type: 0
+      index: 24
+    - position: {x: -20.83663, y: 0, z: -8.8627825}
+      forward: {x: -0.43187767, y: 0, z: -0.90193224}
+      distance: 50
+      type: 0
+      index: 25
+    - position: {x: -21.61169, y: 0, z: -10.705781}
+      forward: {x: -0.34999013, y: 0, z: -0.9367534}
+      distance: 52
+      type: 0
+      index: 26
+    - position: {x: -22.241379, y: 0, z: -12.603534}
+      forward: {x: -0.27832744, y: 0, z: -0.96048623}
+      distance: 54
+      type: 0
+      index: 27
+    - position: {x: -22.697632, y: 0, z: -14.549535}
+      forward: {x: -0.16067968, y: 0, z: -0.98700666}
+      distance: 56
+      type: 0
+      index: 28
+    - position: {x: -22.67155, y: 0, z: -16.528013}
+      forward: {x: 0.3887228, y: 0, z: -0.9213548}
+      distance: 58
+      type: 3
+      index: 29
+    - position: {x: -20.870613, y: 0, z: -16.935179}
+      forward: {x: 0.98495805, y: 0, z: 0.17279369}
+      distance: 60
+      type: 0
+      index: 30
+    - position: {x: -18.924234, y: 0, z: -16.477541}
+      forward: {x: 0.970771, y: 0, z: 0.2400078}
+      distance: 62
+      type: 0
+      index: 31
+    - position: {x: -16.955292, y: 0, z: -16.15959}
+      forward: {x: 0.99993, y: 0, z: -0.011829339}
+      distance: 64
+      type: 0
+      index: 32
+    - position: {x: -15.593871, y: 0, z: -17.297731}
+      forward: {x: 0.17565411, y: 0, z: -0.98445195}
+      distance: 66
+      type: 0
+      index: 33
+    - position: {x: -15.597083, y: 0, z: -19.291412}
+      forward: {x: -0.09477359, y: 0, z: -0.9954989}
+      distance: 68
+      type: 0
+      index: 34
+    - position: {x: -15.842481, y: 0, z: -21.276148}
+      forward: {x: -0.13212322, y: 0, z: -0.9912333}
+      distance: 70
+      type: 0
+      index: 35
+    - position: {x: -16.046068, y: 0, z: -23.264952}
+      forward: {x: -0.032529008, y: 0, z: -0.99947083}
+      distance: 72
+      type: 0
+      index: 36
+    - position: {x: -15.248939, y: 0, z: -24.860104}
+      forward: {x: 0.9856718, y: 0, z: -0.16867453}
+      distance: 74
+      type: 3
+      index: 37
+    - position: {x: -13.339527, y: 0, z: -24.376783}
+      forward: {x: 0.9027099, y: 0, z: 0.4302498}
+      distance: 76
+      type: 0
+      index: 38
+    - position: {x: -11.594966, y: 0, z: -23.400925}
+      forward: {x: 0.85254776, y: 0, z: 0.5226494}
+      distance: 78
+      type: 0
+      index: 39
+    - position: {x: -9.852662, y: 0, z: -22.422224}
+      forward: {x: 0.8988164, y: 0, z: 0.43832538}
+      distance: 80
+      type: 0
+      index: 40
+    - position: {x: -8.173257, y: 0, z: -21.353277}
+      forward: {x: 0.71883404, y: 0, z: 0.6951818}
+      distance: 82
+      type: 0
+      index: 41
+    - position: {x: -7.099073, y: 0, z: -19.684486}
+      forward: {x: 0.38254526, y: 0, z: 0.9239367}
+      distance: 84
+      type: 0
+      index: 42
+    - position: {x: -6.503972, y: 0, z: -17.777182}
+      forward: {x: 0.2479475, y: 0, z: 0.9687735}
+      distance: 86
+      type: 0
+      index: 43
+    - position: {x: -6.0589004, y: 0, z: -15.82754}
+      forward: {x: 0.19989814, y: 0, z: 0.9798167}
+      distance: 88
+      type: 0
+      index: 44
+    - position: {x: -5.6999125, y: 0, z: -13.860162}
+      forward: {x: 0.15943126, y: 0, z: 0.987209}
+      distance: 90
+      type: 0
+      index: 45
+    - position: {x: -5.4238124, y: 0, z: -11.87949}
+      forward: {x: 0.11614944, y: 0, z: 0.9932318}
+      distance: 92
+      type: 0
+      index: 46
+    - position: {x: -5.2413344, y: 0, z: -9.888079}
+      forward: {x: 0.06258276, y: 0, z: 0.9980398}
+      distance: 94
+      type: 0
+      index: 47
+    - position: {x: -5.1890254, y: 0, z: -7.8892574}
+      forward: {x: -0.014909556, y: 0, z: 0.99988884}
+      distance: 96
+      type: 0
+      index: 48
+    - position: {x: -5.336787, y: 0, z: -5.8962483}
+      forward: {x: -0.14893498, y: 0, z: 0.988847}
+      distance: 98
+      type: 0
+      index: 49
+    - position: {x: -5.917668, y: 0, z: -3.9904077}
+      forward: {x: -0.4153217, y: 0, z: 0.9096746}
+      distance: 100
+      type: 0
+      index: 50
+    - position: {x: -6.8944726, y: 0, z: -2.247435}
+      forward: {x: -0.5463113, y: 0, z: 0.8375822}
+      distance: 102
+      type: 0
+      index: 51
+    - position: {x: -8.056945, y: 0, z: -0.62053585}
+      forward: {x: -0.60879886, y: 0, z: 0.79332465}
+      distance: 104
+      type: 0
+      index: 52
+    - position: {x: -9.305978, y: 0, z: 0.9413729}
+      forward: {x: -0.6341646, y: 0, z: 0.7731981}
+      distance: 106
+      type: 0
+      index: 53
+    - position: {x: -10.560999, y: 0, z: 2.498414}
+      forward: {x: -0.6030304, y: 0, z: 0.7977183}
+      distance: 108
+      type: 0
+      index: 54
+    - position: {x: -10.649159, y: 0, z: 3.7209568}
+      forward: {x: 0.91666335, y: 0, z: -0.3996603}
+      distance: 110
+      type: 0
+      index: 55
+    - position: {x: -8.964014, y: 0, z: 2.6491385}
+      forward: {x: 0.8137395, y: 0, z: -0.5812298}
+      distance: 112
+      type: 0
+      index: 56
+    - position: {x: -7.34561, y: 0, z: 1.4740964}
+      forward: {x: 0.8098815, y: 0, z: -0.58659357}
+      distance: 114
+      type: 0
+      index: 57
+    - position: {x: -5.709114, y: 0, z: 0.32457477}
+      forward: {x: 0.83024055, y: 0, z: -0.5574053}
+      distance: 116
+      type: 0
+      index: 58
+    - position: {x: -4.0071454, y: 0, z: -0.7243526}
+      forward: {x: 0.8786747, y: 0, z: -0.477421}
+      distance: 118
+      type: 0
+      index: 59
+    - position: {x: -2.155517, y: 0, z: -1.4576154}
+      forward: {x: 0.9855495, y: 0, z: -0.16938755}
+      distance: 120
+      type: 0
+      index: 60
+    - position: {x: -0.3006139, y: 0, z: -0.9079575}
+      forward: {x: 0.7996218, y: 0, z: 0.600504}
+      distance: 122
+      type: 0
+      index: 61
+    - position: {x: 1.1041329, y: 0, z: 0.50876534}
+      forward: {x: 0.63463134, y: 0, z: 0.77281505}
+      distance: 124
+      type: 0
+      index: 62
+    - position: {x: 2.3073933, y: 0, z: 2.1057663}
+      forward: {x: 0.58280224, y: 0, z: 0.8126141}
+      distance: 126
+      type: 0
+      index: 63
+    - position: {x: 3.5050352, y: 0, z: 3.7067218}
+      forward: {x: 0.64995474, y: 0, z: 0.759973}
+      distance: 128
+      type: 0
+      index: 64
+    - position: {x: 4.919229, y: 0, z: 3.787735}
+      forward: {x: 0.32975337, y: 0, z: -0.9440671}
+      distance: 130
+      type: 0
+      index: 65
+    - position: {x: 5.227463, y: 0, z: 1.8172946}
+      forward: {x: 0.061601564, y: 0, z: -0.9981009}
+      distance: 132
+      type: 0
+      index: 66
+    - position: {x: 5.2614827, y: 0, z: -0.18185295}
+      forward: {x: -0.018814985, y: 0, z: -0.999823}
+      distance: 134
+      type: 0
+      index: 67
+    - position: {x: 5.1654506, y: 0, z: -2.179227}
+      forward: {x: -0.076101795, y: 0, z: -0.99710006}
+      distance: 136
+      type: 0
+      index: 68
+    - position: {x: 4.9515376, y: 0, z: -4.1673527}
+      forward: {x: -0.14346576, y: 0, z: -0.98965526}
+      distance: 138
+      type: 0
+      index: 69
+    - position: {x: 4.5293756, y: 0, z: -6.1195107}
+      forward: {x: -0.34091932, y: 0, z: -0.94009256}
+      distance: 140
+      type: 0
+      index: 70
+    - position: {x: 3.3652935, y: 0, z: -7.7155223}
+      forward: {x: -0.7745854, y: 0, z: -0.63246936}
+      distance: 142
+      type: 0
+      index: 71
+    - position: {x: 1.7084494, y: 0, z: -8.833769}
+      forward: {x: -0.8251187, y: 0, z: -0.56495935}
+      distance: 144
+      type: 0
+      index: 72
+    - position: {x: 0.29800954, y: 0, z: -10.229992}
+      forward: {x: -0.5293922, y: 0, z: -0.8483772}
+      distance: 146
+      type: 0
+      index: 73
+    - position: {x: -0.6354957, y: 0, z: -11.99802}
+      forward: {x: -0.43182707, y: 0, z: -0.90195644}
+      distance: 148
+      type: 0
+      index: 74
+    - position: {x: -1.434517, y: 0, z: -13.830999}
+      forward: {x: -0.36525324, y: 0, z: -0.9309082}
+      distance: 150
+      type: 0
+      index: 75
+    - position: {x: -2.0751042, y: 0, z: -15.724583}
+      forward: {x: -0.26585388, y: 0, z: -0.96401334}
+      distance: 152
+      type: 0
+      index: 76
+    - position: {x: -2.4118454, y: 0, z: -17.690767}
+      forward: {x: -0.016507573, y: 0, z: -0.99986374}
+      distance: 154
+      type: 0
+      index: 77
+    - position: {x: -1.9666164, y: 0, z: -19.623634}
+      forward: {x: 0.41114604, y: 0, z: -0.91156954}
+      distance: 156
+      type: 0
+      index: 78
+    - position: {x: -0.8579113, y: 0, z: -21.275211}
+      forward: {x: 0.6978465, y: 0, z: -0.7162474}
+      distance: 158
+      type: 0
+      index: 79
+    - position: {x: 0.87121, y: 0, z: -22.152067}
+      forward: {x: 0.99622464, y: 0, z: 0.0868133}
+      distance: 160
+      type: 3
+      index: 80
+    - position: {x: 2.2936265, y: 0, z: -20.835987}
+      forward: {x: 0.54550534, y: 0, z: 0.83810735}
+      distance: 162
+      type: 0
+      index: 81
+    - position: {x: 3.318363, y: 0, z: -19.118736}
+      forward: {x: 0.50311005, y: 0, z: 0.8642224}
+      distance: 164
+      type: 0
+      index: 82
+    - position: {x: 4.382148, y: 0, z: -17.426193}
+      forward: {x: 0.58466434, y: 0, z: 0.81127536}
+      distance: 166
+      type: 0
+      index: 83
+    - position: {x: 5.8472285, y: 0, z: -16.119556}
+      forward: {x: 0.96954894, y: 0, z: 0.24489763}
+      distance: 168
+      type: 3
+      index: 84
+    - position: {x: 7.503607, y: 0, z: -17.037413}
+      forward: {x: 0.6533883, y: 0, z: -0.757023}
+      distance: 170
+      type: 0
+      index: 85
+    - position: {x: 8.680161, y: 0, z: -18.652987}
+      forward: {x: 0.5498163, y: 0, z: -0.83528566}
+      distance: 172
+      type: 0
+      index: 86
+    - position: {x: 9.760408, y: 0, z: -20.336123}
+      forward: {x: 0.5420275, y: 0, z: -0.84036076}
+      distance: 174
+      type: 0
+      index: 87
+    - position: {x: 10.905642, y: 0, z: -21.974548}
+      forward: {x: 0.6309633, y: 0, z: -0.7758126}
+      distance: 176
+      type: 0
+      index: 88
+    - position: {x: 12.529622, y: 0, z: -22.758821}
+      forward: {x: 0.8517442, y: 0, z: 0.52395797}
+      distance: 178
+      type: 3
+      index: 89
+    - position: {x: 13.599792, y: 0, z: -21.105545}
+      forward: {x: 0.37157393, y: 0, z: 0.9284034}
+      distance: 180
+      type: 0
+      index: 90
+    - position: {x: 14.226157, y: 0, z: -19.207172}
+      forward: {x: 0.27410588, y: 0, z: 0.96169955}
+      distance: 182
+      type: 0
+      index: 91
+    - position: {x: 14.745237, y: 0, z: -17.275747}
+      forward: {x: 0.25428835, y: 0, z: 0.96712846}
+      distance: 184
+      type: 0
+      index: 92
+    - position: {x: 15.285622, y: 0, z: -15.350367}
+      forward: {x: 0.3053691, y: 0, z: 0.9522341}
+      distance: 186
+      type: 0
+      index: 93
+    - position: {x: 15.925986, y: 0, z: -13.455693}
+      forward: {x: 0.30920425, y: 0, z: 0.9509957}
+      distance: 188
+      type: 0
+      index: 94
+    - position: {x: 16.513437, y: 0, z: -11.544015}
+      forward: {x: 0.2773802, y: 0, z: 0.96076024}
+      distance: 190
+      type: 0
+      index: 95
+    - position: {x: 17.02867, y: 0, z: -9.6117115}
+      forward: {x: 0.23466925, y: 0, z: 0.9720753}
+      distance: 192
+      type: 0
+      index: 96
+    - position: {x: 17.380642, y: 0, z: -7.6461687}
+      forward: {x: 0.049939394, y: 0, z: 0.99875224}
+      distance: 194
+      type: 0
+      index: 97
+    - position: {x: 17.299887, y: 0, z: -5.6494117}
+      forward: {x: 0.007598661, y: 0, z: 0.99997115}
+      distance: 196
+      type: 0
+      index: 98
+    - position: {x: 17.793447, y: 0, z: -3.7249427}
+      forward: {x: 0.35323524, y: 0, z: 0.93553454}
+      distance: 198
+      type: 0
+      index: 99
+    - position: {x: 18.624554, y: 0, z: -1.9090558}
+      forward: {x: 0.51148677, y: 0, z: 0.8592912}
+      distance: 200
+      type: 0
+      index: 100
+    - position: {x: 19.958986, y: 0, z: -0.44506532}
+      forward: {x: 0.8407954, y: 0, z: 0.54135305}
+      distance: 202
+      type: 0
+      index: 101
+    - position: {x: 21.847116, y: 0, z: 0.15051173}
+      forward: {x: 0.9963412, y: 0, z: 0.08546421}
+      distance: 204
+      type: 0
+      index: 102
+    - position: {x: 23.84479, y: 0, z: 0.11536217}
+      forward: {x: 0.9977258, y: 0, z: -0.067403965}
+      distance: 206
+      type: 0
+      index: 103
+    - position: {x: 25.840868, y: 0, z: -0.008825724}
+      forward: {x: 0.9988637, y: 0, z: -0.047659133}
+      distance: 208
+      type: 0
+      index: 104
+    - position: {x: 27.840008, y: 0, z: -0.061380412}
+      forward: {x: 0.9999849, y: 0, z: -0.0054920656}
+      distance: 210
+      type: 0
+      index: 105
+    - position: {x: 29.839993, y: 0, z: -0.067419775}
+      forward: {x: 0.9999901, y: 0, z: -0.004452717}
+      distance: 212
+      type: 0
+      index: 106
+    - position: {x: 31.839972, y: 0, z: -0.078702755}
+      forward: {x: 0.99997824, y: 0, z: -0.006601653}
+      distance: 214
+      type: 0
+      index: 107
+    - position: {x: 33.83991, y: 0, z: -0.09324827}
+      forward: {x: 0.99996936, y: 0, z: -0.007831442}
+      distance: 216
+      type: 0
+      index: 108
+    - position: {x: 35.839844, y: 0, z: -0.10970021}
+      forward: {x: 0.99996346, y: 0, z: -0.0085527105}
+      distance: 218
+      type: 0
+      index: 109
+    - position: {x: 37.839764, y: 0, z: -0.1272346}
+      forward: {x: 0.9999601, y: 0, z: -0.008934037}
+      distance: 220
+      type: 0
+      index: 110
+    - position: {x: 39.839684, y: 0, z: -0.14525723}
+      forward: {x: 0.9999591, y: 0, z: -0.009046926}
+      distance: 222
+      type: 0
+      index: 111
+    - position: {x: 41.839603, y: 0, z: -0.16325372}
+      forward: {x: 0.9999603, y: 0, z: -0.008908674}
+      distance: 224
+      type: 0
+      index: 112
+    - position: {x: 43.83952, y: 0, z: -0.18071215}
+      forward: {x: 0.9999639, y: 0, z: -0.008498855}
+      distance: 226
+      type: 0
+      index: 113
+    - position: {x: 45.839462, y: 0, z: -0.19702959}
+      forward: {x: 0.9999701, y: 0, z: -0.007740115}
+      distance: 228
+      type: 0
+      index: 114
+    - position: {x: 46.21582, y: 0, z: -0.19991684}
+      forward: {x: 0.99997157, y: 0, z: -0.0075481897}
+      distance: 228.37637
+      type: 2
+      index: 115
+    markerSpacing: 2
+    isValid: 1
+    bakedVersion: 1.0.0
+    waypointHash: oX4uV1e1UB4Li5m2
+    segmentCount: 28
+    averageCurvature: 0.20438172
+    pathBounds:
+      m_Center: {x: 2.807911, y: 0, z: -9.670172}
+      m_Extent: {x: 43.40791, y: 0, z: 15.217703}
 --- !u!1 &4021650442344295648
 GameObject:
   m_ObjectHideFlags: 0

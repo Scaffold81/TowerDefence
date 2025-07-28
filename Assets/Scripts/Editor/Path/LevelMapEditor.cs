@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEditor;
 using Game.Path;
 using System.Linq;
+using Core.Services.Spline;
+using Editor.Spline;
 
 namespace Editor.Path
 {
@@ -19,11 +21,14 @@ namespace Editor.Path
         private SerializedProperty _waypointsProp;
         private SerializedProperty _autoValidateProp;
         private SerializedProperty _showValidationErrorsProp;
+        private SerializedProperty _useSplinesProp;
+        private SerializedProperty _splineSettingsProp;
         
         private bool _showVisualizationSettings = true;
         private bool _showWaypointsList = true;
         private bool _showValidationSettings = true;
         private bool _showQuickActions = true;
+        private bool _showSplineTools = true;
         
         private void OnEnable()
         {
@@ -39,6 +44,8 @@ namespace Editor.Path
             _waypointsProp = serializedObject.FindProperty("_waypoints");
             _autoValidateProp = serializedObject.FindProperty("_autoValidate");
             _showValidationErrorsProp = serializedObject.FindProperty("_showValidationErrors");
+            _useSplinesProp = serializedObject.FindProperty("_useSplines");
+            _splineSettingsProp = serializedObject.FindProperty("_splineSettings");
         }
         
         public override void OnInspectorGUI()
@@ -54,6 +61,9 @@ namespace Editor.Path
             DrawQuickActions();
             EditorGUILayout.Space();
             
+            DrawSplineTools();
+            EditorGUILayout.Space();
+            
             DrawWaypointsList();
             EditorGUILayout.Space();
             
@@ -63,6 +73,118 @@ namespace Editor.Path
             DrawValidationResults();
             
             serializedObject.ApplyModifiedProperties();
+        }
+        
+        private void DrawSplineTools()
+        {
+            _showSplineTools = EditorGUILayout.Foldout(_showSplineTools, "Spline Designer Tools", true);
+            
+            if (_showSplineTools)
+            {
+                EditorGUI.indentLevel++;
+                
+                // Spline enable/disable
+                EditorGUILayout.PropertyField(_useSplinesProp, new GUIContent("Use Splines"));
+                
+                if (_levelMap.UseSplines)
+                {
+                    // Spline settings
+                    EditorGUILayout.PropertyField(_splineSettingsProp, new GUIContent("Spline Settings"), true);
+                    
+                    EditorGUILayout.Space();
+                    
+                    // Status info
+                    var bakedData = _levelMap.GetBakedSplineData();
+                    if (bakedData != null)
+                    {
+                        EditorGUILayout.HelpBox(bakedData.GetDebugInfo(), MessageType.Info);
+                    }
+                    else
+                    {
+                        string validationInfo = SplineBaker.GetSplineValidationInfo(_levelMap);
+                        MessageType messageType = validationInfo.StartsWith("✅") ? MessageType.Info : 
+                                                validationInfo.StartsWith("⚠️") ? MessageType.Warning : MessageType.Error;
+                        EditorGUILayout.HelpBox(validationInfo, messageType);
+                    }
+                    
+                    EditorGUILayout.Space();
+                    
+                    // Baking controls
+                    EditorGUILayout.BeginHorizontal();
+                    
+                    GUI.backgroundColor = Color.green;
+                    if (GUILayout.Button("Bake Spline"))
+                    {
+                        SplineBaker.BakeSpline(_levelMap);
+                    }
+                    
+                    GUI.backgroundColor = Color.yellow;
+                    if (GUILayout.Button("Export Spline"))
+                    {
+                        SplineBaker.ExportSplineData(_levelMap);
+                    }
+                    
+                    GUI.backgroundColor = Color.red;
+                    if (GUILayout.Button("Clear Baked Data"))
+                    {
+                        SplineBaker.ClearBakedData(_levelMap);
+                    }
+                    
+                    GUI.backgroundColor = Color.white;
+                    EditorGUILayout.EndHorizontal();
+                    
+                    // Auto-bake settings
+                    EditorGUILayout.Space();
+                    bool autoBake = SplineBaker.GetAutoBakeEnabled(_levelMap);
+                    bool newAutoBake = EditorGUILayout.Toggle("Auto-bake on changes", autoBake);
+                    if (newAutoBake != autoBake)
+                    {
+                        SplineBaker.SetAutoBakeEnabled(_levelMap, newAutoBake);
+                    }
+                    
+                    // Designer tools
+                    EditorGUILayout.Space();
+                    EditorGUILayout.LabelField("Designer Tools", EditorStyles.boldLabel);
+                    
+                    if (bakedData != null)
+                    {
+                        EditorGUILayout.BeginHorizontal();
+                        
+                        if (GUILayout.Button("Snap Selected to Spline"))
+                        {
+                            SnapSelectedToSpline();
+                        }
+                        
+                        if (GUILayout.Button("Show Markers in Scene"))
+                        {
+                            ShowMarkersInScene(bakedData);
+                        }
+                        
+                        EditorGUILayout.EndHorizontal();
+                        
+                        // Spline statistics
+                        EditorGUILayout.Space();
+                        EditorGUILayout.LabelField("Statistics", EditorStyles.boldLabel);
+                        EditorGUI.indentLevel++;
+                        EditorGUILayout.LabelField($"Total Length: {bakedData.totalLength:F1}m");
+                        EditorGUILayout.LabelField($"Reference Points: {bakedData.referencePoints?.Length ?? 0}");
+                        EditorGUILayout.LabelField($"Designer Markers: {bakedData.designerMarkers?.Length ?? 0}");
+                        EditorGUILayout.LabelField($"Average Curvature: {bakedData.averageCurvature:F3}");
+                        EditorGUILayout.LabelField($"Sample Distance: {bakedData.sampleDistance:F2}m");
+                        EditorGUI.indentLevel--;
+                    }
+                    else
+                    {
+                        EditorGUILayout.HelpBox("Bake spline first to access designer tools", MessageType.Info);
+                    }
+                }
+                else
+                {
+                    EditorGUILayout.HelpBox("Splines are disabled. Enable to access spline tools.", MessageType.Info);
+                }
+                
+                EditorGUI.indentLevel--;
+            }
         }
         
         private void DrawLevelSettings()
@@ -404,6 +526,97 @@ namespace Editor.Path
             Selection.activeGameObject = waypointGO;
             
             EditorUtility.SetDirty(_levelMap);
+        }
+        
+        /// <summary>
+        /// Snaps selected GameObjects to nearest spline points
+        /// </summary>
+        private void SnapSelectedToSpline()
+        {
+            var bakedData = _levelMap.GetBakedSplineData();
+            if (bakedData?.referencePoints == null)
+            {
+                EditorUtility.DisplayDialog("Snap to Spline", "No baked spline data available", "OK");
+                return;
+            }
+            
+            var selectedObjects = Selection.gameObjects;
+            if (selectedObjects.Length == 0)
+            {
+                EditorUtility.DisplayDialog("Snap to Spline", "No objects selected", "OK");
+                return;
+            }
+            
+            Undo.RecordObjects(selectedObjects.Select(go => go.transform).ToArray(), "Snap to Spline");
+            
+            foreach (var obj in selectedObjects)
+            {
+                var nearestPoint = bakedData.GetNearestPoint(obj.transform.position);
+                obj.transform.position = nearestPoint.position;
+                obj.transform.rotation = nearestPoint.Rotation;
+            }
+            
+            Debug.Log($"[LevelMapEditor] Snapped {selectedObjects.Length} objects to spline");
+        }
+        
+        /// <summary>
+        /// Creates temporary GameObjects to visualize spline markers in scene
+        /// </summary>
+        private void ShowMarkersInScene(BakedSplineData bakedData)
+        {
+            if (bakedData?.designerMarkers == null)
+                return;
+                
+            // Remove existing marker objects
+            var existingMarkers = GameObject.FindGameObjectsWithTag("SplineMarker");
+            foreach (var marker in existingMarkers)
+            {
+                DestroyImmediate(marker);
+            }
+            
+            // Create new marker objects
+            var markerParent = new GameObject("Spline Markers (Temporary)");
+            markerParent.transform.SetParent(_levelMap.transform);
+            
+            for (int i = 0; i < bakedData.designerMarkers.Length; i++)
+            {
+                var marker = bakedData.designerMarkers[i];
+                var markerGO = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                markerGO.name = $"Marker_{i}_{marker.type}";
+                markerGO.tag = "SplineMarker";
+                markerGO.transform.SetParent(markerParent.transform);
+                markerGO.transform.position = marker.position;
+                markerGO.transform.localScale = Vector3.one * 0.5f;
+                
+                // Color code by marker type
+                var renderer = markerGO.GetComponent<Renderer>();
+                switch (marker.type)
+                {
+                    case MarkerType.SpawnPoint:
+                        renderer.material.color = Color.green;
+                        break;
+                    case MarkerType.EndPoint:
+                        renderer.material.color = Color.red;
+                        break;
+                    case MarkerType.SharpTurn:
+                        renderer.material.color = Color.yellow;
+                        break;
+                    case MarkerType.Decoration:
+                        renderer.material.color = Color.cyan;
+                        break;
+                    default:
+                        renderer.material.color = Color.white;
+                        break;
+                }
+                
+                // Remove collider to avoid physics interactions
+                DestroyImmediate(markerGO.GetComponent<Collider>());
+            }
+            
+            Debug.Log($"[LevelMapEditor] Created {bakedData.designerMarkers.Length} temporary marker objects");
+            EditorUtility.DisplayDialog("Show Markers", 
+                $"Created {bakedData.designerMarkers.Length} temporary marker objects in scene.\n" +
+                "These are for reference only - delete them when done.", "OK");
         }
     }
 }

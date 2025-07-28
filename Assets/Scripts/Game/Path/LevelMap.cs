@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Core.Services.Spline;
 
 namespace Game.Path
 {
@@ -26,6 +27,11 @@ namespace Game.Path
         [Header("Validation")]
         [SerializeField] private bool _autoValidate = true;
         [SerializeField] private bool _showValidationErrors = true;
+        
+        [Header("Spline System")]
+        [SerializeField] private bool _useSplines = true;
+        [SerializeField] private SplineSettings _splineSettings;
+        [SerializeField] private BakedSplineData _bakedSplineData;
         
         private readonly List<string> _validationErrors = new List<string>();
         
@@ -79,6 +85,109 @@ namespace Game.Path
         public IEnumerable<IntermediateWaypoint> IntermediateWaypoints => _waypoints.OfType<IntermediateWaypoint>();
         
         /// <summary>
+        /// Spline system properties
+        /// </summary>
+        public bool UseSplines
+        {
+            get => _useSplines;
+            set => _useSplines = value;
+        }
+        
+        public SplineSettings SplineSettings
+        {
+            get => _splineSettings ?? (_splineSettings = SplineSettings.CreateDefault());
+            set => _splineSettings = value;
+        }
+        
+        public BakedSplineData BakedSplineData => _bakedSplineData;
+        
+        /// <summary>
+        /// Gets all waypoints as array (used by spline system)
+        /// </summary>
+        public Waypoint[] GetWaypoints() => _waypoints.ToArray();
+        
+        /// <summary>
+        /// Sets baked spline data (called by spline baker)
+        /// </summary>
+        public void SetBakedSplineData(BakedSplineData data)
+        {
+            _bakedSplineData = data;
+#if UNITY_EDITOR
+            UnityEditor.EditorUtility.SetDirty(this);
+#endif
+        }
+        
+        /// <summary>
+        /// Gets baked spline data, ensuring it's valid
+        /// </summary>
+        public BakedSplineData GetBakedSplineData()
+        {
+            if (_bakedSplineData != null && _bakedSplineData.isValid)
+                return _bakedSplineData;
+                
+            return null;
+        }
+        
+        /// <summary>
+        /// Checks if spline data needs rebaking
+        /// </summary>
+        public bool NeedsSplineRebaking()
+        {
+            if (!_useSplines) return false;
+            if (_bakedSplineData == null) return true;
+            
+            var waypoints = GetWaypointPositions();
+            var splineSystem = new SplineSystem();
+            string currentHash = splineSystem.CalculateWaypointHash(waypoints);
+            
+            return _bakedSplineData.NeedsRebaking(currentHash);
+        }
+        
+        /// <summary>
+        /// Gets waypoint positions for spline generation
+        /// </summary>
+        public Vector3[] GetWaypointPositions()
+        {
+            var sortedWaypoints = _waypoints.Where(w => w != null)
+                                           .OrderBy(w => w.Index)
+                                           .ToArray();
+            
+            var positions = new Vector3[sortedWaypoints.Length];
+            for (int i = 0; i < sortedWaypoints.Length; i++)
+            {
+                positions[i] = sortedWaypoints[i].transform.position;
+            }
+            
+            return positions;
+        }
+        
+        /// <summary>
+        /// Gets nearest spline point to world position (for designer tools)
+        /// </summary>
+        public Vector3 GetNearestSplinePoint(Vector3 worldPosition)
+        {
+            if (_bakedSplineData?.referencePoints == null)
+                return worldPosition;
+                
+            var nearestPoint = _bakedSplineData.GetNearestPoint(worldPosition);
+            return nearestPoint.position;
+        }
+        
+        /// <summary>
+        /// Invalidates baked spline data (call when waypoints change)
+        /// </summary>
+        public void InvalidateSplineData()
+        {
+            if (_bakedSplineData != null)
+            {
+                _bakedSplineData.Invalidate();
+#if UNITY_EDITOR
+                UnityEditor.EditorUtility.SetDirty(this);
+#endif
+            }
+        }
+        
+        /// <summary>
         /// Добавить waypoint в карту
         /// </summary>
         public void AddWaypoint(Waypoint waypoint)
@@ -91,6 +200,9 @@ namespace Game.Path
             
             if (_autoValidate)
                 ValidateLevel();
+                
+            // Invalidate spline data when waypoints change
+            InvalidateSplineData();
         }
         
         /// <summary>
@@ -106,6 +218,9 @@ namespace Game.Path
             
             if (_autoValidate)
                 ValidateLevel();
+                
+            // Invalidate spline data when waypoints change
+            InvalidateSplineData();
         }
         
         /// <summary>
@@ -146,6 +261,9 @@ namespace Game.Path
             
             if (_autoValidate)
                 ValidateLevel();
+                
+            // Invalidate spline data when waypoint order changes
+            InvalidateSplineData();
         }
         
         /// <summary>
@@ -155,6 +273,9 @@ namespace Game.Path
         {
             _waypoints.Clear();
             _validationErrors.Clear();
+            
+            // Invalidate spline data when all waypoints cleared
+            InvalidateSplineData();
         }
         
         /// <summary>
@@ -255,6 +376,9 @@ namespace Game.Path
             
             if (_autoValidate)
                 ValidateLevel();
+                
+            // Invalidate spline data when waypoints collected
+            InvalidateSplineData();
         }
         
         /// <summary>
@@ -266,6 +390,9 @@ namespace Game.Path
             {
                 waypoint?.SnapToTerrainSurface();
             }
+            
+            // Invalidate spline data when waypoint positions change
+            InvalidateSplineData();
         }
         
         private void OnValidate()
@@ -273,6 +400,12 @@ namespace Game.Path
             if (_autoValidate && Application.isEditor && !Application.isPlaying)
             {
                 ValidateLevel();
+            }
+            
+            // Ensure spline settings exist
+            if (_splineSettings == null)
+            {
+                _splineSettings = SplineSettings.CreateDefault();
             }
         }
         
@@ -282,6 +415,12 @@ namespace Game.Path
                 return;
             
             DrawPathVisualization();
+            
+            // Draw spline visualization if enabled
+            if (_useSplines)
+            {
+                DrawSplineVisualization();
+            }
         }
         
         private void DrawPathVisualization()
@@ -349,6 +488,78 @@ namespace Game.Path
             
             Gizmos.DrawLine(arrowHead, arrowHead + arrowSide1);
             Gizmos.DrawLine(arrowHead, arrowHead + arrowSide2);
+        }
+        
+        /// <summary>
+        /// Draws spline visualization using Gizmos (runtime-safe)
+        /// </summary>
+        private void DrawSplineVisualization()
+        {
+            var bakedData = GetBakedSplineData();
+            if (bakedData?.referencePoints == null) return;
+            
+            // Draw spline path
+            Gizmos.color = Color.green;
+            for (int i = 0; i < bakedData.referencePoints.Length - 1; i++)
+            {
+                Vector3 from = bakedData.referencePoints[i].position;
+                Vector3 to = bakedData.referencePoints[i + 1].position;
+                Gizmos.DrawLine(from, to);
+            }
+            
+            // Draw direction arrows (less frequent to avoid clutter)
+            Gizmos.color = Color.blue;
+            int arrowSpacing = Mathf.Max(1, bakedData.referencePoints.Length / 10);
+            for (int i = 0; i < bakedData.referencePoints.Length; i += arrowSpacing)
+            {
+                var point = bakedData.referencePoints[i];
+                DrawSplineArrow(point.position, point.forward, 0.8f);
+            }
+            
+            // Draw designer markers
+            if (bakedData.designerMarkers != null)
+            {
+                foreach (var marker in bakedData.designerMarkers)
+                {
+                    // Set color based on marker type
+                    switch (marker.type)
+                    {
+                        case Core.Services.Spline.MarkerType.SpawnPoint:
+                            Gizmos.color = Color.green;
+                            break;
+                        case Core.Services.Spline.MarkerType.EndPoint:
+                            Gizmos.color = Color.red;
+                            break;
+                        case Core.Services.Spline.MarkerType.SharpTurn:
+                            Gizmos.color = Color.yellow;
+                            break;
+                        default:
+                            Gizmos.color = Color.white;
+                            break;
+                    }
+                    
+                    Gizmos.DrawWireSphere(marker.position, 0.8f);
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Draws a simple arrow using Gizmos
+        /// </summary>
+        private void DrawSplineArrow(Vector3 position, Vector3 direction, float size)
+        {
+            if (direction.magnitude < 0.001f) return;
+            
+            Vector3 forward = direction.normalized * size;
+            Vector3 arrowHead = position + forward;
+            
+            // Draw arrow shaft
+            Gizmos.DrawLine(position, arrowHead);
+            
+            // Draw simple arrow head
+            Vector3 right = Vector3.Cross(direction, Vector3.up).normalized * (size * 0.3f);
+            Gizmos.DrawLine(arrowHead, arrowHead - forward * 0.5f + right);
+            Gizmos.DrawLine(arrowHead, arrowHead - forward * 0.5f - right);
         }
     }
 }
